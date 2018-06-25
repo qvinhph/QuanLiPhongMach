@@ -10,7 +10,7 @@ Public Class PhongmachBUS
     Public Sub New(connectionString As String)
         tvDAL = New PhongmachDAL(connectionString)
     End Sub
-    Public Function isValidName(hs As PhongMachDTO) As Boolean
+    Public Function isValidName(hs As BenhnhanDTO) As Boolean
 
         If (hs.HoTen.Length < 1) Then
             Return False
@@ -18,7 +18,7 @@ Public Class PhongmachBUS
 
         Return True
     End Function
-    Public Function insert(dg As PhongMachDTO) As Result
+    Public Function insert(dg As BenhnhanDTO) As Result
         '1. verify data here!!
 
         '2. insert to DB

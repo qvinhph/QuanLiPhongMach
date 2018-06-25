@@ -1,20 +1,18 @@
-﻿Public Class PhongMachDTO
+﻿Public Class BenhnhanDTO
 
     Private strMSBN As Integer
     Private strHoten As String
     Private strDiaChi As String
     Private dateNgaySinh As DateTime
-    Private strNguoilap As String
-    Private strNgaylapthe As String
+    Private strNgayKham As String
     Public Sub New()
     End Sub
-    Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNguoilap As String, strNgaylapthe As String)
+    Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String)
         Me.strMSBN = strMSBN
         Me.strHoten = strHoten
         Me.strDiaChi = strDiaChi
         Me.dateNgaySinh = dateNgaySinh
-        Me.strNguoilap = strNguoilap
-        Me.strNgaylapthe = strNgaylapthe
+        Me.strNgayKham = strNgayKham
     End Sub
 
 
@@ -52,20 +50,13 @@
             dateNgaySinh = Value
         End Set
     End Property
-    Property Nguoilap As String
+
+    Property NgayKham() As String
         Get
-            Return strNguoilap
+            Return strNgayKham
         End Get
         Set(ByVal Value As String)
-            strNguoilap = Value
-        End Set
-    End Property
-    Property Ngaylapthe As String
-        Get
-            Return strNgaylapthe
-        End Get
-        Set(ByVal Value As String)
-            strNgaylapthe = Value
+            strNgayKham = Value
         End Set
     End Property
 

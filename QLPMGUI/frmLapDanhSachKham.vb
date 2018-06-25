@@ -8,15 +8,14 @@ Public Class frmLapDanhSachKham
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
-        Dim Benhnhan As PhongMachDTO
-        Benhnhan = New PhongMachDTO()
+        Dim Benhnhan As BenhnhanDTO
+        Benhnhan = New BenhnhanDTO()
 
         '1. Mapping data from GUI control
         Benhnhan.MSBN = txtMaSo.Text
         Benhnhan.HoTen = txtHoTen.Text
         Benhnhan.DiaChi = txtDiaChi.Text
         Benhnhan.NgaySinh = dtpNgaySinh.Value
-        Benhnhan.Ngaylapthe = txtNgaylapthe.Text
 
 
 
@@ -84,15 +83,14 @@ Public Class frmLapDanhSachKham
 
     End Sub
     Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs)
-        Dim Benhnhan As PhongMachDTO
-        Benhnhan = New PhongMachDTO()
+        Dim Benhnhan As BenhnhanDTO
+        Benhnhan = New BenhnhanDTO()
 
         '1. Mapping data from GUI control
         Benhnhan.MSBN = txtMaSo.Text
         Benhnhan.HoTen = txtHoTen.Text
         Benhnhan.DiaChi = txtDiaChi.Text
         Benhnhan.NgaySinh = dtpNgaySinh.Value
-        Benhnhan.Ngaylapthe = txtNgaylapthe.Text
 
 
         '2. Business .....

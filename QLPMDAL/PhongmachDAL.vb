@@ -74,7 +74,7 @@ Public Class PhongmachDAL
         Return New Result(True) ' thanh cong
     End Function
 
-    Public Function insert(bn As PhongMachDTO) As Result
+    Public Function insert(bn As BenhnhanDTO) As Result
 
         Dim query As String = String.Empty
         query &= "INSERT INTO [tblDocgia] ([msdg], [hoten], [diachi], [ngaysinh], [email], [loaidg], [nguoilap], [ngaylapthe])"
@@ -95,8 +95,7 @@ Public Class PhongmachDAL
                     .Parameters.AddWithValue("@hoten", bn.HoTen)
                     .Parameters.AddWithValue("@diachi", bn.DiaChi)
                     .Parameters.AddWithValue("@ngaysinh", bn.NgaySinh)
-                    .Parameters.AddWithValue("@nguoilap", bn.Nguoilap)
-                    .Parameters.AddWithValue("@ngaylapthe", bn.Ngaylapthe)
+                    .Parameters.AddWithValue("@ngaylapthe", bn.NgayKham)
                 End With
                 Try
                     conn.Open()
