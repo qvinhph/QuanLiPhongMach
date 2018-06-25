@@ -5,18 +5,20 @@
     Private strDiaChi As String
     Private dateNgaySinh As DateTime
     Private strNgayKham As String
+    Private strGioiTinh As String
 #End Region
 #Region "Methods"
 
 
     Public Sub New()
     End Sub
-    Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String)
+    Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String, strGioiTinh As String)
         Me.strMSBN = strMSBN
         Me.strHoten = strHoten
         Me.strDiaChi = strDiaChi
         Me.dateNgaySinh = dateNgaySinh
         Me.strNgayKham = strNgayKham
+        Me.strGioiTinh = strGioiTinh
     End Sub
 #End Region
 #Region "Property"
@@ -61,6 +63,15 @@
         End Get
         Set(ByVal Value As String)
             strNgayKham = Value
+        End Set
+    End Property
+
+    Property Gioitinh() As String
+        Get
+            Return strGioiTinh
+        End Get
+        Set(ByVal Value As String)
+            strGioiTinh = Value
         End Set
     End Property
 
