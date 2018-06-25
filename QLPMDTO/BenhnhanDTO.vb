@@ -1,10 +1,14 @@
 ﻿Public Class BenhnhanDTO
-
+#Region "Fields"
     Private strMSBN As Integer
     Private strHoten As String
     Private strDiaChi As String
     Private dateNgaySinh As DateTime
     Private strNgayKham As String
+#End Region
+#Region "Methods"
+
+
     Public Sub New()
     End Sub
     Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String)
@@ -14,8 +18,8 @@
         Me.dateNgaySinh = dateNgaySinh
         Me.strNgayKham = strNgayKham
     End Sub
-
-
+#End Region
+#Region "Property"
     Property MSBN() As String
         Get
             Return strMSBN
@@ -60,5 +64,5 @@
         End Set
     End Property
 
-
+#End Region
 End Class
