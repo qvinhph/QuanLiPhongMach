@@ -23,5 +23,14 @@
             intSoBenhNhanMax = Value
         End Set
     End Property
+
+    Property TienKham() As Integer
+        Get
+            Return intTienKham
+        End Get
+        Set(ByVal Value As Integer)
+            intTienKham = Value
+        End Set
+    End Property
 #End Region
 End Class
