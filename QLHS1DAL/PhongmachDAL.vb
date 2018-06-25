@@ -1,6 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
-Imports QLHS1DTO
+Imports QLPMDTO
 Imports Utility
 
 Public Class PhongmachDAL
@@ -74,7 +74,7 @@ Public Class PhongmachDAL
         Return New Result(True) ' thanh cong
     End Function
 
-    Public Function insert(dg As ThuvienDTO) As Result
+    Public Function insert(bn As PhongMachDTO) As Result
 
         Dim query As String = String.Empty
         query &= "INSERT INTO [tblDocgia] ([msdg], [hoten], [diachi], [ngaysinh], [email], [loaidg], [nguoilap], [ngaylapthe])"
@@ -83,7 +83,7 @@ Public Class PhongmachDAL
         'get MSHS
         Dim nextMsdg = "1"
         buildMSDG(nextMsdg)
-        dg.MSBN = nextMsdg
+        bn.MSBN = nextMsdg
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -91,14 +91,12 @@ Public Class PhongmachDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@msdg", dg.MSBN)
-                    .Parameters.AddWithValue("@hoten", dg.HoTen)
-                    .Parameters.AddWithValue("@diachi", dg.DiaChi)
-                    .Parameters.AddWithValue("@ngaysinh", dg.NgaySinh)
-                    .Parameters.AddWithValue("@email", dg.Email)
-                    .Parameters.AddWithValue("@loaidg", dg.Loaidg)
-                    .Parameters.AddWithValue("@nguoilap", dg.Nguoilap)
-                    .Parameters.AddWithValue("@ngaylapthe", dg.Ngaylapthe)
+                    .Parameters.AddWithValue("@msdg", bn.MSBN)
+                    .Parameters.AddWithValue("@hoten", bn.HoTen)
+                    .Parameters.AddWithValue("@diachi", bn.DiaChi)
+                    .Parameters.AddWithValue("@ngaysinh", bn.NgaySinh)
+                    .Parameters.AddWithValue("@nguoilap", bn.Nguoilap)
+                    .Parameters.AddWithValue("@ngaylapthe", bn.Ngaylapthe)
                 End With
                 Try
                     conn.Open()

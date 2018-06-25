@@ -313,7 +313,7 @@ Partial Class frmLapDanhSachKhamGUI
         '
         Me.lvBenhNhan.Location = New System.Drawing.Point(278, 353)
         Me.lvBenhNhan.Name = "lvBenhNhan"
-        Me.lvBenhNhan.Size = New System.Drawing.Size(372, 280)
+        Me.lvBenhNhan.Size = New System.Drawing.Size(402, 280)
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         '

@@ -1,5 +1,5 @@
-﻿Imports QLHS1DAL
-Imports QLHS1DTO
+﻿Imports QLPMDAL
+Imports QLPMDTO
 Imports Utility
 
 Public Class PhongmachBUS
@@ -10,7 +10,7 @@ Public Class PhongmachBUS
     Public Sub New(connectionString As String)
         tvDAL = New PhongmachDAL(connectionString)
     End Sub
-    Public Function isValidName(hs As ThuvienDTO) As Boolean
+    Public Function isValidName(hs As PhongMachDTO) As Boolean
 
         If (hs.HoTen.Length < 1) Then
             Return False
@@ -18,7 +18,7 @@ Public Class PhongmachBUS
 
         Return True
     End Function
-    Public Function insert(dg As ThuvienDTO) As Result
+    Public Function insert(dg As PhongMachDTO) As Result
         '1. verify data here!!
 
         '2. insert to DB

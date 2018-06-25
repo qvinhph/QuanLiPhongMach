@@ -1,4 +1,4 @@
-﻿Public Class ThuvienDTO
+﻿Public Class PhongMachDTO
 
     Private strMSBN As Integer
     Private strHoten As String
@@ -50,22 +50,6 @@
         End Get
         Set(ByVal Value As DateTime)
             dateNgaySinh = Value
-        End Set
-    End Property
-    Property Email() As String
-        Get
-            Return strEmail
-        End Get
-        Set(ByVal Value As String)
-            strEmail = Value
-        End Set
-    End Property
-    Property Loaidg As String
-        Get
-            Return strLoaidg
-        End Get
-        Set(ByVal Value As String)
-            strLoaidg = Value
         End Set
     End Property
     Property Nguoilap As String

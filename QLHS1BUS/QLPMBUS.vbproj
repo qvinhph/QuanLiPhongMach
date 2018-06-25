@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{89503D9D-294E-40E0-8C3D-D38F73A629D9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>QLHS1BUS</RootNamespace>
-    <AssemblyName>QLHS1BUS</AssemblyName>
+    <RootNamespace>QLPMBUS</RootNamespace>
+    <AssemblyName>QLPMBUS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>QLHS1BUS.xml</DocumentationFile>
+    <DocumentationFile>QLPMBUS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>QLHS1BUS.xml</DocumentationFile>
+    <DocumentationFile>QLPMBUS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
