@@ -6,7 +6,7 @@ Public Class frmMain
     Private ConnectionString As String
 
     Private Sub ThêmHọcSinhToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThêmHọcSinhToolStripMenuItem.Click
-        Dim frmhs As frmLapDanhSachKhamGUI = New frmLapDanhSachKhamGUI()
+        Dim frmhs As frmLapDanhSachKham = New frmLapDanhSachKham()
         frmhs.MdiParent = Me
         frmhs.Show()
     End Sub

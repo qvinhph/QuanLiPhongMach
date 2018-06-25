@@ -2,7 +2,7 @@
 Imports QLPMDTO
 Imports Utility
 
-Public Class frmLapDanhSachKhamGUI
+Public Class frmLapDanhSachKham
 
     Private dgBus As PhongmachBUS
 

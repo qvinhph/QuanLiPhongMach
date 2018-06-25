@@ -1,4 +1,4 @@
-﻿Public Class frmBaoCaoDoanhThuGUI
+﻿Public Class frmBaoCaoDoanhThu
     Private Sub frmBaoCaoDoanhThuGUI_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         DateTimePicker1.CustomFormat = " MM,yyyy"
         DateTimePicker1.Format = DateTimePickerFormat.Custom

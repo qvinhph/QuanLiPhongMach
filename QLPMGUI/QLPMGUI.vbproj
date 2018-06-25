@@ -73,41 +73,41 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBaoCaoDoanhThuGUI.Designer.vb">
-      <DependentUpon>frmBaoCaoDoanhThuGUI.vb</DependentUpon>
+    <Compile Include="frmBaoCaoDoanhThu.Designer.vb">
+      <DependentUpon>frmBaoCaoDoanhThu.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBaoCaoDoanhThuGUI.vb">
+    <Compile Include="frmBaoCaoDoanhThu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBaoCaoSuDungThuocGUI.Designer.vb">
-      <DependentUpon>frmBaoCaoSuDungThuocGUI.vb</DependentUpon>
+    <Compile Include="frmBaoCaoSuDungThuoc.Designer.vb">
+      <DependentUpon>frmBaoCaoSuDungThuoc.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBaoCaoSuDungThuocGUI.vb">
+    <Compile Include="frmBaoCaoSuDungThuoc.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLapDanhSachKhamGUI.Designer.vb">
-      <DependentUpon>frmLapDanhSachKhamGUI.vb</DependentUpon>
+    <Compile Include="frmLapDanhSachKham.Designer.vb">
+      <DependentUpon>frmLapDanhSachKham.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLapDanhSachKhamGUI.vb">
+    <Compile Include="frmLapDanhSachKham.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLapHoaDonGUI.Designer.vb">
-      <DependentUpon>frmLapHoaDonGUI.vb</DependentUpon>
+    <Compile Include="frmLapHoaDon.Designer.vb">
+      <DependentUpon>frmLapHoaDon.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLapHoaDonGUI.vb">
+    <Compile Include="frmLapHoaDon.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainQLPMGUI.vb">
+    <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainQLPMGUI.Designer.vb">
-      <DependentUpon>frmMainQLPMGUI.vb</DependentUpon>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPhieuKhamBenhGUI.Designer.vb">
-      <DependentUpon>frmPhieuKhamBenhGUI.vb</DependentUpon>
+    <Compile Include="frmPhieuKhamBenh.Designer.vb">
+      <DependentUpon>frmPhieuKhamBenh.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPhieuKhamBenhGUI.vb">
+    <Compile Include="frmPhieuKhamBenh.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThayDoiQuyDinh.Designer.vb">
@@ -116,10 +116,10 @@
     <Compile Include="frmThayDoiQuyDinh.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTraCuuBenhNhanGUI.Designer.vb">
-      <DependentUpon>frmTraCuuBenhNhanGUI.vb</DependentUpon>
+    <Compile Include="frmTraCuuBenhNhan.Designer.vb">
+      <DependentUpon>frmTraCuuBenhNhan.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmTraCuuBenhNhanGUI.vb">
+    <Compile Include="frmTraCuuBenhNhan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -139,30 +139,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBaoCaoDoanhThuGUI.resx">
-      <DependentUpon>frmBaoCaoDoanhThuGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
+      <DependentUpon>frmBaoCaoDoanhThu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoSuDungThuocGUI.resx">
-      <DependentUpon>frmBaoCaoSuDungThuocGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoSuDungThuoc.resx">
+      <DependentUpon>frmBaoCaoSuDungThuoc.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLapDanhSachKhamGUI.resx">
-      <DependentUpon>frmLapDanhSachKhamGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmLapDanhSachKham.resx">
+      <DependentUpon>frmLapDanhSachKham.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLapHoaDonGUI.resx">
-      <DependentUpon>frmLapHoaDonGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmLapHoaDon.resx">
+      <DependentUpon>frmLapHoaDon.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMainQLPMGUI.resx">
-      <DependentUpon>frmMainQLPMGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPhieuKhamBenhGUI.resx">
-      <DependentUpon>frmPhieuKhamBenhGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmPhieuKhamBenh.resx">
+      <DependentUpon>frmPhieuKhamBenh.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTraCuuBenhNhanGUI.resx">
-      <DependentUpon>frmTraCuuBenhNhanGUI.vb</DependentUpon>
+    <EmbeddedResource Include="frmTraCuuBenhNhan.resx">
+      <DependentUpon>frmTraCuuBenhNhan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
