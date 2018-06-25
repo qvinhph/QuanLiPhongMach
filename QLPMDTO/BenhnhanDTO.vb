@@ -1,6 +1,6 @@
 ﻿Public Class BenhnhanDTO
 #Region "Fields"
-    Private strMSBN As Integer
+    Private strMSBN As String
     Private strHoten As String
     Private strDiaChi As String
     Private dateNgaySinh As DateTime
@@ -12,7 +12,7 @@
 
     Public Sub New()
     End Sub
-    Public Sub New(strMSBN As Integer, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String, strGioiTinh As String)
+    Public Sub New(strMSBN As String, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String, strGioiTinh As String)
         Me.strMSBN = strMSBN
         Me.strHoten = strHoten
         Me.strDiaChi = strDiaChi
