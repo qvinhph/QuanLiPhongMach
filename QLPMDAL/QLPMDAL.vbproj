@@ -4,34 +4,30 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75486DBC-7E69-44CB-BE7B-7CFF5C48B90E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>QLPMGUI.My.MyApplication</StartupObject>
-    <RootNamespace>QLPMGUI</RootNamespace>
-    <AssemblyName>QLPMGUI</AssemblyName>
+    <ProjectGuid>{0EFDA6DA-251A-457D-8398-E0178033124C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>QLPMDAL</RootNamespace>
+    <AssemblyName>QLPMDAL</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>QLPMGUI.xml</DocumentationFile>
+    <DocumentationFile>QLPMDAL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>QLPMGUI.xml</DocumentationFile>
+    <DocumentationFile>QLPMDAL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -46,13 +42,13 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,63 +61,13 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
-    <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
-    <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBaoCaoDoanhThuGUI.Designer.vb">
-      <DependentUpon>frmBaoCaoDoanhThuGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoDoanhThuGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoSuDungThuocGUI.Designer.vb">
-      <DependentUpon>frmBaoCaoSuDungThuocGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoSuDungThuocGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLapDanhSachKhamGUI.Designer.vb">
-      <DependentUpon>frmLapDanhSachKhamGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmLapDanhSachKhamGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLapHoaDonGUI.Designer.vb">
-      <DependentUpon>frmLapHoaDonGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmLapHoaDonGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMainQLPMGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMainQLPMGUI.Designer.vb">
-      <DependentUpon>frmMainQLPMGUI.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPhieuKhamBenhGUI.Designer.vb">
-      <DependentUpon>frmPhieuKhamBenhGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmPhieuKhamBenhGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmThayDoiQuyDinh.Designer.vb">
-      <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmThayDoiQuyDinh.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTraCuuBenhNhanGUI.Designer.vb">
-      <DependentUpon>frmTraCuuBenhNhanGUI.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmTraCuuBenhNhanGUI.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PhongmachDAL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -139,31 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBaoCaoDoanhThuGUI.resx">
-      <DependentUpon>frmBaoCaoDoanhThuGUI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoSuDungThuocGUI.resx">
-      <DependentUpon>frmBaoCaoSuDungThuocGUI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLapDanhSachKhamGUI.resx">
-      <DependentUpon>frmLapDanhSachKhamGUI.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLapHoaDonGUI.resx">
-      <DependentUpon>frmLapHoaDonGUI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMainQLPMGUI.resx">
-      <DependentUpon>frmMainQLPMGUI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPhieuKhamBenhGUI.resx">
-      <DependentUpon>frmPhieuKhamBenhGUI.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
-      <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTraCuuBenhNhanGUI.resx">
-      <DependentUpon>frmTraCuuBenhNhanGUI.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -172,6 +93,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -181,16 +103,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QLHS1BUS\QLPMBUS.vbproj">
-      <Project>{89503d9d-294e-40e0-8c3d-d38f73a629d9}</Project>
-      <Name>QLPMBUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QLHS1DTO\QLPMDTO.vbproj">
+    <ProjectReference Include="..\QLPMDTO\QLPMDTO.vbproj">
       <Project>{25ca7f8f-d495-4843-8e13-133f9e7920b8}</Project>
       <Name>QLPMDTO</Name>
     </ProjectReference>

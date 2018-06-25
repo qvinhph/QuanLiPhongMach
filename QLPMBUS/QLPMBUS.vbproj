@@ -100,11 +100,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QLHS1DAL\QLPMDAL.vbproj">
+    <ProjectReference Include="..\QLPMDAL\QLPMDAL.vbproj">
       <Project>{0efda6da-251a-457d-8398-e0178033124c}</Project>
       <Name>QLPMDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QLHS1DTO\QLPMDTO.vbproj">
+    <ProjectReference Include="..\QLPMDTO\QLPMDTO.vbproj">
       <Project>{25ca7f8f-d495-4843-8e13-133f9e7920b8}</Project>
       <Name>QLPMDTO</Name>
     </ProjectReference>
