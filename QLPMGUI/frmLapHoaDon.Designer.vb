@@ -34,11 +34,11 @@ Partial Class frmLapHoaDon
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbMaSo = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.tbMaSo = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -175,6 +175,14 @@ Partial Class frmLapHoaDon
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Mã Bệnh Nhân:"
         '
+        'tbMaSo
+        '
+        Me.tbMaSo.Location = New System.Drawing.Point(174, 422)
+        Me.tbMaSo.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.tbMaSo.Name = "tbMaSo"
+        Me.tbMaSo.Size = New System.Drawing.Size(221, 20)
+        Me.tbMaSo.TabIndex = 50
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -219,15 +227,7 @@ Partial Class frmLapHoaDon
         Me.Panel1.Size = New System.Drawing.Size(268, 658)
         Me.Panel1.TabIndex = 65
         '
-        'tbMaSo
-        '
-        Me.tbMaSo.Location = New System.Drawing.Point(174, 422)
-        Me.tbMaSo.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.tbMaSo.Name = "tbMaSo"
-        Me.tbMaSo.Size = New System.Drawing.Size(221, 20)
-        Me.tbMaSo.TabIndex = 50
-        '
-        'frmLapHoaDonGUI
+        'frmLapHoaDon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -237,7 +237,7 @@ Partial Class frmLapHoaDon
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmLapHoaDonGUI"
+        Me.Name = "frmLapHoaDon"
         Me.Text = "frmLapHoaDonGUI"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
