@@ -1,4 +1,5 @@
 ﻿Public Class BenhnhanDTO
+
 #Region "Fields"
     Private strMSBN As String
     Private strHoten As String
@@ -7,20 +8,22 @@
     Private strNgayKham As String
     Private strGioiTinh As String
 #End Region
-#Region "Methods"
+
+#Region "Constructor"
 
 
     Public Sub New()
     End Sub
     Public Sub New(strMSBN As String, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String, strGioiTinh As String)
-        Me.strMSBN = strMSBN
-        Me.strHoten = strHoten
-        Me.strDiaChi = strDiaChi
-        Me.dateNgaySinh = dateNgaySinh
-        Me.strNgayKham = strNgayKham
-        Me.strGioiTinh = strGioiTinh
+        MSBN = strMSBN
+        HoTen = strHoten
+        DiaChi = strDiaChi
+        NgaySinh = dateNgaySinh
+        NgayKham = strNgayKham
+        Gioitinh = strGioiTinh
     End Sub
 #End Region
+
 #Region "Property"
     Property MSBN() As String
         Get
@@ -76,4 +79,5 @@
     End Property
 
 #End Region
+
 End Class
