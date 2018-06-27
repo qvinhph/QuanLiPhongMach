@@ -178,6 +178,8 @@ Public Class ThuocDAL
                         While reader.Read()
                             idOnDB = reader("ma_thuoc")
                         End While
+                    Else
+                        idOnDB = "TH000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then

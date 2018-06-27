@@ -110,6 +110,12 @@
     <Compile Include="frmPhieuKhamBenh.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTest.Designer.vb">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmThayDoiQuyDinh.Designer.vb">
       <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     <EmbeddedResource Include="frmPhieuKhamBenh.resx">
       <DependentUpon>frmPhieuKhamBenh.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,10 @@
     <ProjectReference Include="..\QLPMBUS\QLPMBUS.vbproj">
       <Project>{89503d9d-294e-40e0-8c3d-d38f73a629d9}</Project>
       <Name>QLPMBUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QLPMDAL\QLPMDAL.vbproj">
+      <Project>{0efda6da-251a-457d-8398-e0178033124c}</Project>
+      <Name>QLPMDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\QLPMDTO\QLPMDTO.vbproj">
       <Project>{25ca7f8f-d495-4843-8e13-133f9e7920b8}</Project>

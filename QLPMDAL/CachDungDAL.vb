@@ -166,6 +166,8 @@ Public Class CachDungDAL
                         While reader.Read()
                             idOnDB = reader("ma_cach_dung")
                         End While
+                    Else
+                        idOnDB = "CD000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then

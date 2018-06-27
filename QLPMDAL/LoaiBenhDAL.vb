@@ -166,6 +166,8 @@ Public Class LoaiBenhDAL
                         While reader.Read()
                             idOnDB = reader("ma_loai_benh")
                         End While
+                    Else
+                        idOnDB = "LB000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then

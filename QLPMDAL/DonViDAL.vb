@@ -166,6 +166,8 @@ Public Class DonViDAL
                         While reader.Read()
                             idOnDB = reader("ma_don_vi")
                         End While
+                    Else
+                        idOnDB = "DV000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then
