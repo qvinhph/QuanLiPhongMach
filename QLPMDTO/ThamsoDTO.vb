@@ -1,35 +1,38 @@
 ﻿Public Class ThamSoDTO
+
 #Region "Fields"
-    Private intSoBenhNhanMax As Integer
-    Private intTienKham As Integer
+    Private iSoBenhNhanMax As Integer
+    Private iTienKham As Integer
 #End Region
-#Region "Methods"
+
+#Region "Constructor"
     Public Sub New()
 
     End Sub
 
     Public Sub New(intSoBenhNhanMax As Integer, intTienKham As Integer)
-        Me.intSoBenhNhanMax = intSoBenhNhanMax
-        Me.intTienKham = intTienKham
+        SoBenhNhanMax = iSoBenhNhanMax
+        TienKham = iTienKham
 
     End Sub
 #End Region
+
 #Region "Property"
     Property SoBenhNhanMax() As Integer
         Get
-            Return intSoBenhNhanMax
+            Return iSoBenhNhanMax
         End Get
         Set(ByVal Value As Integer)
-            intSoBenhNhanMax = Value
+            iSoBenhNhanMax = Value
         End Set
     End Property
 
     Property TienKham() As Integer
         Get
-            Return intTienKham
+            Return iTienKham
         End Get
         Set(ByVal Value As Integer)
-            intTienKham = Value
+            iTienKham = Value
         End Set
     End Property
 #End Region

@@ -1,18 +1,23 @@
 ﻿Public Class DanhsachkhamDTO
+
 #Region "Fields"
     Private strMaDanhSach As String
     Private dateNgayKham As Date
 #End Region
-#Region "Methods"
+
+
+#Region "Constructor"
     Public Sub New()
 
     End Sub
     Public Sub New(strMaDanhSach As String, dateNgayKham As Date)
-        Me.strMaDanhSach = strMaDanhSach
-        Me.dateNgayKham = dateNgayKham
+        MaDanhSach = strMaDanhSach
+        NgayKham = dateNgayKham
     End Sub
 
 #End Region
+
+
 #Region "Property"
     Property MaDanhSach() As String
         Get
@@ -32,4 +37,5 @@
     End Property
 
 #End Region
+
 End Class
