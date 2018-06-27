@@ -6,6 +6,8 @@
     Private strMaDonVi As String
     Private iSoLuong As Integer
     Private fDonGia As Single
+    Private strMaCachDung As String
+    Private strTenThuoc As String
 
 #End Region
 
@@ -14,12 +16,14 @@
     Public Sub New()
     End Sub
 
-    Public Sub New(strMaThuoc As String, strMaDonVi As String,
-                   iSoLuong As Integer, fDonGia As Single)
+    Public Sub New(strMaThuoc As String, strTenThuoc As String, strMaDonVi As String,
+                   strMaCachDung As String, iSoLuong As Integer, fDonGia As Single)
         MaThuoc = strMaThuoc
         MaDonVi = strMaDonVi
         SoLuong = iSoLuong
         DonGia = fDonGia
+        MaCachDung = strMaCachDung
+        TenThuoc = strTenThuoc
     End Sub
 
 #End Region
@@ -59,6 +63,24 @@
         End Get
         Set(value As Single)
             fDonGia = value
+        End Set
+    End Property
+
+    Public Property MaCachDung As String
+        Get
+            Return strMaCachDung
+        End Get
+        Set(value As String)
+            strMaCachDung = value
+        End Set
+    End Property
+
+    Public Property TenThuoc As String
+        Get
+            Return strTenThuoc
+        End Get
+        Set(value As String)
+            strTenThuoc = value
         End Set
     End Property
 
