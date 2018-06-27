@@ -192,6 +192,46 @@ Public Class LoaiBenhDAL
 
     End Function
 
+    Public Function SelectAll(ByRef listLoaiBenh As List(Of LoaiBenhDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblloai_benh] "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listLoaiBenh.Clear()
+                        While reader.Read()
+                            listLoaiBenh.Add(New LoaiBenhDTO(reader("ma_loai_benh"), reader("loai_benh")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả loại bệnh không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class

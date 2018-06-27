@@ -204,6 +204,47 @@ Public Class ThuocDAL
 
     End Function
 
+    Public Function SelectAll(ByRef listThuoc As List(Of ThuocDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblthuoc] "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listThuoc.Clear()
+                        While reader.Read()
+                            listThuoc.Add(New ThuocDTO(reader("ma_thuoc"), reader("ten_thuoc"), reader("ma_don_vi"),
+                                                    reader("ma_cach_dung"), reader("so_luong"), reader("don_gia")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả thuốc không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class

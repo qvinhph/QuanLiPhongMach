@@ -192,6 +192,46 @@ Public Class DonViDAL
 
     End Function
 
+    Public Function SelectAll(ByRef listDonVi As List(Of DonViDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tbldon_vi] "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listDonVi.Clear()
+                        While reader.Read()
+                            listDonVi.Add(New DonViDTO(reader("ma_don_vi"), reader("don_vi")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả đơn vị không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class

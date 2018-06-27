@@ -192,6 +192,46 @@ Public Class CachDungDAL
 
     End Function
 
+    Public Function SelectAll(ByRef listCachDung As List(Of CachDungDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblcach_dung] "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listCachDung.Clear()
+                        While reader.Read()
+                            listCachDung.Add(New CachDungDTO(reader("ma_cach_dung"), reader("cach_dung")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả cách dùng không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class
