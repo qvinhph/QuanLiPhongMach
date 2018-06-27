@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Imports QLPMDTO
 Imports Utility
 
-Public Class CachDungDAL
+Public Class ChiTietPhieuKhamDAL
 
 #Region "Fields"
 
@@ -30,15 +30,15 @@ Public Class CachDungDAL
 
 #Region "Insert/Update/Delete on database"
 
-    Public Function Insert(cachDung As CachDungDTO) As Result
+    Public Function Insert(chiTietPhieuKham As ChiTietPhieuKhamDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblcach_dung] ([ma_cach_dung], [cach_dung]) "
-        query &= "VALUES (@ma_cach_dung, @cach_dung) "
+        query &= "INSERT INTO [tblchi_tiet_phieu_kham] ([ma_chi_tiet_phieu_kham], [ma_phieu_kham], [ma_thuoc]) "
+        query &= "VALUES (@ma_chi_tiet_phieu_kham, @ma_phieu_kham, @ma_thuoc) "
 
         Dim nextID = Nothing
         nextID = BuildID(nextID)
-        cachDung.MaCachDung = nextID
+        chiTietPhieuKham.MaChiTietPhieuKham = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -46,8 +46,9 @@ Public Class CachDungDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_cach_dung", cachDung.MaCachDung)
-                    .Parameters.AddWithValue("@cach_dung", cachDung.CachDung)
+                    .Parameters.AddWithValue("@ma_chi_tiet_phieu_kham", chiTietPhieuKham.MaChiTietPhieuKham)
+                    .Parameters.AddWithValue("@ma_phieu_kham", chiTietPhieuKham.MaPhieuKham)
+                    .Parameters.AddWithValue("@ma_thuoc", chiTietPhieuKham.MaThuoc)
                 End With
 
                 Try
@@ -57,7 +58,7 @@ Public Class CachDungDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Thêm cách dùng mới không thành công", ex.StackTrace)
+                    Return New Result(False, "Thêm chi tiết phiếu khám mới không thành công", ex.StackTrace)
                 End Try
             End Using
         End Using
@@ -67,13 +68,14 @@ Public Class CachDungDAL
 
     End Function
 
-    Public Function Update(cachDung As CachDungDTO) As Result
+    Public Function Update(chiTietPhieuKham As ChiTietPhieuKhamDTO) As Result
 
         Dim query As String = Nothing
-        query &= "UPDATE [tblcach_dung] SET "
-        query &= "[ma_cach_dung] = @ma_cach_dung "
-        query &= "[cach_dung] = @cach_dung "
-        query &= "WHERE [ma_cach_dung] = @ma_cach_dung "
+        query &= "UPDATE [tblchi_tiet_phieu_kham] SET "
+        query &= "[ma_chi_tiet_phieu_kham] = @ma_chi_tiet_phieu_kham "
+        query &= "[ma_phieu_kham] = @ma_phieu_kham "
+        query &= "[ma_thuoc] = @ma_thuoc "
+        query &= "WHERE [ma_chi_tiet_phieu_kham] = @ma_chi_tiet_phieu_kham "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -81,8 +83,9 @@ Public Class CachDungDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_cach_dung", cachDung.MaCachDung)
-                    .Parameters.AddWithValue("@cach_dung", cachDung.CachDung)
+                    .Parameters.AddWithValue("@ma_chi_tiet_phieu_kham", chiTietPhieuKham.MaChiTietPhieuKham)
+                    .Parameters.AddWithValue("@ma_phieu_kham", chiTietPhieuKham.MaPhieuKham)
+                    .Parameters.AddWithValue("@ma_thuoc", chiTietPhieuKham.MaThuoc)
                 End With
 
                 Try
@@ -93,7 +96,7 @@ Public Class CachDungDAL
                     Console.WriteLine(ex.StackTrace)
                     conn.Close()
                     System.Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Cập nhật cách dùng không thành công", ex.StackTrace)
+                    Return New Result(False, "Cập nhật chi tiết phiếu khám không thành công", ex.StackTrace)
                 End Try
 
             End Using
@@ -104,12 +107,12 @@ Public Class CachDungDAL
 
     End Function
 
-    Public Function Delete(maCachDung As String) As Result
+    Public Function Delete(maChiTietPhieuKham As String) As Result
 
         Dim query As String = String.Empty
-        query &= " DELETE FROM [tblcach_dung] "
+        query &= " DELETE FROM [tblchi_tiet_phieu_kham] "
         query &= " WHERE "
-        query &= " [ma_cach_dung] = @ma_cach_dung "
+        query &= " [ma_chi_tiet_phieu_kham] = @ma_chi_tiet_phieu_kham "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -117,7 +120,7 @@ Public Class CachDungDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_cach_dung", maCachDung)
+                    .Parameters.AddWithValue("@ma_chi_tiet_phieu_kham", maChiTietPhieuKham)
                 End With
 
                 Try
@@ -127,7 +130,7 @@ Public Class CachDungDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Xóa cách dùng không thành công", ex.StackTrace)
+                    Return New Result(False, "Xóa chi tiết phiếu khám không thành công", ex.StackTrace)
                 End Try
 
             End Using
@@ -140,14 +143,14 @@ Public Class CachDungDAL
 
 #End Region
 
-    Public Function BuildID(ByRef nextID As String) As Result 'ex: CD000001
+    Public Function BuildID(ByRef nextID As String) As Result 'ex: CT000001
 
         nextID = String.Empty
 
         Dim query As String = String.Empty
-        query &= "SELECT TOP 1 [ma_cach_dung] "
-        query &= "FROM [tblcach_dung] "
-        query &= "ORDER BY [ma_cach_dung] DESC "
+        query &= "SELECT TOP 1 [ma_chi_tiet_phieu_kham] "
+        query &= "FROM [tblchi_tiet_phieu_kham] "
+        query &= "ORDER BY [ma_chi_tiet_phieu_kham] DESC "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -164,17 +167,17 @@ Public Class CachDungDAL
                     Dim idOnDB As String = Nothing
                     If reader.HasRows = True Then
                         While reader.Read()
-                            idOnDB = reader("ma_cach_dung")
+                            idOnDB = reader("ma_chi_tiet_phieu_kham")
                         End While
                     Else
-                        idOnDB = "CD000000"
+                        idOnDB = "CT000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then
                         Dim currentNumberID = Integer.Parse(idOnDB.Substring(2, 6))
                         Dim nextNumberID = currentNumberID + 1
                         Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
-                        nextID = "CD" + strNextNumberID
+                        nextID = "CT" + strNextNumberID
                         'For debugging
                         Console.WriteLine(nextID)
                     End If
@@ -183,7 +186,7 @@ Public Class CachDungDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy mã tự động của cách dùng mới không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy mã tự động của chi tiết phiếu khám mới không thành công", ex.StackTrace)
 
                 End Try
             End Using
@@ -194,11 +197,12 @@ Public Class CachDungDAL
 
     End Function
 
-    Public Function SelectAll(ByRef listCachDung As List(Of CachDungDTO)) As Result
+    Public Function SelectAll_ByMaPhieuKham(maPhieuKham As String, ByRef listChiTietPK As List(Of ChiTietPhieuKhamDTO)) As Result
 
         Dim query As String = Nothing
         query &= "SELECT * "
-        query &= "FROM [tblcach_dung] "
+        query &= "FROM [tblchi_tiet_phieu_kham] "
+        query &= "WHERE [tblchi_tiet_phieu_kham].[ma_phieu_kham] = @ma_phieu_kham "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -206,6 +210,7 @@ Public Class CachDungDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
+                    .Parameters.AddWithValue("@ma_phieu_kham", maPhieuKham)
                 End With
 
                 Try
@@ -213,9 +218,10 @@ Public Class CachDungDAL
                     Dim reader As SqlDataReader
                     reader = comm.ExecuteReader()
                     If reader.HasRows = True Then
-                        listCachDung.Clear()
+                        listChiTietPK.Clear()
                         While reader.Read()
-                            listCachDung.Add(New CachDungDTO(reader("ma_cach_dung"), reader("cach_dung")))
+                            listChiTietPK.Add(New ChiTietPhieuKhamDTO(reader("ma_chi_tiet_phieu_kham"), reader("ma_phieu_kham"),
+                                                                      reader("ma_thuoc")))
                         End While
                     End If
 
@@ -223,7 +229,7 @@ Public Class CachDungDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả cách dùng không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả chi tiết phiếu khám theo mã phiếu khám không thành công", ex.StackTrace)
                 End Try
 
             End Using
