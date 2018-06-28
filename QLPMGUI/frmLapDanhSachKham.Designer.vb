@@ -33,7 +33,6 @@ Partial Class frmLapDanhSachKham
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtNgaylapthe = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btnNhap = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -46,6 +45,7 @@ Partial Class frmLapDanhSachKham
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lvBenhNhan = New System.Windows.Forms.ListView()
+        Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -158,16 +158,6 @@ Partial Class frmLapDanhSachKham
         Me.Label8.Size = New System.Drawing.Size(126, 30)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "Ngày Khám:"
-        '
-        'txtNgaylapthe
-        '
-        Me.txtNgaylapthe.AutoSize = True
-        Me.txtNgaylapthe.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtNgaylapthe.Location = New System.Drawing.Point(185, 25)
-        Me.txtNgaylapthe.Name = "txtNgaylapthe"
-        Me.txtNgaylapthe.Size = New System.Drawing.Size(129, 19)
-        Me.txtNgaylapthe.TabIndex = 19
-        Me.txtNgaylapthe.Text = "21/6/2018 6:26:11 PM"
         '
         'Label10
         '
@@ -288,10 +278,10 @@ Partial Class frmLapDanhSachKham
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.dtpNgayKham)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.txtNgaylapthe)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.cbGioitinh)
@@ -311,11 +301,24 @@ Partial Class frmLapDanhSachKham
         '
         'lvBenhNhan
         '
-        Me.lvBenhNhan.Location = New System.Drawing.Point(278, 315)
+        Me.lvBenhNhan.Location = New System.Drawing.Point(278, 353)
         Me.lvBenhNhan.Name = "lvBenhNhan"
-        Me.lvBenhNhan.Size = New System.Drawing.Size(402, 318)
+        Me.lvBenhNhan.Size = New System.Drawing.Size(502, 280)
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
+        Me.lvBenhNhan.View = System.Windows.Forms.View.Details
+        '
+        'dtpNgayKham
+        '
+        Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpNgayKham.Location = New System.Drawing.Point(141, 15)
+        Me.dtpNgayKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.dtpNgayKham.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
+        Me.dtpNgayKham.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
+        Me.dtpNgayKham.Name = "dtpNgayKham"
+        Me.dtpNgayKham.Size = New System.Drawing.Size(242, 25)
+        Me.dtpNgayKham.TabIndex = 57
+        Me.dtpNgayKham.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
         '
         'frmLapDanhSachKham
         '
@@ -323,7 +326,7 @@ Partial Class frmLapDanhSachKham
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(692, 645)
+        Me.ClientSize = New System.Drawing.Size(792, 645)
         Me.Controls.Add(Me.lvBenhNhan)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel1)
@@ -354,7 +357,6 @@ Partial Class frmLapDanhSachKham
     Friend WithEvents Label4 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtNgaylapthe As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents btnNhap As Button
     Friend WithEvents Panel1 As Panel
@@ -367,4 +369,5 @@ Partial Class frmLapDanhSachKham
     Friend WithEvents Button3 As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lvBenhNhan As ListView
+    Friend WithEvents dtpNgayKham As DateTimePicker
 End Class

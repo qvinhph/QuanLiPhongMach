@@ -2,13 +2,13 @@
 Imports QLPMDTO
 Imports Utility
 
-Public Class PhongmachBUS
-    Private tvDAL As PhongmachDAL
+Public Class BenhNhanBUS
+    Private tvDAL As BenhNhanDAL
     Public Sub New()
-        tvDAL = New PhongmachDAL()
+        tvDAL = New BenhNhanDAL()
     End Sub
     Public Sub New(connectionString As String)
-        tvDAL = New PhongmachDAL(connectionString)
+        tvDAL = New BenhNhanDAL(connectionString)
     End Sub
     Public Function isValidName(hs As BenhnhanDTO) As Boolean
 
@@ -26,7 +26,7 @@ Public Class PhongmachBUS
     End Function
 
 
-    Public Function buildMSDG(ByRef nextMsdg As Integer) As Result
-        Return tvDAL.buildMSDG(nextMsdg)
+    Public Function buildMSBN(ByRef nextMsbn As String) As Result
+        Return tvDAL.BuildID(nextMsbn)
     End Function
 End Class
