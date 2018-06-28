@@ -4,7 +4,7 @@
     Private strMaPhieuKham As String
     Private strMaChiTietDanhSach As String
     Private strTrieuChung As String
-    Private strLoaiBenh As String
+    Private strMaLoaiBenh As String
 #End Region
 
 #Region "Constructor"
@@ -16,7 +16,7 @@
         MaPhieuKham = strMaPhieuKham
         MaChiTietDanhSach = strMaChiTietDanhSach
         TrieuChung = strTrieuChung
-        LoaiBenh = strLoaiBenh
+        MaLoaiBenh = strLoaiBenh
     End Sub
 #End Region
 
@@ -46,12 +46,12 @@
             strTrieuChung = Value
         End Set
     End Property
-    Property LoaiBenh() As Integer
+    Property MaLoaiBenh() As Integer
         Get
-            Return strLoaiBenh
+            Return strMaLoaiBenh
         End Get
         Set(value As Integer)
-            strLoaiBenh = value
+            strMaLoaiBenh = value
         End Set
     End Property
 #End Region
