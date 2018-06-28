@@ -1,4 +1,4 @@
-﻿Public Class ChiTietBaoCaoThuoc
+﻿Public Class ChiTietBaoCaoThuocDTO
 
 #Region "Fields"
 

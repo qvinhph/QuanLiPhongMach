@@ -223,7 +223,7 @@ Public Class BaoCaoDoanhThuDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả bảng báo cáo không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả bảng báo cáo doanh thu không thành công", ex.StackTrace)
                 End Try
 
             End Using

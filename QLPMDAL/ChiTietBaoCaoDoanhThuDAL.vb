@@ -62,7 +62,7 @@ Public Class ChiTietBaoCaoDoanhThuDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Thêm chi tiết doanh thu mới không thành công", ex.StackTrace)
+                    Return New Result(False, "Thêm chi tiết báo cáo doanh thu mới không thành công", ex.StackTrace)
                 End Try
             End Using
         End Using
@@ -106,7 +106,7 @@ Public Class ChiTietBaoCaoDoanhThuDAL
                     Console.WriteLine(ex.StackTrace)
                     conn.Close()
                     System.Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Cập nhật chi tiết cáo doanh thu không thành công", ex.StackTrace)
+                    Return New Result(False, "Cập nhật chi tiết báo cáo doanh thu không thành công", ex.StackTrace)
                 End Try
 
             End Using
@@ -207,45 +207,48 @@ Public Class ChiTietBaoCaoDoanhThuDAL
 
     End Function
 
-    'Public Function SelectAll(ByRef listBaoCaoDoanhThu As List(Of BaoCaoDoanhThuDTO)) As Result
+    Public Function SelectAll_ByMaBaoCaoDoanhThu(maBaoCaoDT As String, ByRef listChiTietBCDT As List(Of ChiTietBaoCaoDoanhThuDTO)) As Result
 
-    '    Dim query As String = Nothing
-    '    query &= "SELECT * "
-    '    query &= "FROM [tblbao_cao_doanh_thu] "
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblchi_tiet_bao_cao_doanh_thu] "
+        query &= "WHERE [tblchi_tiet_bao_cao_doanh_thu].[ma_bao_cao_doanh_thu] = @ma_bao_cao_doanh_thu "
 
-    '    Using conn As New SqlConnection(connectionString)
-    '        Using comm As New SqlCommand()
-    '            With comm
-    '                .Connection = conn
-    '                .CommandType = CommandType.Text
-    '                .CommandText = query
-    '            End With
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ma_bao_cao_doanh_thu", maBaoCaoDT)
+                End With
 
-    '            Try
-    '                conn.Open()
-    '                Dim reader As SqlDataReader
-    '                reader = comm.ExecuteReader()
-    '                If reader.HasRows = True Then
-    '                    listBaoCaoDoanhThu.Clear()
-    '                    While reader.Read()
-    '                        listBaoCaoDoanhThu.Add(New BaoCaoDoanhThuDTO(reader("ma_bao_cao_doanh_thu"), reader("thang_bao_cao")))
-    '                    End While
-    '                End If
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listChiTietBCDT.Clear()
+                        While reader.Read()
+                            listChiTietBCDT.Add(New ChiTietBaoCaoDoanhThuDTO(reader("ma_chi_tiet_bao_cao_doanh_thu"), reader("ma_bao_cao_doanh_thu"),
+                                                                      reader("ngay"), reader("so_benh_nhan"), reader("doanh_thu"), reader("ty_le")))
+                        End While
+                    End If
 
-    '            Catch ex As Exception
-    '                'Failure
-    '                conn.Close()
-    '                Console.WriteLine(ex.StackTrace)
-    '                Return New Result(False, "Lấy tất cả bảng báo cáo không thành công", ex.StackTrace)
-    '            End Try
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả chi tiết báo cáo doanh thu theo mã báo cáo doanh thu khám không thành công", ex.StackTrace)
+                End Try
 
-    '        End Using
-    '    End Using
+            End Using
+        End Using
 
-    '    'Success
-    '    Return New Result(True)
+        'Success
+        Return New Result(True)
 
-    'End Function
+    End Function
 
 #End Region
 

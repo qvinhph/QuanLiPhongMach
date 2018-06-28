@@ -68,8 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaoCaoDoanhThuDAL.vb" />
+    <Compile Include="BaoCaoThuocDAL.vb" />
     <Compile Include="CachDungDAL.vb" />
     <Compile Include="ChiTietBaoCaoDoanhThuDAL.vb" />
+    <Compile Include="ChiTietBaoCaoThuocDAL.vb" />
     <Compile Include="ChiTietPhieuKhamDAL.vb" />
     <Compile Include="DonViDAL.vb" />
     <Compile Include="LoaiBenhDAL.vb" />
