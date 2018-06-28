@@ -44,8 +44,8 @@ Partial Class frmLapDanhSachKham
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lvBenhNhan = New System.Windows.Forms.ListView()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
+        Me.lvBenhNhan = New System.Windows.Forms.ListView()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -67,7 +67,7 @@ Partial Class frmLapDanhSachKham
         Me.txtHoTen.Location = New System.Drawing.Point(112, 80)
         Me.txtHoTen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.txtHoTen.Name = "txtHoTen"
-        Me.txtHoTen.Size = New System.Drawing.Size(271, 25)
+        Me.txtHoTen.Size = New System.Drawing.Size(310, 25)
         Me.txtHoTen.TabIndex = 1
         '
         'txtDiaChi
@@ -75,7 +75,7 @@ Partial Class frmLapDanhSachKham
         Me.txtDiaChi.Location = New System.Drawing.Point(112, 146)
         Me.txtDiaChi.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.txtDiaChi.Name = "txtDiaChi"
-        Me.txtDiaChi.Size = New System.Drawing.Size(271, 25)
+        Me.txtDiaChi.Size = New System.Drawing.Size(310, 25)
         Me.txtDiaChi.TabIndex = 3
         '
         'Label2
@@ -96,7 +96,7 @@ Partial Class frmLapDanhSachKham
         Me.txtMaSo.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.txtMaSo.Name = "txtMaSo"
         Me.txtMaSo.ReadOnly = True
-        Me.txtMaSo.Size = New System.Drawing.Size(271, 25)
+        Me.txtMaSo.Size = New System.Drawing.Size(310, 25)
         Me.txtMaSo.TabIndex = 50
         '
         'Label3
@@ -113,15 +113,12 @@ Partial Class frmLapDanhSachKham
         '
         'dtpNgaySinh
         '
-        Me.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpNgaySinh.Location = New System.Drawing.Point(141, 209)
         Me.dtpNgaySinh.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.dtpNgaySinh.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
-        Me.dtpNgaySinh.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
         Me.dtpNgaySinh.Name = "dtpNgaySinh"
-        Me.dtpNgaySinh.Size = New System.Drawing.Size(242, 25)
+        Me.dtpNgaySinh.Size = New System.Drawing.Size(281, 25)
         Me.dtpNgaySinh.TabIndex = 5
-        Me.dtpNgaySinh.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
+        Me.dtpNgaySinh.Value = New Date(1998, 1, 25, 0, 0, 0, 0)
         '
         'Label4
         '
@@ -221,7 +218,7 @@ Partial Class frmLapDanhSachKham
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label11.Location = New System.Drawing.Point(683, 0)
+        Me.Label11.Location = New System.Drawing.Point(758, 0)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(22, 30)
@@ -296,8 +293,18 @@ Partial Class frmLapDanhSachKham
         Me.Panel2.Controls.Add(Me.txtMaSo)
         Me.Panel2.Location = New System.Drawing.Point(267, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(426, 298)
+        Me.Panel2.Size = New System.Drawing.Size(473, 298)
         Me.Panel2.TabIndex = 57
+        '
+        'dtpNgayKham
+        '
+        Me.dtpNgayKham.Location = New System.Drawing.Point(141, 20)
+        Me.dtpNgayKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.dtpNgayKham.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
+        Me.dtpNgayKham.Name = "dtpNgayKham"
+        Me.dtpNgayKham.Size = New System.Drawing.Size(281, 25)
+        Me.dtpNgayKham.TabIndex = 57
+        Me.dtpNgayKham.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
         '
         'lvBenhNhan
         '
@@ -307,18 +314,6 @@ Partial Class frmLapDanhSachKham
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         Me.lvBenhNhan.View = System.Windows.Forms.View.Details
-        '
-        'dtpNgayKham
-        '
-        Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpNgayKham.Location = New System.Drawing.Point(141, 15)
-        Me.dtpNgayKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.dtpNgayKham.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
-        Me.dtpNgayKham.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
-        Me.dtpNgayKham.Name = "dtpNgayKham"
-        Me.dtpNgayKham.Size = New System.Drawing.Size(242, 25)
-        Me.dtpNgayKham.TabIndex = 57
-        Me.dtpNgayKham.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
         '
         'frmLapDanhSachKham
         '

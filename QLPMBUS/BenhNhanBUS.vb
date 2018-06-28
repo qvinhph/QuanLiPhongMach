@@ -3,12 +3,12 @@ Imports QLPMDTO
 Imports Utility
 
 Public Class BenhNhanBUS
-    Private tvDAL As BenhNhanDAL
+    Private bnDAL As BenhNhanDAL
     Public Sub New()
-        tvDAL = New BenhNhanDAL()
+        bnDAL = New BenhNhanDAL()
     End Sub
     Public Sub New(connectionString As String)
-        tvDAL = New BenhNhanDAL(connectionString)
+        bnDAL = New BenhNhanDAL(connectionString)
     End Sub
     Public Function isValidName(hs As BenhnhanDTO) As Boolean
 
@@ -22,11 +22,11 @@ Public Class BenhNhanBUS
         '1. verify data here!!
 
         '2. insert to DB
-        Return tvDAL.insert(dg)
+        Return bnDAL.Insert(dg)
     End Function
 
 
     Public Function buildMSBN(ByRef nextMsbn As String) As Result
-        Return tvDAL.BuildID(nextMsbn)
+        Return bnDAL.BuildID(nextMsbn)
     End Function
 End Class

@@ -199,6 +199,10 @@
       <Project>{89503d9d-294e-40e0-8c3d-d38f73a629d9}</Project>
       <Name>QLPMBUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QLPMDAL\QLPMDAL.vbproj">
+      <Project>{0efda6da-251a-457d-8398-e0178033124c}</Project>
+      <Name>QLPMDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QLPMDTO\QLPMDTO.vbproj">
       <Project>{25ca7f8f-d495-4843-8e13-133f9e7920b8}</Project>
       <Name>QLPMDTO</Name>

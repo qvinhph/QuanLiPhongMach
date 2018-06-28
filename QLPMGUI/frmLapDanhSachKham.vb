@@ -37,9 +37,18 @@ Public Class frmLapDanhSachKham
         lvItem.SubItems.Add(cbGioitinh.Text)
         lvItem.SubItems.Add(dtpNgayKham.Value)
 
-        'Auto generate next patient id
 
-        txtMaSo.Text = txtMaSo.Text + 1
+        '4. Auto generate next patient id
+
+
+        Dim currentNumberID = Integer.Parse(txtMaSo.Text.Substring(2, 6))
+        Dim nextNumberID = currentNumberID + 1
+        Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
+        txtMaSo.Text = "BN" + strNextNumberID
+        MessageBox.Show("Đã thêm một bệnh nhân!")
+        txtHoTen.Focus()
+
+
 
 
 
@@ -72,7 +81,7 @@ Public Class frmLapDanhSachKham
 
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        dtpNgayKham.Value = Format(Date.Now(), "ddMMMyyyy")
+        dtpNgayKham.Value = Date.Today()
 
         'Auto generate patient id
         bnBus = New BenhNhanBUS()
