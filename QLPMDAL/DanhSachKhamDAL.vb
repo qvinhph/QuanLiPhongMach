@@ -3,7 +3,8 @@ Imports System.Data.SqlClient
 Imports QLPMDTO
 Imports Utility
 
-Public Class BenhNhanDAL
+
+Public Class DanhSachKhamDAL
 
 #Region "Fields"
 
@@ -30,15 +31,15 @@ Public Class BenhNhanDAL
 
 #Region "Insert/Update/Delete on database"
 
-    Public Function Insert(benhNhan As BenhnhanDTO) As Result
+    Public Function Insert(danhSachKham As DanhSachKhamDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblbenh_nhan] ([ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham])"
-        query &= "VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @nam_sinh, @dia_chi, @ngay_kham) "
+        query &= "INSERT INTO [tbldanh_sach_kham] ([ma_danh_sach], [ngay_kham]) "
+        query &= "VALUES (@ma_danh_sach, @ngay_kham) "
 
         Dim nextID = Nothing
         nextID = BuildID(nextID)
-        benhNhan.MSBN = nextID
+        danhSachKham.MaDanhSach = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -46,12 +47,8 @@ Public Class BenhNhanDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MSBN)
-                    .Parameters.AddWithValue("@ho_ten", benhNhan.HoTen)
-                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
-                    .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
-                    .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
-                    .Parameters.AddWithValue("@ngay_kham", benhNhan.NgayKham)
+                    .Parameters.AddWithValue("@ma_danh_sach", danhSachKham.MaDanhSach)
+                    .Parameters.AddWithValue("@ngay_kham", danhSachKham.NgayKham)
                 End With
 
                 Try
@@ -61,7 +58,7 @@ Public Class BenhNhanDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Thêm bệnh nhân mới không thành công", ex.StackTrace)
+                    Return New Result(False, "Thêm danh sách khám mới không thành công", ex.StackTrace)
                 End Try
             End Using
         End Using
@@ -71,17 +68,13 @@ Public Class BenhNhanDAL
 
     End Function
 
-    Public Function Update(benhNhan As BenhnhanDTO) As Result
+    Public Function Update(danhSachKham As DanhSachKhamDTO) As Result
 
         Dim query As String = Nothing
-        query &= "UPDATE [tblbenh_nhan] SET "
-        query &= "[ma_benh_nhan] = @ma_benh_nhan "
-        query &= "[ho_ten] = @ho_ten "
-        query &= "[gioi_tinh] = @gioi_tinh "
-        query &= "[nam_sinh] = @nam_sinh "
-        query &= "[dia_chi] = @dia_chi "
+        query &= "UPDATE [tbldanh_sach_kham] SET "
+        query &= "[ma_danh_sach] = @ma_danh_sach "
         query &= "[ngay_kham] = @ngay_kham "
-        query &= "WHERE [ma_benh_nhan] = @ma_benh_nhan "
+        query &= "WHERE [ma_danh_sach] = @ma_danh_sach "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -89,12 +82,8 @@ Public Class BenhNhanDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MSBN)
-                    .Parameters.AddWithValue("@ho_ten", benhNhan.HoTen)
-                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
-                    .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
-                    .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
-                    .Parameters.AddWithValue("@ngay_kham", benhNhan.NgayKham)
+                    .Parameters.AddWithValue("@ma_danh_sach", danhSachKham.MaDanhSach)
+                    .Parameters.AddWithValue("@ngay_kham", danhSachKham.NgayKham)
                 End With
 
                 Try
@@ -105,7 +94,7 @@ Public Class BenhNhanDAL
                     Console.WriteLine(ex.StackTrace)
                     conn.Close()
                     System.Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Cập nhật bệnh nhân không thành công", ex.StackTrace)
+                    Return New Result(False, "Cập nhật danh sách khám không thành công", ex.StackTrace)
                 End Try
 
             End Using
@@ -116,12 +105,12 @@ Public Class BenhNhanDAL
 
     End Function
 
-    Public Function Delete(maBenhNhan As String) As Result
+    Public Function Delete(maDanhSach As String) As Result
 
         Dim query As String = String.Empty
-        query &= " DELETE FROM [tblbenh_nhan] "
+        query &= " DELETE FROM [tbldanh_sach_kham] "
         query &= " WHERE "
-        query &= " [ma_benh_nhan] = @ma_benh_nhan "
+        query &= " [ma_danh_sach] = @ma_danh_sach "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -129,7 +118,7 @@ Public Class BenhNhanDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_benh_nhan", maBenhNhan)
+                    .Parameters.AddWithValue("@ma_danh_sach", maDanhSach)
                 End With
 
                 Try
@@ -139,7 +128,7 @@ Public Class BenhNhanDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Xóa bệnh nhân không thành công", ex.StackTrace)
+                    Return New Result(False, "Xóa danh sách khám không thành công", ex.StackTrace)
                 End Try
 
             End Using
@@ -152,14 +141,14 @@ Public Class BenhNhanDAL
 
 #End Region
 
-    Public Function BuildID(ByRef nextID As String) As Result 'ex: DV000001
+    Public Function BuildID(ByRef nextID As String) As Result 'ex: DS000001
 
         nextID = String.Empty
 
         Dim query As String = String.Empty
-        query &= "SELECT TOP 1 [ma_benh_nhan] "
-        query &= "FROM [tblbenh_nhan] "
-        query &= "ORDER BY [ma_benh_nhan] DESC "
+        query &= "SELECT TOP 1 [ma_danh_sach] "
+        query &= "FROM [tbldanh_sach_kham] "
+        query &= "ORDER BY [ma_danh_sach] DESC "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -176,17 +165,17 @@ Public Class BenhNhanDAL
                     Dim idOnDB As String = Nothing
                     If reader.HasRows = True Then
                         While reader.Read()
-                            idOnDB = reader("ma_benh_nhan")
+                            idOnDB = reader("ma_danh_sach")
                         End While
                     Else
-                        idOnDB = "BN000000"
+                        idOnDB = "DS000000"
                     End If
 
                     If (idOnDB <> Nothing And idOnDB.Length >= 8) Then
                         Dim currentNumberID = Integer.Parse(idOnDB.Substring(2, 6))
                         Dim nextNumberID = currentNumberID + 1
                         Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
-                        nextID = "BN" + strNextNumberID
+                        nextID = "DS" + strNextNumberID
                         'For debugging
                         Console.WriteLine(nextID)
                     End If
@@ -195,7 +184,7 @@ Public Class BenhNhanDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy mã tự động của bệnh nhân mới không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy mã tự động của danh sách khám mới không thành công", ex.StackTrace)
 
                 End Try
             End Using
@@ -206,11 +195,11 @@ Public Class BenhNhanDAL
 
     End Function
 
-    Public Function SelectAll(ByRef listBenhNhan As List(Of BenhnhanDTO)) As Result
+    Public Function SelectAll(ByRef listDanhSachKham As List(Of DanhSachKhamDTO)) As Result
 
         Dim query As String = Nothing
         query &= "SELECT * "
-        query &= "FROM [tblbenh_nhan] "
+        query &= "FROM [tbldanh_sach_kham] "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -225,9 +214,9 @@ Public Class BenhNhanDAL
                     Dim reader As SqlDataReader
                     reader = comm.ExecuteReader()
                     If reader.HasRows = True Then
-                        listBenhNhan.Clear()
+                        listDanhSachKham.Clear()
                         While reader.Read()
-                            listBenhNhan.Add(New BenhnhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("ngay_kham"), reader("gioi_tinh")))
+                            listDanhSachKham.Add(New DanhSachKhamDTO(reader("ma_danh_sach"), reader("ngay_kham")))
                         End While
                     End If
 
@@ -235,7 +224,7 @@ Public Class BenhNhanDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả bệnh nhân không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả danh sách khám không thành công", ex.StackTrace)
                 End Try
 
             End Using

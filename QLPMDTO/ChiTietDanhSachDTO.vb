@@ -1,4 +1,4 @@
-﻿Public Class ChiTietDanhSach
+﻿Public Class ChiTietDanhSachDTO
 
 #Region "Fields"
 

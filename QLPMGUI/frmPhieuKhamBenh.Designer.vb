@@ -316,16 +316,16 @@ Partial Class frmPhieuKhamBenh
         Me.tlpDanhSachThuoc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.87665!))
         Me.tlpDanhSachThuoc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.tlpDanhSachThuoc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98.0!))
-        Me.tlpDanhSachThuoc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111.0!))
+        Me.tlpDanhSachThuoc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112.0!))
         Me.tlpDanhSachThuoc.Location = New System.Drawing.Point(301, 332)
         Me.tlpDanhSachThuoc.Name = "tlpDanhSachThuoc"
         Me.tlpDanhSachThuoc.RowCount = 2
-        Me.tlpDanhSachThuoc.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpDanhSachThuoc.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpDanhSachThuoc.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.28358!))
+        Me.tlpDanhSachThuoc.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.71642!))
         Me.tlpDanhSachThuoc.Size = New System.Drawing.Size(440, 335)
         Me.tlpDanhSachThuoc.TabIndex = 63
         '
-        'frmPhieuKhamBenhGUI
+        'frmPhieuKhamBenh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -337,7 +337,7 @@ Partial Class frmPhieuKhamBenh
         Me.Controls.Add(Me.Panel2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmPhieuKhamBenhGUI"
+        Me.Name = "frmPhieuKhamBenh"
         Me.Text = "frmPhieuKhamBenhGUI"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

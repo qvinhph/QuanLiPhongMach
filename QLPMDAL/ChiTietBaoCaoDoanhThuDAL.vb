@@ -212,7 +212,7 @@ Public Class ChiTietBaoCaoDoanhThuDAL
         Dim query As String = Nothing
         query &= "SELECT * "
         query &= "FROM [tblchi_tiet_bao_cao_doanh_thu] "
-        query &= "WHERE [tblchi_tiet_bao_cao_doanh_thu].[ma_bao_cao_doanh_thu] = @ma_bao_cao_doanh_thu "
+        query &= "WHERE [ma_bao_cao_doanh_thu] = @ma_bao_cao_doanh_thu "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -239,7 +239,7 @@ Public Class ChiTietBaoCaoDoanhThuDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả chi tiết báo cáo doanh thu theo mã báo cáo doanh thu khám không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả chi tiết báo cáo doanh thu theo mã báo cáo doanh thu không thành công", ex.StackTrace)
                 End Try
 
             End Using

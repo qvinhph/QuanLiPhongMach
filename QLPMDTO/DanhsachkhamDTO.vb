@@ -1,10 +1,9 @@
-﻿Public Class DanhsachkhamDTO
+﻿Public Class DanhSachKhamDTO
 
 #Region "Fields"
     Private strMaDanhSach As String
     Private dateNgayKham As Date
 #End Region
-
 
 #Region "Constructor"
     Public Sub New()
@@ -16,7 +15,6 @@
     End Sub
 
 #End Region
-
 
 #Region "Property"
     Property MaDanhSach() As String

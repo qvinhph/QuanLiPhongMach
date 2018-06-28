@@ -194,7 +194,7 @@ Public Class BaoCaoThuocDAL
 
     End Function
 
-    Public Function SelectAll(ByRef listBaoCaoDoanhThu As List(Of BaoCaoDoanhThuDTO)) As Result
+    Public Function SelectAll(ByRef listBaoCaoThuoc As List(Of BaoCaoThuocDTO)) As Result
 
         Dim query As String = Nothing
         query &= "SELECT * "
@@ -213,9 +213,9 @@ Public Class BaoCaoThuocDAL
                     Dim reader As SqlDataReader
                     reader = comm.ExecuteReader()
                     If reader.HasRows = True Then
-                        listBaoCaoDoanhThu.Clear()
+                        listBaoCaoThuoc.Clear()
                         While reader.Read()
-                            listBaoCaoDoanhThu.Add(New BaoCaoDoanhThuDTO(reader("ma_bao_cao_thuoc"), reader("thang_bao_cao")))
+                            listBaoCaoThuoc.Add(New BaoCaoThuocDTO(reader("ma_bao_cao_thuoc"), reader("thang_bao_cao")))
                         End While
                     End If
 
