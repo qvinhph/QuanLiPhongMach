@@ -33,8 +33,8 @@ Public Class ThuocDAL
     Public Function Insert(thuoc As ThuocDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblthuoc] ([ma_thuoc], [ten_thuoc], [ma_don_vi], [so_luong], [ma_cach_dung], [don_gia]) "
-        query &= "VALUES (@ma_thuoc, @ten_thuoc, @ma_don_vi, @so_luong, @ma_cach_dung, @don_gia) "
+        query &= "INSERT INTO [tblthuoc] ([ma_thuoc], [ten_thuoc], [ma_don_vi], [ma_cach_dung], [don_gia]) "
+        query &= "VALUES (@ma_thuoc, @ten_thuoc, @ma_don_vi, @ma_cach_dung, @don_gia) "
 
         Dim nextID = Nothing
         nextID = BuildID(nextID)
@@ -49,7 +49,6 @@ Public Class ThuocDAL
                     .Parameters.AddWithValue("@ma_thuoc", thuoc.MaThuoc)
                     .Parameters.AddWithValue("@ten_thuoc", thuoc.TenThuoc)
                     .Parameters.AddWithValue("@ma_don_vi", thuoc.MaDonVi)
-                    .Parameters.AddWithValue("@so_luong", thuoc.SoLuong)
                     .Parameters.AddWithValue("@ma_cach_dung", thuoc.MaCachDung)
                     .Parameters.AddWithValue("@don_gia", thuoc.DonGia)
                 End With
@@ -78,7 +77,6 @@ Public Class ThuocDAL
         query &= "[ma_thuoc] = @ma_thuoc "
         query &= "[ten_thuoc] = @ten_thuoc "
         query &= "[ma_don_vi] = @ma_don_vi "
-        query &= "[so_luong] = @so_luong "
         query &= "[ma_cach_dung] = @ma_cach_dung "
         query &= "[don_gia] = @don_gia "
         query &= "WHERE [ma_thuoc] = @ma_thuoc "
@@ -92,7 +90,6 @@ Public Class ThuocDAL
                     .Parameters.AddWithValue("@ma_thuoc", thuoc.MaThuoc)
                     .Parameters.AddWithValue("@ten_thuoc", thuoc.TenThuoc)
                     .Parameters.AddWithValue("@ma_don_vi", thuoc.MaDonVi)
-                    .Parameters.AddWithValue("@so_luong", thuoc.SoLuong)
                     .Parameters.AddWithValue("@ma_cach_dung", thuoc.MaCachDung)
                     .Parameters.AddWithValue("@don_gia", thuoc.DonGia)
                 End With
@@ -228,7 +225,7 @@ Public Class ThuocDAL
                         listThuoc.Clear()
                         While reader.Read()
                             listThuoc.Add(New ThuocDTO(reader("ma_thuoc"), reader("ten_thuoc"), reader("ma_don_vi"),
-                                                    reader("ma_cach_dung"), reader("so_luong"), reader("don_gia")))
+                                                    reader("ma_cach_dung"), reader("don_gia")))
                         End While
                     End If
 

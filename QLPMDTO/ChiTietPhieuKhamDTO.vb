@@ -5,6 +5,7 @@
     Private strMaChiTietPhieuKham As String
     Private strMaPhieuKham As String
     Private strMaThuoc As String
+    Private iSoLuong As Integer
 
 #End Region
 
@@ -14,10 +15,11 @@
     End Sub
 
     Public Sub New(strMaChiTietPhieuKham As String, strMaPhieuKham As String,
-                   strMaThuoc As String)
+                   strMaThuoc As String, iSoLuong As Integer)
         MaChiTietPhieuKham = strMaChiTietPhieuKham
         MaPhieuKham = strMaPhieuKham
         MaThuoc = strMaThuoc
+        SoLuong = iSoLuong
     End Sub
 
 #End Region
@@ -48,6 +50,15 @@
         End Get
         Set(value As String)
             strMaThuoc = value
+        End Set
+    End Property
+
+    Public Property SoLuong As Integer
+        Get
+            Return iSoLuong
+        End Get
+        Set(value As Integer)
+            iSoLuong = value
         End Set
     End Property
 

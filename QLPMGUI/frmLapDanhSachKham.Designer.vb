@@ -311,13 +311,13 @@ Partial Class frmLapDanhSachKham
         '
         'lvBenhNhan
         '
-        Me.lvBenhNhan.Location = New System.Drawing.Point(278, 353)
+        Me.lvBenhNhan.Location = New System.Drawing.Point(278, 315)
         Me.lvBenhNhan.Name = "lvBenhNhan"
-        Me.lvBenhNhan.Size = New System.Drawing.Size(402, 280)
+        Me.lvBenhNhan.Size = New System.Drawing.Size(402, 318)
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         '
-        'frmLapDanhSachKhamGUI
+        'frmLapDanhSachKham
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -332,7 +332,7 @@ Partial Class frmLapDanhSachKham
         Me.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Name = "frmLapDanhSachKhamGUI"
+        Me.Name = "frmLapDanhSachKham"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lập Thẻ Độc Giả"
         Me.Panel1.ResumeLayout(False)

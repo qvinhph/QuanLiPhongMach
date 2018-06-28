@@ -33,8 +33,8 @@ Public Class ChiTietPhieuKhamDAL
     Public Function Insert(chiTietPhieuKham As ChiTietPhieuKhamDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblchi_tiet_phieu_kham] ([ma_chi_tiet_phieu_kham], [ma_phieu_kham], [ma_thuoc]) "
-        query &= "VALUES (@ma_chi_tiet_phieu_kham, @ma_phieu_kham, @ma_thuoc) "
+        query &= "INSERT INTO [tblchi_tiet_phieu_kham] ([ma_chi_tiet_phieu_kham], [ma_phieu_kham], [ma_thuoc], [so_luong]) "
+        query &= "VALUES (@ma_chi_tiet_phieu_kham, @ma_phieu_kham, @ma_thuoc, @so_luong) "
 
         Dim nextID = Nothing
         nextID = BuildID(nextID)
@@ -49,6 +49,7 @@ Public Class ChiTietPhieuKhamDAL
                     .Parameters.AddWithValue("@ma_chi_tiet_phieu_kham", chiTietPhieuKham.MaChiTietPhieuKham)
                     .Parameters.AddWithValue("@ma_phieu_kham", chiTietPhieuKham.MaPhieuKham)
                     .Parameters.AddWithValue("@ma_thuoc", chiTietPhieuKham.MaThuoc)
+                    .Parameters.AddWithValue("@so_luong", chiTietPhieuKham.SoLuong)
                 End With
 
                 Try
@@ -75,6 +76,7 @@ Public Class ChiTietPhieuKhamDAL
         query &= "[ma_chi_tiet_phieu_kham] = @ma_chi_tiet_phieu_kham "
         query &= "[ma_phieu_kham] = @ma_phieu_kham "
         query &= "[ma_thuoc] = @ma_thuoc "
+        query &= "[so_luong] = @so_luong "
         query &= "WHERE [ma_chi_tiet_phieu_kham] = @ma_chi_tiet_phieu_kham "
 
         Using conn As New SqlConnection(connectionString)
@@ -86,6 +88,7 @@ Public Class ChiTietPhieuKhamDAL
                     .Parameters.AddWithValue("@ma_chi_tiet_phieu_kham", chiTietPhieuKham.MaChiTietPhieuKham)
                     .Parameters.AddWithValue("@ma_phieu_kham", chiTietPhieuKham.MaPhieuKham)
                     .Parameters.AddWithValue("@ma_thuoc", chiTietPhieuKham.MaThuoc)
+                    .Parameters.AddWithValue("@so_luong", chiTietPhieuKham.SoLuong)
                 End With
 
                 Try
@@ -221,7 +224,7 @@ Public Class ChiTietPhieuKhamDAL
                         listChiTietPK.Clear()
                         While reader.Read()
                             listChiTietPK.Add(New ChiTietPhieuKhamDTO(reader("ma_chi_tiet_phieu_kham"), reader("ma_phieu_kham"),
-                                                                      reader("ma_thuoc")))
+                                                                      reader("ma_thuoc"), reader("so_luong")))
                         End While
                     End If
 
