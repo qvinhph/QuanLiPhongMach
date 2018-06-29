@@ -1,9 +1,39 @@
-﻿Public Class frmPhieuKhamBenh
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+﻿Imports QLPMBUS
+Imports QLPMDTO
+Imports Utility
 
+Public Class frmPhieuKhamBenh
+
+    Private loaiBenhBUS As LoaiBenhBUS
+    Private danhSachKhamBUS As DanhSachKhamBUS
+
+    Private Sub frmPhieuKhamBenh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        loaiBenhBUS = New LoaiBenhBUS()
+        danhSachKhamBUS = New DanhSachKhamBUS()
+
+        'Load list of LoaiBenh to combobox
+        Dim listLoaiBenh = New List(Of LoaiBenhDTO)
+        Dim result As Result
+        result = loaiBenhBUS.SelectAll(listLoaiBenh)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách loại bệnh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+
+        cbLoaiBenh.DataSource = New BindingSource(listLoaiBenh, String.Empty)
+        cbLoaiBenh.DisplayMember = "LoaiBenh"
+        cbLoaiBenh.ValueMember = "MaLoaiBenh"
+
+        'Load list of BenhNhan in the day to combobox
+        'Get MaDanhSach of the current day
+        Dim currentDay = dtpNgayKham.Value
+        Dim listDanhSachKham = New List(Of DanhSachKhamDTO)
+        danhSachKhamBUS.SelectAll(listDanhSachKham)
+        Dim currentMaDanhSach = (From danhSach In listDanhSachKham
+                                 Where danhSach.NgayKham = currentDay
+                                 Select danhSach.NgayKham).First()
     End Sub
 
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles tlpDanhSachThuoc.Paint
-
-    End Sub
 End Class

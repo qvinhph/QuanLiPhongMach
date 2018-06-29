@@ -17,4 +17,13 @@ Public Class frmTest
         Dim lapdskham As frmLapDanhSachKham = New frmLapDanhSachKham()
         lapdskham.Show()
     End Sub
+
+    Private Sub frmTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim lapdskham As frmPhieuKhamBenh = New frmPhieuKhamBenh()
+        lapdskham.Show()
+    End Sub
 End Class
