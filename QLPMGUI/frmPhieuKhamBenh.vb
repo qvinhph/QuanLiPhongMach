@@ -6,11 +6,13 @@ Public Class frmPhieuKhamBenh
 
     Private loaiBenhBUS As LoaiBenhBUS
     Private danhSachKhamBUS As DanhSachKhamBUS
+    Private chiTietDanhSachBUS As ChiTietDanhSachBUS
 
     Private Sub frmPhieuKhamBenh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         loaiBenhBUS = New LoaiBenhBUS()
         danhSachKhamBUS = New DanhSachKhamBUS()
+        chiTietDanhSachBUS = New ChiTietDanhSachBUS()
 
         'Load list of LoaiBenh to combobox
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
@@ -27,13 +29,22 @@ Public Class frmPhieuKhamBenh
         cbLoaiBenh.ValueMember = "MaLoaiBenh"
 
         'Load list of BenhNhan in the day to combobox
-        'Get MaDanhSach of the current day
+        ''Get MaDanhSach of the current day
         Dim currentDay = dtpNgayKham.Value
         Dim listDanhSachKham = New List(Of DanhSachKhamDTO)
         danhSachKhamBUS.SelectAll(listDanhSachKham)
         Dim currentMaDanhSach = (From danhSach In listDanhSachKham
                                  Where danhSach.NgayKham = currentDay
                                  Select danhSach.NgayKham).First()
+
+        ''Get list of BenhNhan in the day
+        Dim listChiTietDanhSach = New List(Of ChiTietDanhSachDTO)
+        chiTietDanhSachBUS.SelectAll_MaDanhSach(currentMaDanhSach, listChiTietDanhSach)
+        Dim allBenhNhan = New List(Of BenhnhanDTO)
+        'benhnh
+
+
+
     End Sub
 
 End Class

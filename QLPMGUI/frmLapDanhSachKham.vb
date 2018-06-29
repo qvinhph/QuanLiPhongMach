@@ -24,7 +24,7 @@ Public Class frmLapDanhSachKham
         Benhnhan.Gioitinh = cbGioitinh.Text
 
         '2. Business .....
-        If (bnBus.isValidName(Benhnhan) = False) Then
+        If (bnBus.IsValidName(Benhnhan) = False) Then
             MessageBox.Show("Họ tên bệnh nhân không đúng")
             txtHoTen.Focus()
             Return
@@ -71,11 +71,11 @@ Public Class frmLapDanhSachKham
 
 
         'Dim result As Result
-        'result = bnBus.insert(Benhnhan)
+        'result = bnBus.Insert(Benhnhan)
         'If (result.FlagResult = True) Then
         '    MessageBox.Show("Thêm độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
         '    Dim nextMsbn = "1"
-        '    result = bnBus.buildMSBN(nextMsbn)
+        '    result = bnBus.BuildID(nextMsbn)
         '    If (result.FlagResult = False) Then
         '        MessageBox.Show("Lấy danh tự động mã độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         '        Me.Close()
@@ -110,7 +110,7 @@ Public Class frmLapDanhSachKham
         bnBus = New BenhNhanBUS()
         Dim result
         Dim nextMsbn = "1"
-        result = bnBus.buildMSBN(nextMsbn)
+        result = bnBus.BuildID(nextMsbn)
         If (result.FlagResult = False) Then
             MessageBox.Show("Lấy danh sách tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
@@ -262,12 +262,12 @@ Public Class frmLapDanhSachKham
         For Each benhnhan In List_BenhNhan
 
             Dim result As Result
-            result = bnBus.insert(benhnhan)
+            result = bnBus.Insert(benhnhan)
             If (result.FlagResult = True) Then
                 countadded = countadded + 1
 
                 Dim nextMsbn = "1"
-                result = bnBus.buildMSBN(nextMsbn)
+                result = bnBus.BuildID(nextMsbn)
                 If (result.FlagResult = False) Then
                     MessageBox.Show("Lấy danh tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.Close()

@@ -31,7 +31,7 @@ Public Class DanhSachKhamBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return danhSachKhamDAL.Insert(danhSachKham)
 
     End Function
@@ -40,7 +40,7 @@ Public Class DanhSachKhamBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return danhSachKhamDAL.Update(danhSachKham)
 
     End Function
@@ -49,7 +49,7 @@ Public Class DanhSachKhamBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return danhSachKhamDAL.Delete(maDanhSachKham)
 
     End Function
@@ -65,7 +65,7 @@ Public Class DanhSachKhamBUS
     Public Function SelectAll(ByRef listDSKham As List(Of DanhSachKhamDTO)) As Result
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return danhSachKhamDAL.SelectAll(listDSKham)
     End Function
 

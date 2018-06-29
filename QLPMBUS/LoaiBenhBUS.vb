@@ -30,7 +30,7 @@ Public Class LoaiBenhBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return loaiBenhDAL.Insert(loaiBenh)
 
     End Function
@@ -39,7 +39,7 @@ Public Class LoaiBenhBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return loaiBenhDAL.Update(loaiBenh)
 
     End Function
@@ -48,7 +48,7 @@ Public Class LoaiBenhBUS
 
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return loaiBenhDAL.Delete(maLoaiBenh)
 
     End Function
@@ -64,7 +64,7 @@ Public Class LoaiBenhBUS
     Public Function SelectAll(ByRef listLoaiBenh As List(Of LoaiBenhDTO)) As Result
         '1. verify data here!!
 
-        '2. insert to DB
+        '2. Insert to DB
         Return loaiBenhDAL.SelectAll(listLoaiBenh)
     End Function
 

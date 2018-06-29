@@ -63,6 +63,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietDanhSachBUS.vb" />
     <Compile Include="DanhSachKhamBUS.vb" />
     <Compile Include="LoaiBenhBUS.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
