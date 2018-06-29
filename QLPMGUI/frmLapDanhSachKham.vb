@@ -222,8 +222,6 @@ Public Class frmLapDanhSachKham
         count = 0
         For Each benhnhan In List_BenhNhan
 
-
-
             Dim result As Result
             result = bnBus.insert(benhnhan)
             If (result.FlagResult = True) Then
@@ -243,6 +241,7 @@ Public Class frmLapDanhSachKham
             End If
 
         Next
+        List_BenhNhan.Clear()
         MessageBox.Show("Thêm " & count & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         For Each lvItem In List_Items_Added
