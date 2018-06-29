@@ -5,6 +5,9 @@ Imports Utility
 Public Class frmLapDanhSachKham
 
     Private bnBus As BenhNhanBUS
+    Dim List_BenhNhan As New List(Of BenhnhanDTO)
+    'Public List_Items_Added As List(Of ListViewItem)
+    Dim List_Items_Added As New List(Of ListViewItem)
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
@@ -30,6 +33,7 @@ Public Class frmLapDanhSachKham
 
         '3. Insert to Listview
         Dim lvItem As ListViewItem
+        CreateListView()
         lvItem = lvBenhNhan.Items.Add(txtHoTen.Text)
         lvItem.SubItems.Add(txtMaSo.Text)
         lvItem.SubItems.Add(txtDiaChi.Text)
@@ -37,6 +41,8 @@ Public Class frmLapDanhSachKham
         lvItem.SubItems.Add(cbGioitinh.Text)
         lvItem.SubItems.Add(dtpNgayKham.Value)
 
+        List_BenhNhan.Add(Benhnhan)
+        List_Items_Added.Add(lvItem)
 
         '4. Auto generate next patient id
 
@@ -79,6 +85,14 @@ Public Class frmLapDanhSachKham
 
     End Sub
 
+    Private Sub CreateListView()
+        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 60, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Mã số", 50, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Địa Chỉ", 130, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Ngày Sinh", 100, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Giới Tính", 70, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Ngày Khám", 100, HorizontalAlignment.Center)
+    End Sub
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         dtpNgayKham.Value = Date.Today()
@@ -97,43 +111,10 @@ Public Class frmLapDanhSachKham
         txtMaSo.Text = nextMsbn
 
         '
-        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 60, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Mã số", 50, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Địa Chỉ", 130, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Ngày Sinh", 100, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Giới Tính", 70, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Ngày Khám", 100, HorizontalAlignment.Center)
 
 
 
-    End Sub
-    Private Sub btnNhapVaDong_Click(sender As Object, e As EventArgs)
-        Dim Benhnhan As BenhnhanDTO
-        Benhnhan = New BenhnhanDTO()
 
-        '1. Mapping data from GUI control
-        Benhnhan.MSBN = txtMaSo.Text
-        Benhnhan.HoTen = txtHoTen.Text
-        Benhnhan.DiaChi = txtDiaChi.Text
-        Benhnhan.NgaySinh = dtpNgaySinh.Value
-
-
-        '2. Business .....
-        If (bnBus.isValidName(Benhnhan) = False) Then
-            MessageBox.Show("Họ tên độc giả không đúng")
-            txtHoTen.Focus()
-            Return
-        End If
-        '3. Insert to DB
-        Dim result As Result
-        result = bnBus.insert(Benhnhan)
-        If (result.FlagResult = True) Then
-            MessageBox.Show("Thêm độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Close()
-        Else
-            MessageBox.Show("Thêm độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
-        End If
     End Sub
 
     Private Sub txtDiaChi_TextChanged(sender As Object, e As EventArgs) Handles txtDiaChi.TextChanged
@@ -233,5 +214,28 @@ Public Class frmLapDanhSachKham
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Application.Exit()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        For Each benhnhan In List_BenhNhan
+
+            Dim result As Result
+            result = bnBus.insert(benhnhan)
+            If (result.FlagResult = True) Then
+                MessageBox.Show("Thêm độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim nextMsbn = "1"
+                result = bnBus.buildMSBN(nextMsbn)
+                If (result.FlagResult = False) Then
+                    MessageBox.Show("Lấy danh tự động mã độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.Close()
+                    Return
+                End If
+
+            Else
+                MessageBox.Show("Thêm đọc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                System.Console.WriteLine(result.SystemMessage)
+            End If
+
+        Next
     End Sub
 End Class

@@ -18,11 +18,11 @@ Public Class BenhNhanBUS
 
         Return True
     End Function
-    Public Function insert(dg As BenhnhanDTO) As Result
+    Public Function insert(bn As BenhnhanDTO) As Result
         '1. verify data here!!
 
         '2. insert to DB
-        Return bnDAL.Insert(dg)
+        Return bnDAL.Insert(bn)
     End Function
 
 
