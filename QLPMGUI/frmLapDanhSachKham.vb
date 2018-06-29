@@ -58,9 +58,11 @@ Public Class frmLapDanhSachKham
         txtMaSo.Text = "BN" + strNextNumberID
         MessageBox.Show("Đã thêm một bệnh nhân!")
         txtHoTen.Focus()
+        txtHoTen.Clear()
+        txtDiaChi.Clear()
+        cbGioitinh.SelectedIndex = 0
 
-
-
+        Button2.Visible = True
 
 
 
@@ -228,10 +230,26 @@ Public Class frmLapDanhSachKham
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+
+        Dim bnTemp As Integer
+        bnTemp = lvBenhNhan.SelectedIndices(0)
+
+        txtHoTen.Text = List_BenhNhan(bnTemp).HoTen
+        txtDiaChi.Text = List_BenhNhan(bnTemp).DiaChi
+        txtMaSo.Text = List_BenhNhan(bnTemp).MSBN
+        cbGioitinh.Text = List_BenhNhan(bnTemp).Gioitinh
+        dtpNgayKham.Value = List_BenhNhan(bnTemp).NgayKham
+        dtpNgaySinh.Value = List_BenhNhan(bnTemp).NgaySinh
+
+        lvBenhNhan.Items.RemoveAt(bnTemp)
+
+
     End Sub
 
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
         Button4.Visible = True
+        Button1.Visible = True
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

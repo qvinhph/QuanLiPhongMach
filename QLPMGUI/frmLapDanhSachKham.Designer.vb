@@ -219,7 +219,7 @@ Partial Class frmLapDanhSachKham
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label11.Location = New System.Drawing.Point(758, 0)
+        Me.Label11.Location = New System.Drawing.Point(771, 0)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(22, 30)
@@ -247,6 +247,7 @@ Partial Class frmLapDanhSachKham
         Me.Button1.TabIndex = 54
         Me.Button1.Text = "Cập nhật"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Button2
         '
@@ -260,6 +261,7 @@ Partial Class frmLapDanhSachKham
         Me.Button2.TabIndex = 55
         Me.Button2.Text = "Lưu"
         Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'Button3
         '
@@ -295,7 +297,7 @@ Partial Class frmLapDanhSachKham
         Me.Panel2.Controls.Add(Me.txtMaSo)
         Me.Panel2.Location = New System.Drawing.Point(267, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(473, 298)
+        Me.Panel2.Size = New System.Drawing.Size(497, 298)
         Me.Panel2.TabIndex = 57
         '
         'dtpNgayKham
