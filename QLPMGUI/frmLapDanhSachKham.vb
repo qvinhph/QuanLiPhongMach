@@ -44,6 +44,7 @@ Public Class frmLapDanhSachKham
         List_BenhNhan.Add(Benhnhan)
         List_Items_Added.Add(lvItem)
 
+
         '4. Auto generate next patient id
 
 

@@ -5,7 +5,7 @@
     Private strHoten As String
     Private strDiaChi As String
     Private dateNgaySinh As DateTime
-    Private strNgayKham As String
+    Private dateNgayKham As String
     Private strGioiTinh As String
 #End Region
 
@@ -14,12 +14,12 @@
 
     Public Sub New()
     End Sub
-    Public Sub New(strMSBN As String, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, strNgayKham As String, strGioiTinh As String)
+    Public Sub New(strMSBN As String, strHoten As String, strDiaChi As String, dateNgaySinh As DateTime, dateNgayKham As Date, strGioiTinh As String)
         MSBN = strMSBN
         HoTen = strHoten
         DiaChi = strDiaChi
         NgaySinh = dateNgaySinh
-        NgayKham = strNgayKham
+        NgayKham = dateNgayKham
         Gioitinh = strGioiTinh
     End Sub
 #End Region
@@ -60,12 +60,12 @@
         End Set
     End Property
 
-    Property NgayKham() As String
+    Property NgayKham() As Date
         Get
-            Return strNgayKham
+            Return dateNgayKham
         End Get
-        Set(ByVal Value As String)
-            strNgayKham = Value
+        Set(ByVal Value As Date)
+            dateNgayKham = Value
         End Set
     End Property
 

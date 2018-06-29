@@ -35,10 +35,9 @@ Public Class BenhNhanDAL
         Dim query As String = String.Empty
         query &= "INSERT INTO [tblbenh_nhan] ([ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham])"
         query &= "VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @nam_sinh, @dia_chi, @ngay_kham) "
-         
-        Dim nextID = Nothing
-        nextID = BuildID(nextID)
-        benhNhan.MSBN = nextID
+
+        'Dim nextID = Nothing
+        'benhNhan.MSBN = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
