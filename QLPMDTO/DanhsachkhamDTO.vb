@@ -17,7 +17,7 @@
 #End Region
 
 #Region "Property"
-    Property MaDanhSach() As String
+    Public Property MaDanhSach() As String
         Get
             Return strMaDanhSach
         End Get
@@ -25,12 +25,13 @@
             strMaDanhSach = Value
         End Set
     End Property
-    Property NgayKham() As Date
+
+    Public Property NgayKham As Date
         Get
             Return dateNgayKham
         End Get
-        Set(ByVal Value As Date)
-            dateNgayKham = Value
+        Set(value As Date)
+            dateNgayKham = value
         End Set
     End Property
 

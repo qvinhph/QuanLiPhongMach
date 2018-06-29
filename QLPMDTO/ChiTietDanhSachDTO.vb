@@ -41,11 +41,11 @@
         End Set
     End Property
 
-    Public Property MaBenhNhan As Date
+    Public Property MaBenhNhan As String
         Get
             Return strMaBenhNhan
         End Get
-        Set(value As Date)
+        Set(value As String)
             strMaBenhNhan = value
         End Set
     End Property

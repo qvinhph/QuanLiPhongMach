@@ -5,7 +5,7 @@ Imports Utility
 Public Class frmLapDanhSachKham
 
     Private bnBus As BenhNhanBUS
-    Dim List_BenhNhan As New List(Of BenhnhanDTO)
+    Dim List_BenhNhan As New List(Of BenhNhanDTO)
     Dim List_Items_Added As New List(Of ListViewItem)
 
     Dim count As Integer
@@ -16,16 +16,15 @@ Public Class frmLapDanhSachKham
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
-        Dim Benhnhan As BenhnhanDTO
-        Benhnhan = New BenhnhanDTO()
+        Dim Benhnhan As BenhNhanDTO
+        Benhnhan = New BenhNhanDTO()
 
         '1. Mapping data from GUI control
-        Benhnhan.MSBN = txtMaSo.Text
+        Benhnhan.MaBenhNhan = txtMaSo.Text
         Benhnhan.HoTen = txtHoTen.Text
         Benhnhan.DiaChi = txtDiaChi.Text
         Benhnhan.NgaySinh = dtpNgaySinh.Value
-        Benhnhan.NgayKham = dtpNgayKham.Text
-        Benhnhan.Gioitinh = cbGioitinh.Text
+        Benhnhan.GioiTinh = cbGioitinh.Text
 
         '2. Business .....
         If (bnBus.IsValidName(Benhnhan) = False) Then
@@ -262,7 +261,7 @@ Public Class frmLapDanhSachKham
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
         If lvBenhNhan.SelectedItems.Count > 0 Then
             bnTemp = lvBenhNhan.SelectedIndices(0)
-            txtMaSo.Text = List_BenhNhan(bnTemp).MSBN
+            txtMaSo.Text = List_BenhNhan(bnTemp).MaBenhNhan
             Button4.Visible = True
             Button1.Visible = True
 
@@ -273,7 +272,7 @@ Public Class frmLapDanhSachKham
         'txtHoTen.Text = List_BenhNhan(bnTemp).HoTen
         'txtDiaChi.Text = List_BenhNhan(bnTemp).DiaChi
 
-        'cbGioitinh.Text = List_BenhNhan(bnTemp).Gioitinh
+        'cbGioitinh.Text = List_BenhNhan(bnTemp).GioiTinh
         'dtpNgayKham.Value = List_BenhNhan(bnTemp).NgayKham
         'dtpNgaySinh.Value = List_BenhNhan(bnTemp).NgaySinh
 

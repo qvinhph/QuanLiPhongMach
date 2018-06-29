@@ -30,10 +30,10 @@ Partial Class frmPhieuKhamBenh
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.cbLoaiBenh = New System.Windows.Forms.ComboBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.tbDiaChi = New System.Windows.Forms.TextBox()
         Me.lbDiaChi = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tbNamSinh = New System.Windows.Forms.TextBox()
+        Me.tbGioiTinh = New System.Windows.Forms.TextBox()
         Me.lbNamSinh = New System.Windows.Forms.Label()
         Me.lbGioiTinh = New System.Windows.Forms.Label()
         Me.cbBenhNhan = New System.Windows.Forms.ComboBox()
@@ -43,8 +43,13 @@ Partial Class frmPhieuKhamBenh
         Me.lbTrieuChung = New System.Windows.Forms.Label()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lbBenhNhan = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button3
@@ -106,10 +111,10 @@ Partial Class frmPhieuKhamBenh
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.cbLoaiBenh)
-        Me.Panel2.Controls.Add(Me.TextBox3)
+        Me.Panel2.Controls.Add(Me.tbDiaChi)
         Me.Panel2.Controls.Add(Me.lbDiaChi)
-        Me.Panel2.Controls.Add(Me.TextBox2)
-        Me.Panel2.Controls.Add(Me.TextBox1)
+        Me.Panel2.Controls.Add(Me.tbNamSinh)
+        Me.Panel2.Controls.Add(Me.tbGioiTinh)
         Me.Panel2.Controls.Add(Me.lbNamSinh)
         Me.Panel2.Controls.Add(Me.lbGioiTinh)
         Me.Panel2.Controls.Add(Me.cbBenhNhan)
@@ -121,7 +126,7 @@ Partial Class frmPhieuKhamBenh
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.lbBenhNhan)
         Me.Panel2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(250, 12)
+        Me.Panel2.Location = New System.Drawing.Point(239, 12)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(538, 370)
         Me.Panel2.TabIndex = 62
@@ -134,45 +139,54 @@ Partial Class frmPhieuKhamBenh
         Me.cbLoaiBenh.Size = New System.Drawing.Size(324, 28)
         Me.cbLoaiBenh.TabIndex = 70
         '
-        'TextBox3
+        'tbDiaChi
         '
-        Me.TextBox3.Location = New System.Drawing.Point(203, 167)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(324, 27)
-        Me.TextBox3.TabIndex = 69
+        Me.tbDiaChi.BackColor = System.Drawing.SystemColors.Control
+        Me.tbDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbDiaChi.Location = New System.Drawing.Point(203, 166)
+        Me.tbDiaChi.Name = "tbDiaChi"
+        Me.tbDiaChi.ReadOnly = True
+        Me.tbDiaChi.Size = New System.Drawing.Size(324, 27)
+        Me.tbDiaChi.TabIndex = 69
         '
         'lbDiaChi
         '
         Me.lbDiaChi.AutoSize = True
         Me.lbDiaChi.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDiaChi.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbDiaChi.Location = New System.Drawing.Point(95, 163)
+        Me.lbDiaChi.Location = New System.Drawing.Point(84, 162)
         Me.lbDiaChi.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbDiaChi.Name = "lbDiaChi"
         Me.lbDiaChi.Size = New System.Drawing.Size(78, 28)
         Me.lbDiaChi.TabIndex = 68
         Me.lbDiaChi.Text = "Địa Chỉ:"
         '
-        'TextBox2
+        'tbNamSinh
         '
-        Me.TextBox2.Location = New System.Drawing.Point(452, 114)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(75, 27)
-        Me.TextBox2.TabIndex = 67
+        Me.tbNamSinh.BackColor = System.Drawing.SystemColors.Control
+        Me.tbNamSinh.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbNamSinh.Location = New System.Drawing.Point(441, 113)
+        Me.tbNamSinh.Name = "tbNamSinh"
+        Me.tbNamSinh.ReadOnly = True
+        Me.tbNamSinh.Size = New System.Drawing.Size(86, 27)
+        Me.tbNamSinh.TabIndex = 67
         '
-        'TextBox1
+        'tbGioiTinh
         '
-        Me.TextBox1.Location = New System.Drawing.Point(203, 114)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(91, 27)
-        Me.TextBox1.TabIndex = 66
+        Me.tbGioiTinh.BackColor = System.Drawing.SystemColors.Control
+        Me.tbGioiTinh.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbGioiTinh.Location = New System.Drawing.Point(203, 113)
+        Me.tbGioiTinh.Name = "tbGioiTinh"
+        Me.tbGioiTinh.ReadOnly = True
+        Me.tbGioiTinh.Size = New System.Drawing.Size(80, 27)
+        Me.tbGioiTinh.TabIndex = 66
         '
         'lbNamSinh
         '
         Me.lbNamSinh.AutoSize = True
         Me.lbNamSinh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbNamSinh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbNamSinh.Location = New System.Drawing.Point(344, 114)
+        Me.lbNamSinh.Location = New System.Drawing.Point(333, 113)
         Me.lbNamSinh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbNamSinh.Name = "lbNamSinh"
         Me.lbNamSinh.Size = New System.Drawing.Size(101, 28)
@@ -184,7 +198,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbGioiTinh.AutoSize = True
         Me.lbGioiTinh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbGioiTinh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbGioiTinh.Location = New System.Drawing.Point(95, 114)
+        Me.lbGioiTinh.Location = New System.Drawing.Point(84, 113)
         Me.lbGioiTinh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbGioiTinh.Name = "lbGioiTinh"
         Me.lbGioiTinh.Size = New System.Drawing.Size(94, 28)
@@ -246,9 +260,12 @@ Partial Class frmPhieuKhamBenh
         '
         'dtpNgayKham
         '
+        Me.dtpNgayKham.CustomFormat = "dd - MM - yyyy"
         Me.dtpNgayKham.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpNgayKham.Location = New System.Drawing.Point(203, 23)
         Me.dtpNgayKham.Name = "dtpNgayKham"
+        Me.dtpNgayKham.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtpNgayKham.Size = New System.Drawing.Size(324, 27)
         Me.dtpNgayKham.TabIndex = 57
         '
@@ -264,14 +281,59 @@ Partial Class frmPhieuKhamBenh
         Me.lbBenhNhan.TabIndex = 0
         Me.lbBenhNhan.Text = "Bệnh Nhân:"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(439, 479)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(183, 28)
+        Me.Label1.TabIndex = 71
+        Me.Label1.Text = "Dự Đoán Loại Bệnh:"
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(285, 426)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(399, 210)
+        Me.TabControl1.TabIndex = 72
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(391, 184)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(391, 184)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
         'frmPhieuKhamBenh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.ClientSize = New System.Drawing.Size(800, 696)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Panel2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPhieuKhamBenh"
@@ -280,6 +342,7 @@ Partial Class frmPhieuKhamBenh
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -296,12 +359,16 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents dtpNgayKham As DateTimePicker
     Friend WithEvents lbNgayKham As Label
     Friend WithEvents tbTrieuChung As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents tbDiaChi As TextBox
     Friend WithEvents lbDiaChi As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbNamSinh As TextBox
+    Friend WithEvents tbGioiTinh As TextBox
     Friend WithEvents lbNamSinh As Label
     Friend WithEvents lbGioiTinh As Label
     Friend WithEvents cbBenhNhan As ComboBox
     Friend WithEvents cbLoaiBenh As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
 End Class

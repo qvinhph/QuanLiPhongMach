@@ -30,14 +30,14 @@ Public Class BenhNhanDAL
 
 #Region "Insert/Update/Delete on database"
 
-    Public Function Insert(benhNhan As BenhnhanDTO) As Result
+    Public Function Insert(benhNhan As BenhNhanDTO) As Result
 
         Dim query As String = String.Empty
         query &= "INSERT INTO [tblbenh_nhan] ([ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi])"
         query &= "VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @nam_sinh, @dia_chi) "
 
         'Dim nextID = Nothing
-        'benhNhan.MSBN = nextID
+        'benhNhan.MaBenhNhan = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -45,9 +45,9 @@ Public Class BenhNhanDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MSBN)
+                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MaBenhNhan)
                     .Parameters.AddWithValue("@ho_ten", benhNhan.HoTen)
-                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
+                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.GioiTinh)
                     .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
                     .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
                 End With
@@ -69,7 +69,7 @@ Public Class BenhNhanDAL
 
     End Function
 
-    Public Function Update(benhNhan As BenhnhanDTO) As Result
+    Public Function Update(benhNhan As BenhNhanDTO) As Result
 
         Dim query As String = Nothing
         query &= "UPDATE [tblbenh_nhan] SET "
@@ -86,9 +86,9 @@ Public Class BenhNhanDAL
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MSBN)
+                    .Parameters.AddWithValue("@ma_benh_nhan", benhNhan.MaBenhNhan)
                     .Parameters.AddWithValue("@ho_ten", benhNhan.HoTen)
-                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
+                    .Parameters.AddWithValue("@gioi_tinh", benhNhan.GioiTinh)
                     .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
                     .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
                 End With
@@ -202,7 +202,7 @@ Public Class BenhNhanDAL
 
     End Function
 
-    Public Function SelectAll(ByRef listBenhNhan As List(Of BenhnhanDTO)) As Result
+    Public Function SelectAll(ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
 
         Dim query As String = Nothing
         query &= "SELECT * "
@@ -223,7 +223,7 @@ Public Class BenhNhanDAL
                     If reader.HasRows = True Then
                         listBenhNhan.Clear()
                         While reader.Read()
-                            listBenhNhan.Add(New BenhnhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("ngay_kham"), reader("gioi_tinh")))
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
                         End While
                     End If
 

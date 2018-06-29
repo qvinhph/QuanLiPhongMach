@@ -11,7 +11,7 @@ Public Class BenhNhanBUS
     '    bnDAL = New BenhNhanDAL(connectionString)
     'End Sub
 
-    'Public Function Insert(bn As BenhnhanDTO) As Result
+    'Public Function Insert(bn As BenhNhanDTO) As Result
     '    '1. verify data here!!
 
     '    '2. Insert to DB
@@ -46,7 +46,7 @@ Public Class BenhNhanBUS
 
 #Region "Insert/Update/Delete on database"
 
-    Public Function Insert(benhNhan As BenhnhanDTO) As Result
+    Public Function Insert(benhNhan As BenhNhanDTO) As Result
 
         '1. verify data here!!
 
@@ -55,7 +55,7 @@ Public Class BenhNhanBUS
 
     End Function
 
-    Public Function Update(benhNhan As BenhnhanDTO) As Result
+    Public Function Update(benhNhan As BenhNhanDTO) As Result
 
         '1. verify data here!!
 
@@ -81,14 +81,14 @@ Public Class BenhNhanBUS
 
     End Function
 
-    Public Function SelectAll(ByRef listBenhNhan As List(Of BenhnhanDTO)) As Result
+    Public Function SelectAll(ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
         '1. verify data here!!
 
         '2. Insert to DB
         Return benhNhanDAL.SelectAll(listBenhNhan)
     End Function
 
-    Public Function IsValidName(benhNhan As BenhnhanDTO) As Boolean
+    Public Function IsValidName(benhNhan As BenhNhanDTO) As Boolean
 
         If (benhNhan.HoTen.Length < 1) Then
             Return False
