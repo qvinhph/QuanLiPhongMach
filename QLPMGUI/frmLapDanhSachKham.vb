@@ -6,8 +6,9 @@ Public Class frmLapDanhSachKham
 
     Private bnBus As BenhNhanBUS
     Dim List_BenhNhan As New List(Of BenhnhanDTO)
-    'Public List_Items_Added As List(Of ListViewItem)
     Dim List_Items_Added As New List(Of ListViewItem)
+
+    Dim count As Integer
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
@@ -32,6 +33,8 @@ Public Class frmLapDanhSachKham
 
 
         '3. Insert to Listview
+
+        count = count + 1
         Dim lvItem As ListViewItem
         CreateListView()
         lvItem = lvBenhNhan.Items.Add(txtHoTen.Text)
@@ -95,6 +98,8 @@ Public Class frmLapDanhSachKham
         lvBenhNhan.Columns.Add("Ngày Khám", 100, HorizontalAlignment.Center)
     End Sub
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        count = 0
 
         dtpNgayKham.Value = Date.Today()
 
@@ -178,7 +183,22 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
-        Application.Exit()
+        If count = 0 Then
+            Application.Exit()
+        Else
+            Dim Answer As DialogResult = MessageBox.Show("Bạn chưa lưu, bạn có muốn lưu trước khi thoát không", "Data Check", MessageBoxButtons.YesNoCancel)
+            Select Case Answer
+                Case DialogResult.Yes
+                    Button2_Click(sender, e)
+                    Application.Exit()
+                Case DialogResult.No
+                    Application.Exit()
+                Case DialogResult.Cancel
+                    Exit Sub
+                Case Else
+                    Exit Sub
+            End Select
+        End If
     End Sub
 
     Private Sub Label6_Click_1(sender As Object, e As EventArgs)
@@ -214,18 +234,18 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Application.Exit()
+        Label11_Click_1(sender, e)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim count As Integer
-        count = 0
+        Dim countadded As Integer
+        countadded = 0
         For Each benhnhan In List_BenhNhan
 
             Dim result As Result
             result = bnBus.insert(benhnhan)
             If (result.FlagResult = True) Then
-                count = count + 1
+                countadded = countadded + 1
 
                 Dim nextMsbn = "1"
                 result = bnBus.buildMSBN(nextMsbn)
@@ -242,7 +262,8 @@ Public Class frmLapDanhSachKham
 
         Next
         List_BenhNhan.Clear()
-        MessageBox.Show("Thêm " & count & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Thêm " & countadded & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        count = 0
 
         For Each lvItem In List_Items_Added
             lvItem.Remove()

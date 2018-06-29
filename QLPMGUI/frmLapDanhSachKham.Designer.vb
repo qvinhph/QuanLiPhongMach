@@ -169,7 +169,7 @@ Partial Class frmLapDanhSachKham
         Me.btnNhap.BackgroundImage = CType(resources.GetObject("btnNhap.BackgroundImage"), System.Drawing.Image)
         Me.btnNhap.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNhap.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnNhap.Location = New System.Drawing.Point(97, 245)
+        Me.btnNhap.Location = New System.Drawing.Point(201, 245)
         Me.btnNhap.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnNhap.Name = "btnNhap"
         Me.btnNhap.Size = New System.Drawing.Size(71, 40)
@@ -252,7 +252,7 @@ Partial Class frmLapDanhSachKham
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(189, 246)
+        Me.Button2.Location = New System.Drawing.Point(280, 245)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(71, 40)
@@ -265,7 +265,7 @@ Partial Class frmLapDanhSachKham
         Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(273, 246)
+        Me.Button3.Location = New System.Drawing.Point(359, 245)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(110, 40)
