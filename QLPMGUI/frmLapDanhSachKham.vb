@@ -218,25 +218,37 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim count As Integer
+        count = 0
         For Each benhnhan In List_BenhNhan
+
+
 
             Dim result As Result
             result = bnBus.insert(benhnhan)
             If (result.FlagResult = True) Then
-                MessageBox.Show("Thêm độc giả thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                count = count + 1
+
                 Dim nextMsbn = "1"
                 result = bnBus.buildMSBN(nextMsbn)
                 If (result.FlagResult = False) Then
-                    MessageBox.Show("Lấy danh tự động mã độc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Lấy danh tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.Close()
                     Return
                 End If
 
             Else
-                MessageBox.Show("Thêm đọc giả không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Thêm bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 System.Console.WriteLine(result.SystemMessage)
             End If
 
         Next
+        MessageBox.Show("Thêm " & count & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        For Each lvItem In List_Items_Added
+            lvItem.Remove()
+        Next
+
+
     End Sub
 End Class

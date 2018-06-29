@@ -33,8 +33,8 @@ Public Class BenhNhanDAL
     Public Function Insert(benhNhan As BenhnhanDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblbenh_nhan] ([ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham])"
-        query &= "VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @nam_sinh, @dia_chi, @ngay_kham) "
+        query &= "INSERT INTO [tblbenh_nhan] ([ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi])"
+        query &= "VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @nam_sinh, @dia_chi) "
 
         'Dim nextID = Nothing
         'benhNhan.MSBN = nextID
@@ -50,7 +50,6 @@ Public Class BenhNhanDAL
                     .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
                     .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
                     .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
-                    .Parameters.AddWithValue("@ngay_kham", benhNhan.NgayKham)
                 End With
 
                 Try
@@ -79,7 +78,6 @@ Public Class BenhNhanDAL
         query &= "[gioi_tinh] = @gioi_tinh "
         query &= "[nam_sinh] = @nam_sinh "
         query &= "[dia_chi] = @dia_chi "
-        query &= "[ngay_kham] = @ngay_kham "
         query &= "WHERE [ma_benh_nhan] = @ma_benh_nhan "
 
         Using conn As New SqlConnection(connectionString)
@@ -93,7 +91,6 @@ Public Class BenhNhanDAL
                     .Parameters.AddWithValue("@gioi_tinh", benhNhan.Gioitinh)
                     .Parameters.AddWithValue("@nam_sinh", benhNhan.NgaySinh)
                     .Parameters.AddWithValue("@dia_chi", benhNhan.DiaChi)
-                    .Parameters.AddWithValue("@ngay_kham", benhNhan.NgayKham)
                 End With
 
                 Try
