@@ -25,7 +25,7 @@ Public Class frmLapDanhSachKham
 
         '2. Business .....
         If (bnBus.isValidName(Benhnhan) = False) Then
-            MessageBox.Show("Họ tên độc giả không đúng")
+            MessageBox.Show("Họ tên bệnh nhân không đúng")
             txtHoTen.Focus()
             Return
         End If
@@ -46,6 +46,7 @@ Public Class frmLapDanhSachKham
 
         List_BenhNhan.Add(Benhnhan)
         List_Items_Added.Add(lvItem)
+
 
 
         '4. Auto generate next patient id
@@ -230,7 +231,7 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
-
+        Button4.Visible = True
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -270,5 +271,18 @@ Public Class frmLapDanhSachKham
         Next
 
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If count = 0 Then
+            MessageBox.Show("Không thể xóa vì danh sách chưa có bệnh nhân nào")
+        ElseIf lvBenhNhan.SelectedItems.Count = 0 Then
+            MessageBox.Show("Bạn chưa chọn bệnh nhân để xóa")
+
+        Else
+            lvBenhNhan.Items.RemoveAt(lvBenhNhan.SelectedIndices(0))
+            MessageBox.Show("Đã xóa một bệnh nhân")
+            count = count - 1
+        End If
     End Sub
 End Class

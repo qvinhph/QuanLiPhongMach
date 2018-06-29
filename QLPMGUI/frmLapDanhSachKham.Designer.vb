@@ -46,6 +46,7 @@ Partial Class frmLapDanhSachKham
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lvBenhNhan = New System.Windows.Forms.ListView()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -242,7 +243,7 @@ Partial Class frmLapDanhSachKham
         Me.Button1.Location = New System.Drawing.Point(9, 245)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(71, 40)
+        Me.Button1.Size = New System.Drawing.Size(95, 40)
         Me.Button1.TabIndex = 54
         Me.Button1.Text = "Cập nhật"
         Me.Button1.UseVisualStyleBackColor = True
@@ -275,6 +276,7 @@ Partial Class frmLapDanhSachKham
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.dtpNgayKham)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Label8)
@@ -314,6 +316,20 @@ Partial Class frmLapDanhSachKham
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         Me.lvBenhNhan.View = System.Windows.Forms.View.Details
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button4.Location = New System.Drawing.Point(112, 245)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(81, 40)
+        Me.Button4.TabIndex = 58
+        Me.Button4.Text = "Xóa"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
         '
         'frmLapDanhSachKham
         '
@@ -365,4 +381,5 @@ Partial Class frmLapDanhSachKham
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lvBenhNhan As ListView
     Friend WithEvents dtpNgayKham As DateTimePicker
+    Friend WithEvents Button4 As Button
 End Class
