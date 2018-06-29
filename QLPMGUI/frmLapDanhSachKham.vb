@@ -9,6 +9,10 @@ Public Class frmLapDanhSachKham
     Dim List_Items_Added As New List(Of ListViewItem)
 
     Dim count As Integer
+    Dim countadded As Integer
+
+    Dim bnTemp
+
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
@@ -36,7 +40,7 @@ Public Class frmLapDanhSachKham
 
         count = count + 1
         Dim lvItem As ListViewItem
-        CreateListView()
+
         lvItem = lvBenhNhan.Items.Add(txtHoTen.Text)
         lvItem.SubItems.Add(txtMaSo.Text)
         lvItem.SubItems.Add(txtDiaChi.Text)
@@ -93,8 +97,8 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub CreateListView()
-        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 60, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Mã số", 50, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 100, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Mã số", 80, HorizontalAlignment.Center)
         lvBenhNhan.Columns.Add("Địa Chỉ", 130, HorizontalAlignment.Center)
         lvBenhNhan.Columns.Add("Ngày Sinh", 100, HorizontalAlignment.Center)
         lvBenhNhan.Columns.Add("Giới Tính", 70, HorizontalAlignment.Center)
@@ -102,6 +106,7 @@ Public Class frmLapDanhSachKham
     End Sub
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        countadded = 0
         count = 0
 
         dtpNgayKham.Value = Date.Today()
@@ -120,7 +125,7 @@ Public Class frmLapDanhSachKham
         txtMaSo.Text = nextMsbn
 
         '
-
+        CreateListView()
 
 
 
@@ -231,24 +236,48 @@ Public Class frmLapDanhSachKham
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-        Dim bnTemp As Integer
-        bnTemp = lvBenhNhan.SelectedIndices(0)
+        Dim index As ListViewItem
+        index = lvBenhNhan.SelectedItems(0)
+        index.Text = txtHoTen.Text
+        index.SubItems.Item(1).Text = txtMaSo.Text
+        index.SubItems.Item(2).Text = txtDiaChi.Text
+        index.SubItems.Item(3).Text = dtpNgaySinh.Value
+        index.SubItems.Item(4).Text = cbGioitinh.Text
+        index.SubItems.Item(5).Text = dtpNgayKham.Value
 
-        txtHoTen.Text = List_BenhNhan(bnTemp).HoTen
-        txtDiaChi.Text = List_BenhNhan(bnTemp).DiaChi
-        txtMaSo.Text = List_BenhNhan(bnTemp).MSBN
-        cbGioitinh.Text = List_BenhNhan(bnTemp).Gioitinh
-        dtpNgayKham.Value = List_BenhNhan(bnTemp).NgayKham
-        dtpNgaySinh.Value = List_BenhNhan(bnTemp).NgaySinh
+        Dim currentNumberID = Integer.Parse(txtMaSo.Text.Substring(2, 6)) + countadded + 1
+        Dim nextNumberID = currentNumberID + 1
+        Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
+        txtMaSo.Text = "BN" + strNextNumberID
+        MessageBox.Show("Đã cập nhật thông tin một bệnh nhân!")
+        txtHoTen.Focus()
+        txtHoTen.Clear()
+        txtDiaChi.Clear()
+        cbGioitinh.SelectedIndex = 0
 
-        lvBenhNhan.Items.RemoveAt(bnTemp)
-
+        Button1.Visible = False
 
     End Sub
 
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
-        Button4.Visible = True
-        Button1.Visible = True
+        If lvBenhNhan.SelectedItems.Count > 0 Then
+            bnTemp = lvBenhNhan.SelectedIndices(0)
+            txtMaSo.Text = List_BenhNhan(bnTemp).MSBN
+            Button4.Visible = True
+            Button1.Visible = True
+
+            bnTemp = vbNull
+        End If
+
+
+        'txtHoTen.Text = List_BenhNhan(bnTemp).HoTen
+        'txtDiaChi.Text = List_BenhNhan(bnTemp).DiaChi
+
+        'cbGioitinh.Text = List_BenhNhan(bnTemp).Gioitinh
+        'dtpNgayKham.Value = List_BenhNhan(bnTemp).NgayKham
+        'dtpNgaySinh.Value = List_BenhNhan(bnTemp).NgaySinh
+
+
 
     End Sub
 
@@ -257,8 +286,7 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim countadded As Integer
-        countadded = 0
+
         For Each benhnhan In List_BenhNhan
 
             Dim result As Result
