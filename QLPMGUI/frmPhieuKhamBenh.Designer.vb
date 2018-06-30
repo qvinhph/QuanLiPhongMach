@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmPhieuKhamBenh
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,18 @@ Partial Class frmPhieuKhamBenh
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPhieuKhamBenh))
-        Me.Button3 = New System.Windows.Forms.Button()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnPhieuKham = New System.Windows.Forms.Panel()
+        Me.themRow = New System.Windows.Forms.Button()
+        Me.btKeThuoc = New System.Windows.Forms.Button()
         Me.cbLoaiBenh = New System.Windows.Forms.ComboBox()
         Me.tbDiaChi = New System.Windows.Forms.TextBox()
         Me.lbDiaChi = New System.Windows.Forms.Label()
@@ -43,27 +46,16 @@ Partial Class frmPhieuKhamBenh
         Me.lbTrieuChung = New System.Windows.Forms.Label()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lbBenhNhan = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.pnThuoc = New System.Windows.Forms.Panel()
+        Me.btPhieuKham = New System.Windows.Forms.Button()
+        Me.dgvThuoc = New System.Windows.Forms.DataGridView()
+        Me.clSTT = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.clThuoc = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
+        Me.pnPhieuKham.SuspendLayout()
+        Me.pnThuoc.SuspendLayout()
+        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(417, 320)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(110, 40)
-        Me.Button3.TabIndex = 56
-        Me.Button3.Text = "Thoát"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -108,28 +100,55 @@ Partial Class frmPhieuKhamBenh
         Me.Label10.Size = New System.Drawing.Size(0, 13)
         Me.Label10.TabIndex = 59
         '
-        'Panel2
+        'pnPhieuKham
         '
-        Me.Panel2.Controls.Add(Me.cbLoaiBenh)
-        Me.Panel2.Controls.Add(Me.tbDiaChi)
-        Me.Panel2.Controls.Add(Me.lbDiaChi)
-        Me.Panel2.Controls.Add(Me.tbNamSinh)
-        Me.Panel2.Controls.Add(Me.tbGioiTinh)
-        Me.Panel2.Controls.Add(Me.lbNamSinh)
-        Me.Panel2.Controls.Add(Me.lbGioiTinh)
-        Me.Panel2.Controls.Add(Me.cbBenhNhan)
-        Me.Panel2.Controls.Add(Me.tbTrieuChung)
-        Me.Panel2.Controls.Add(Me.lbNgayKham)
-        Me.Panel2.Controls.Add(Me.lbLoaiBenh)
-        Me.Panel2.Controls.Add(Me.lbTrieuChung)
-        Me.Panel2.Controls.Add(Me.dtpNgayKham)
-        Me.Panel2.Controls.Add(Me.Button3)
-        Me.Panel2.Controls.Add(Me.lbBenhNhan)
-        Me.Panel2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(239, 12)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(538, 370)
-        Me.Panel2.TabIndex = 62
+        Me.pnPhieuKham.Controls.Add(Me.themRow)
+        Me.pnPhieuKham.Controls.Add(Me.btKeThuoc)
+        Me.pnPhieuKham.Controls.Add(Me.cbLoaiBenh)
+        Me.pnPhieuKham.Controls.Add(Me.tbDiaChi)
+        Me.pnPhieuKham.Controls.Add(Me.lbDiaChi)
+        Me.pnPhieuKham.Controls.Add(Me.tbNamSinh)
+        Me.pnPhieuKham.Controls.Add(Me.tbGioiTinh)
+        Me.pnPhieuKham.Controls.Add(Me.lbNamSinh)
+        Me.pnPhieuKham.Controls.Add(Me.lbGioiTinh)
+        Me.pnPhieuKham.Controls.Add(Me.cbBenhNhan)
+        Me.pnPhieuKham.Controls.Add(Me.tbTrieuChung)
+        Me.pnPhieuKham.Controls.Add(Me.lbNgayKham)
+        Me.pnPhieuKham.Controls.Add(Me.lbLoaiBenh)
+        Me.pnPhieuKham.Controls.Add(Me.lbTrieuChung)
+        Me.pnPhieuKham.Controls.Add(Me.dtpNgayKham)
+        Me.pnPhieuKham.Controls.Add(Me.lbBenhNhan)
+        Me.pnPhieuKham.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnPhieuKham.Location = New System.Drawing.Point(239, 12)
+        Me.pnPhieuKham.Name = "pnPhieuKham"
+        Me.pnPhieuKham.Size = New System.Drawing.Size(549, 370)
+        Me.pnPhieuKham.TabIndex = 62
+        '
+        'themRow
+        '
+        Me.themRow.BackgroundImage = CType(resources.GetObject("themRow.BackgroundImage"), System.Drawing.Image)
+        Me.themRow.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.themRow.ForeColor = System.Drawing.SystemColors.Control
+        Me.themRow.Location = New System.Drawing.Point(273, 320)
+        Me.themRow.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.themRow.Name = "themRow"
+        Me.themRow.Size = New System.Drawing.Size(110, 40)
+        Me.themRow.TabIndex = 72
+        Me.themRow.Text = "Thêm Cột"
+        Me.themRow.UseVisualStyleBackColor = True
+        '
+        'btKeThuoc
+        '
+        Me.btKeThuoc.BackgroundImage = CType(resources.GetObject("btKeThuoc.BackgroundImage"), System.Drawing.Image)
+        Me.btKeThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btKeThuoc.ForeColor = System.Drawing.SystemColors.Control
+        Me.btKeThuoc.Location = New System.Drawing.Point(417, 320)
+        Me.btKeThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btKeThuoc.Name = "btKeThuoc"
+        Me.btKeThuoc.Size = New System.Drawing.Size(110, 40)
+        Me.btKeThuoc.TabIndex = 71
+        Me.btKeThuoc.Text = "Kê Thuốc"
+        Me.btKeThuoc.UseVisualStyleBackColor = True
         '
         'cbLoaiBenh
         '
@@ -281,78 +300,100 @@ Partial Class frmPhieuKhamBenh
         Me.lbBenhNhan.TabIndex = 0
         Me.lbBenhNhan.Text = "Bệnh Nhân:"
         '
-        'Label1
+        'pnThuoc
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(439, 479)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(183, 28)
-        Me.Label1.TabIndex = 71
-        Me.Label1.Text = "Dự Đoán Loại Bệnh:"
+        Me.pnThuoc.Controls.Add(Me.btPhieuKham)
+        Me.pnThuoc.Location = New System.Drawing.Point(239, 12)
+        Me.pnThuoc.Name = "pnThuoc"
+        Me.pnThuoc.Size = New System.Drawing.Size(549, 370)
+        Me.pnThuoc.TabIndex = 63
         '
-        'TabControl1
+        'btPhieuKham
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(285, 426)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(399, 210)
-        Me.TabControl1.TabIndex = 72
+        Me.btPhieuKham.BackgroundImage = CType(resources.GetObject("btPhieuKham.BackgroundImage"), System.Drawing.Image)
+        Me.btPhieuKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btPhieuKham.ForeColor = System.Drawing.SystemColors.Control
+        Me.btPhieuKham.Location = New System.Drawing.Point(359, 320)
+        Me.btPhieuKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btPhieuKham.Name = "btPhieuKham"
+        Me.btPhieuKham.Size = New System.Drawing.Size(186, 40)
+        Me.btPhieuKham.TabIndex = 72
+        Me.btPhieuKham.Text = "Thông Tin Phiếu Khám"
+        Me.btPhieuKham.UseVisualStyleBackColor = True
         '
-        'TabPage1
+        'dgvThuoc
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(391, 184)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvThuoc.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvThuoc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.clSTT, Me.clThuoc})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvThuoc.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvThuoc.GridColor = System.Drawing.SystemColors.Control
+        Me.dgvThuoc.Location = New System.Drawing.Point(239, 388)
+        Me.dgvThuoc.Name = "dgvThuoc"
+        Me.dgvThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvThuoc.Size = New System.Drawing.Size(549, 296)
+        Me.dgvThuoc.TabIndex = 64
         '
-        'TabPage2
+        'clSTT
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(391, 184)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.clSTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.clSTT.HeaderText = "STT"
+        Me.clSTT.Name = "clSTT"
+        Me.clSTT.ReadOnly = True
+        Me.clSTT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.clSTT.Width = 58
+        '
+        'clThuoc
+        '
+        Me.clThuoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.clThuoc.HeaderText = "Thuốc"
+        Me.clThuoc.Name = "clThuoc"
+        Me.clThuoc.Width = 135
         '
         'frmPhieuKhamBenh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
-        Me.ClientSize = New System.Drawing.Size(800, 696)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(797, 696)
+        Me.Controls.Add(Me.dgvThuoc)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.pnPhieuKham)
+        Me.Controls.Add(Me.pnThuoc)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPhieuKhamBenh"
         Me.Text = "frmPhieuKhamBenh"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
+        Me.pnPhieuKham.ResumeLayout(False)
+        Me.pnPhieuKham.PerformLayout()
+        Me.pnThuoc.ResumeLayout(False)
+        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button3 As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label10 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnPhieuKham As Panel
     Friend WithEvents lbBenhNhan As Label
     Friend WithEvents lbLoaiBenh As Label
     Friend WithEvents lbTrieuChung As Label
@@ -367,8 +408,11 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents lbGioiTinh As Label
     Friend WithEvents cbBenhNhan As ComboBox
     Friend WithEvents cbLoaiBenh As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents btKeThuoc As Button
+    Friend WithEvents pnThuoc As Panel
+    Friend WithEvents btPhieuKham As Button
+    Friend WithEvents dgvThuoc As DataGridView
+    Friend WithEvents themRow As Button
+    Friend WithEvents clSTT As DataGridViewTextBoxColumn
+    Friend WithEvents clThuoc As DataGridViewComboBoxColumn
 End Class

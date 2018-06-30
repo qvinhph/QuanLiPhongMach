@@ -1,6 +1,7 @@
 ﻿Imports QLPMBUS
 Imports QLPMDTO
 Imports Utility
+Imports System.Windows.Forms
 
 Public Class frmPhieuKhamBenh
 
@@ -39,11 +40,10 @@ Public Class frmPhieuKhamBenh
         danhSachKhamBUS.SelectAll(listDanhSachKham)
 
         Dim currentMaDanhSach = String.Empty
-        If (listDanhSachKham.Count > 0) Then
-            currentMaDanhSach = (From danhSach In listDanhSachKham
-                                 Where danhSach.NgayKham.ToString("d") = currentDay
-                                 Select danhSach.MaDanhSach).First()
-        End If
+        currentMaDanhSach = (From danhSach In listDanhSachKham
+                             Where danhSach.NgayKham.ToString("d") = currentDay
+                             Select danhSach.MaDanhSach).FirstOrDefault()
+
 
 
         ''Get list of BenhNhan in the day
@@ -66,9 +66,20 @@ Public Class frmPhieuKhamBenh
                                         }).ToList()
 
         ''Load the list of BenhNhan to combobox
-        cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
+        'cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
+        cbBenhNhan.DataSource = listBenhNhanInTheDay
         cbBenhNhan.DisplayMember = "HoTen"
         cbBenhNhan.ValueMember = "MaBenhNhan"
+
+        'DataGridView
+        Dim listThuoc = New List(Of String)
+        listThuoc.Add("d")
+        listThuoc.Add("c")
+        Dim cbThuoc = New DataGridViewComboBoxColumn()
+        cbThuoc.DataSource = listThuoc
+        'cbThuoc.DisplayMember = "Key"
+        'cbThuoc.ValueMember = "Value"
+        dgvThuoc.Columns.Add(cbThuoc)
 
     End Sub
 
@@ -139,7 +150,17 @@ Public Class frmPhieuKhamBenh
 
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
-
+    Private Sub btKeThuoc_Click(sender As Object, e As EventArgs) Handles btKeThuoc.Click
+        pnThuoc.BringToFront()
     End Sub
+
+    Private Sub btPhieuKham_Click(sender As Object, e As EventArgs) Handles btPhieuKham.Click
+        pnPhieuKham.BringToFront()
+    End Sub
+
+    Private Sub themRow_Click(sender As Object, e As EventArgs) Handles themRow.Click
+        dgvThuoc.Rows.Add()
+    End Sub
+
+
 End Class
