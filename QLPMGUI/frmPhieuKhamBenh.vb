@@ -24,6 +24,7 @@ Public Class frmPhieuKhamBenh
         donViBus = New DonViBUS()
         cachDungBUS = New CachDungBUS()
 
+
 #Region "Load tabpage Thong Tin Phieu Kham"
 
         'Load list of LoaiBenh to combobox
@@ -81,6 +82,7 @@ Public Class frmPhieuKhamBenh
 
 #End Region
 
+
 #Region "Load TabPage Thuoc"
 
         'Load List of LoaiBenh to combobox
@@ -97,6 +99,7 @@ Public Class frmPhieuKhamBenh
         cbThuoc.ValueMember = "MaThuoc"
 
 #End Region
+
 
 #Region "Load DataGridView Thuoc"
 
@@ -119,6 +122,7 @@ Public Class frmPhieuKhamBenh
         Dim clDonVi = New DataGridViewTextBoxColumn()
         clDonVi.Name = "DonVi"
         clDonVi.HeaderText = "Đơn Vị"
+        clDonVi.ReadOnly = True
         dgvThuoc.Columns.Add(clDonVi)
 
         Dim clSoLuong = New DataGridViewTextBoxColumn()
@@ -137,6 +141,7 @@ Public Class frmPhieuKhamBenh
 
     End Sub
 
+
     Private Sub cbBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBenhNhan.SelectedIndexChanged
 
         If (cbBenhNhan.SelectedIndex < 0) Then
@@ -154,6 +159,7 @@ Public Class frmPhieuKhamBenh
         tbNamSinh.Text = selectedItem.NgaySinh.ToString("d")
 
     End Sub
+
 
     Private Sub dtpNgayKham_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgayKham.ValueChanged
 
@@ -203,15 +209,18 @@ Public Class frmPhieuKhamBenh
 
     End Sub
 
+
     Private Sub btTTPhieuKham_Click(sender As Object, e As EventArgs) Handles btTTPhieuKham.Click
         'Change the tab page
         tabControl.SelectedTab = tabPageThongTin
     End Sub
 
+
     Private Sub btKeThuoc_Click(sender As Object, e As EventArgs) Handles btKeThuoc.Click
         'Change the tab page
         tabControl.SelectedTab = tabPageThuoc
     End Sub
+
 
     Private Sub cbThuoc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbThuoc.SelectedIndexChanged
 
@@ -245,9 +254,12 @@ Public Class frmPhieuKhamBenh
 
     End Sub
 
+
     Private Sub btThemThuoc_Click(sender As Object, e As EventArgs) Handles btThemThuoc.Click
 
-        'Get selected Thuoc
+        If (cbThuoc.SelectedIndex = -1) Then Return
+
+        'Get selected Thuoc in ComboBox
         Dim selectedItem = CType(cbThuoc.SelectedItem, ThuocDTO)
 
         'Create row that hold data
@@ -256,24 +268,104 @@ Public Class frmPhieuKhamBenh
         'Add
         Dim integerNumber As Integer
         If (Int32.TryParse(tbSoLuong.Text, integerNumber)) Then
-
             If (IsValidToAdd(selectedItem.MaThuoc)) Then
+                'Add
                 dgvThuoc.Rows.Add(row)
+
+                'Clear textboxs after add
+                tbCachDung.Text = ""
+                tbDonVi.Text = ""
+                cbThuoc.SelectedIndex = -1
+                tbSoLuong.Text = ""
             End If
-
         Else
-
             MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
         End If
 
 
     End Sub
 
+
     Private Function IsValidToAdd(maThuoc As String) As Boolean
 
         For Each row As DataGridViewRow In dgvThuoc.Rows
             If (row.Cells(0).Value = maThuoc) Then
+                MessageBox.Show("Loại thuốc này đã được thêm.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End If
+        Next
+
+        Return True
+
+    End Function
+
+
+    Private Sub btXoaThuoc_Click(sender As Object, e As EventArgs) Handles btXoaThuoc.Click
+
+        dgvThuoc.Rows.RemoveAt(dgvThuoc.SelectedRows(0).Index)
+
+    End Sub
+
+
+    Private Sub dgvThuoc_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvThuoc.CellClick
+
+        Dim maThuoc As String = String.Empty
+        Dim donVi As String = String.Empty
+        Dim cachDung As String = String.Empty
+        Dim soLuong As String = String.Empty
+
+        'Get selected cell value
+        If (e.RowIndex > -1 And e.RowIndex < dgvThuoc.Rows.Count) Then
+            maThuoc = dgvThuoc.Rows(e.RowIndex).Cells(0).Value
+            donVi = dgvThuoc.Rows(e.RowIndex).Cells(2).Value
+            cachDung = dgvThuoc.Rows(e.RowIndex).Cells(4).Value
+            soLuong = dgvThuoc.Rows(e.RowIndex).Cells(3).Value
+        End If
+
+        'Load to textbox
+        cbThuoc.SelectedValue = maThuoc
+        tbDonVi.Text = donVi
+        tbSoLuong.Text = soLuong
+        tbCachDung.Text = cachDung
+
+    End Sub
+
+
+    Private Sub btCapNhatThuoc_Click(sender As Object, e As EventArgs) Handles btCapNhatThuoc.Click
+
+        'Get selected Thuoc in ComboBox
+        Dim selectedItem = CType(cbThuoc.SelectedItem, ThuocDTO)
+
+        'Update
+        Dim integerNumber As Integer
+        If (Int32.TryParse(tbSoLuong.Text, integerNumber)) Then
+            If (IsValidToUpdate(selectedItem.MaThuoc)) Then
+                'Update to selected row
+                dgvThuoc.SelectedRows(0).Cells(0).Value = selectedItem.MaThuoc
+                dgvThuoc.SelectedRows(0).Cells(1).Value = selectedItem.TenThuoc
+                dgvThuoc.SelectedRows(0).Cells(2).Value = tbDonVi.Text
+                dgvThuoc.SelectedRows(0).Cells(3).Value = tbSoLuong.Text
+                dgvThuoc.SelectedRows(0).Cells(4).Value = tbCachDung.Text
+
+                'Clear textboxs after add
+                tbCachDung.Text = ""
+                tbDonVi.Text = ""
+                cbThuoc.SelectedIndex = -1
+                tbSoLuong.Text = ""
+            End If
+        Else
+            MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
+    End Sub
+
+
+    Private Function IsValidToUpdate(maThuoc As String) As Boolean
+
+        Dim selectedRowIndex = dgvThuoc.SelectedRows(0).Index
+
+        For Each row As DataGridViewRow In dgvThuoc.Rows
+            If (row.Cells(0).Value = maThuoc And row.Index <> selectedRowIndex) Then
                 MessageBox.Show("Loại thuốc này đã được thêm.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return False
             End If

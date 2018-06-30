@@ -23,14 +23,14 @@ Partial Class frmPhieuKhamBenh
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPhieuKhamBenh))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabPageThongTin = New System.Windows.Forms.TabPage()
-        Me.themRow = New System.Windows.Forms.Button()
+        Me.btLapPhieu = New System.Windows.Forms.Button()
         Me.btKeThuoc = New System.Windows.Forms.Button()
         Me.cbLoaiBenh = New System.Windows.Forms.ComboBox()
         Me.tbDiaChi = New System.Windows.Forms.TextBox()
@@ -60,6 +60,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
+        Me.btLamLai = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.tabPageThongTin.SuspendLayout()
@@ -123,7 +124,8 @@ Partial Class frmPhieuKhamBenh
         '
         'tabPageThongTin
         '
-        Me.tabPageThongTin.Controls.Add(Me.themRow)
+        Me.tabPageThongTin.Controls.Add(Me.btLamLai)
+        Me.tabPageThongTin.Controls.Add(Me.btLapPhieu)
         Me.tabPageThongTin.Controls.Add(Me.btKeThuoc)
         Me.tabPageThongTin.Controls.Add(Me.cbLoaiBenh)
         Me.tabPageThongTin.Controls.Add(Me.tbDiaChi)
@@ -147,18 +149,18 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThongTin.Text = "Thông Tin Phiếu"
         Me.tabPageThongTin.UseVisualStyleBackColor = True
         '
-        'themRow
+        'btLapPhieu
         '
-        Me.themRow.BackgroundImage = CType(resources.GetObject("themRow.BackgroundImage"), System.Drawing.Image)
-        Me.themRow.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.themRow.ForeColor = System.Drawing.SystemColors.Control
-        Me.themRow.Location = New System.Drawing.Point(280, 325)
-        Me.themRow.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.themRow.Name = "themRow"
-        Me.themRow.Size = New System.Drawing.Size(110, 40)
-        Me.themRow.TabIndex = 88
-        Me.themRow.Text = "Thêm Cột"
-        Me.themRow.UseVisualStyleBackColor = True
+        Me.btLapPhieu.BackgroundImage = CType(resources.GetObject("btLapPhieu.BackgroundImage"), System.Drawing.Image)
+        Me.btLapPhieu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btLapPhieu.ForeColor = System.Drawing.SystemColors.Control
+        Me.btLapPhieu.Location = New System.Drawing.Point(23, 325)
+        Me.btLapPhieu.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btLapPhieu.Name = "btLapPhieu"
+        Me.btLapPhieu.Size = New System.Drawing.Size(106, 40)
+        Me.btLapPhieu.TabIndex = 88
+        Me.btLapPhieu.Text = "Lập Phiếu"
+        Me.btLapPhieu.UseVisualStyleBackColor = True
         '
         'btKeThuoc
         '
@@ -500,17 +502,30 @@ Partial Class frmPhieuKhamBenh
         Me.dgvThuoc.Location = New System.Drawing.Point(243, 422)
         Me.dgvThuoc.MultiSelect = False
         Me.dgvThuoc.Name = "dgvThuoc"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvThuoc.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgvThuoc.Size = New System.Drawing.Size(538, 262)
         Me.dgvThuoc.TabIndex = 65
+        '
+        'btLamLai
+        '
+        Me.btLamLai.BackgroundImage = CType(resources.GetObject("btLamLai.BackgroundImage"), System.Drawing.Image)
+        Me.btLamLai.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btLamLai.ForeColor = System.Drawing.SystemColors.Control
+        Me.btLamLai.Location = New System.Drawing.Point(160, 325)
+        Me.btLamLai.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btLamLai.Name = "btLamLai"
+        Me.btLamLai.Size = New System.Drawing.Size(94, 40)
+        Me.btLamLai.TabIndex = 89
+        Me.btLamLai.Text = "Làm Lại"
+        Me.btLamLai.UseVisualStyleBackColor = True
         '
         'frmPhieuKhamBenh
         '
@@ -544,7 +559,7 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents Label10 As Label
     Friend WithEvents tabControl As TabControl
     Friend WithEvents tabPageThongTin As TabPage
-    Friend WithEvents themRow As Button
+    Friend WithEvents btLapPhieu As Button
     Friend WithEvents btKeThuoc As Button
     Friend WithEvents cbLoaiBenh As ComboBox
     Friend WithEvents tbDiaChi As TextBox
@@ -574,4 +589,5 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents btTTPhieuKham As Button
     Friend WithEvents btCapNhatThuoc As Button
     Friend WithEvents dgvThuoc As DataGridView
+    Friend WithEvents btLamLai As Button
 End Class
