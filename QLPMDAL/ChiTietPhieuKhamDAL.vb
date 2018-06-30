@@ -232,7 +232,7 @@ Public Class ChiTietPhieuKhamDAL
                     'Failure
                     conn.Close()
                     Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả chi tiết phiếu khám theo mã phiếu khám không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy chi tiết phiếu khám theo mã phiếu khám không thành công", ex.StackTrace)
                 End Try
 
             End Using

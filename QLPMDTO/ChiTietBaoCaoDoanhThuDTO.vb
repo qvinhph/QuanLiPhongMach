@@ -6,8 +6,8 @@
     Private strMaBaoCaoDoanhThu As String
     Private dtNgay As DateTime
     Private iSoBenhNhan As Integer
-    Private sDoanhThu As Single
-    Private sTyLe As Single
+    Private sDoanhThu As Double
+    Private sTyLe As Double
 
 #End Region
 
@@ -17,7 +17,7 @@
     End Sub
 
     Public Sub New(strMaChiTietBaoCaoDoanhThu As String, strMaBaoCaoDoanhThu As String,
-                   dtNgay As DateTime, iSoBenhNhan As Integer, sDoanhThu As Single, sTyLe As Single)
+                   dtNgay As DateTime, iSoBenhNhan As Integer, sDoanhThu As Double, sTyLe As Double)
         MaChiTietBaoCaoDoanhThu = strMaChiTietBaoCaoDoanhThu
         MaBaoCaoDoanhThu = strMaBaoCaoDoanhThu
         Ngay = dtNgay
@@ -66,20 +66,20 @@
         End Set
     End Property
 
-    Public Property DoanhThu As Single
+    Public Property DoanhThu As Double
         Get
             Return sDoanhThu
         End Get
-        Set(value As Single)
+        Set(value As Double)
             sDoanhThu = value
         End Set
     End Property
 
-    Public Property TyLe As Single
+    Public Property TyLe As Double
         Get
             Return sTyLe
         End Get
-        Set(value As Single)
+        Set(value As Double)
             sTyLe = value
         End Set
     End Property

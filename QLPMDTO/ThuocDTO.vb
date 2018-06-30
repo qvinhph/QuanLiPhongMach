@@ -4,7 +4,7 @@
 
     Private strMaThuoc As String
     Private strMaDonVi As String
-    Private fDonGia As Single
+    Private fDonGia As Double
     Private strMaCachDung As String
     Private strTenThuoc As String
 
@@ -16,7 +16,7 @@
     End Sub
 
     Public Sub New(strMaThuoc As String, strTenThuoc As String, strMaDonVi As String,
-                   strMaCachDung As String, fDonGia As Single)
+                   strMaCachDung As String, fDonGia As Double)
         MaThuoc = strMaThuoc
         MaDonVi = strMaDonVi
         DonGia = fDonGia
@@ -46,11 +46,11 @@
         End Set
     End Property
 
-    Public Property DonGia As Single
+    Public Property DonGia As Double
         Get
             Return fDonGia
         End Get
-        Set(value As Single)
+        Set(value As Double)
             fDonGia = value
         End Set
     End Property

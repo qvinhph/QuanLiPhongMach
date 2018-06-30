@@ -30,6 +30,8 @@ Partial Class frmPhieuKhamBenh
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabPageThongTin = New System.Windows.Forms.TabPage()
+        Me.tbMaPhieuKham = New System.Windows.Forms.TextBox()
+        Me.lbMaPK = New System.Windows.Forms.Label()
         Me.tbMaBenhNhan = New System.Windows.Forms.TextBox()
         Me.lbMaBenhNhan = New System.Windows.Forms.Label()
         Me.btLamLai = New System.Windows.Forms.Button()
@@ -65,8 +67,6 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
-        Me.lbMaPK = New System.Windows.Forms.Label()
-        Me.tbMaPhieuKham = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.tabPageThongTin.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class frmPhieuKhamBenh
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Light", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(12, 479)
+        Me.Label5.Location = New System.Drawing.Point(12, 538)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(192, 102)
         Me.Label5.TabIndex = 1
@@ -158,6 +158,29 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThongTin.TabIndex = 0
         Me.tabPageThongTin.Text = "Thông Tin Phiếu"
         Me.tabPageThongTin.UseVisualStyleBackColor = True
+        '
+        'tbMaPhieuKham
+        '
+        Me.tbMaPhieuKham.BackColor = System.Drawing.SystemColors.Control
+        Me.tbMaPhieuKham.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbMaPhieuKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaPhieuKham.Location = New System.Drawing.Point(209, 19)
+        Me.tbMaPhieuKham.Name = "tbMaPhieuKham"
+        Me.tbMaPhieuKham.ReadOnly = True
+        Me.tbMaPhieuKham.Size = New System.Drawing.Size(323, 29)
+        Me.tbMaPhieuKham.TabIndex = 93
+        '
+        'lbMaPK
+        '
+        Me.lbMaPK.AutoSize = True
+        Me.lbMaPK.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMaPK.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbMaPK.Location = New System.Drawing.Point(23, 19)
+        Me.lbMaPK.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbMaPK.Name = "lbMaPK"
+        Me.lbMaPK.Size = New System.Drawing.Size(152, 28)
+        Me.lbMaPK.TabIndex = 92
+        Me.lbMaPK.Text = "Mã Phiếu Khám:"
         '
         'tbMaBenhNhan
         '
@@ -397,7 +420,7 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThuoc.Location = New System.Drawing.Point(4, 30)
         Me.tabPageThuoc.Name = "tabPageThuoc"
         Me.tabPageThuoc.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPageThuoc.Size = New System.Drawing.Size(538, 427)
+        Me.tabPageThuoc.Size = New System.Drawing.Size(538, 468)
         Me.tabPageThuoc.TabIndex = 1
         Me.tabPageThuoc.Text = "Thuốc"
         Me.tabPageThuoc.UseVisualStyleBackColor = True
@@ -584,29 +607,6 @@ Partial Class frmPhieuKhamBenh
         Me.dgvThuoc.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgvThuoc.Size = New System.Drawing.Size(538, 164)
         Me.dgvThuoc.TabIndex = 65
-        '
-        'lbMaPK
-        '
-        Me.lbMaPK.AutoSize = True
-        Me.lbMaPK.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMaPK.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbMaPK.Location = New System.Drawing.Point(23, 19)
-        Me.lbMaPK.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbMaPK.Name = "lbMaPK"
-        Me.lbMaPK.Size = New System.Drawing.Size(152, 28)
-        Me.lbMaPK.TabIndex = 92
-        Me.lbMaPK.Text = "Mã Phiếu Khám:"
-        '
-        'tbMaPhieuKham
-        '
-        Me.tbMaPhieuKham.BackColor = System.Drawing.SystemColors.Control
-        Me.tbMaPhieuKham.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbMaPhieuKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbMaPhieuKham.Location = New System.Drawing.Point(209, 19)
-        Me.tbMaPhieuKham.Name = "tbMaPhieuKham"
-        Me.tbMaPhieuKham.ReadOnly = True
-        Me.tbMaPhieuKham.Size = New System.Drawing.Size(323, 29)
-        Me.tbMaPhieuKham.TabIndex = 93
         '
         'frmPhieuKhamBenh
         '

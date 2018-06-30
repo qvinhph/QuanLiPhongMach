@@ -18,8 +18,11 @@ Class frmLapHoaDon
     Private hoaDonBUS As HoaDonBUS
     Private thamSoBUS As ThamSoBUS
 
+
     'Use for getting all the drugs that patient use
     Dim listChiTietPK_ByMaPhieuKham = New List(Of ChiTietPhieuKhamDTO)
+    'For currency number format
+    Dim vnd = New CultureInfo("vi")
 
 
     Private Sub frmLapHoaDon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -60,21 +63,61 @@ Class frmLapHoaDon
             MessageBox.Show("Lấy tham số không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
         End If
-
-        Dim vnd = New CultureInfo("vi")
-        tbTienKham.Text = thamSo.TienKham.ToString("C", vnd)
+        tbTienKham.Text = thamSo.TienKham
 
 
-        'Load tien thuoc
+        'load tien thuoc
         Dim currentMaPhieuKham = GetMaPhieuKham()
-        'Dim listChiTietPK_ByMaPhieuKham = New List(Of ChiTietPhieuKhamDTO)
+        'dim listchitietpk_bymaphieukham = new list(of chitietphieukhamdto)
         result = chiTietPhieuKhamBUS.SelectAll_ByMaPhieuKham(currentMaPhieuKham, listChiTietPK_ByMaPhieuKham)
         If (result.FlagResult = False) Then
-            MessageBox.Show("Lấy danh sách chi tiết phiếu khám theo mã phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("lấy danh sách chi tiết phiếu khám theo mã phiếu khám không thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
         End If
 
-        tbTienThuoc.Text = CalculateTienThuoc().ToString("C", vnd)
+        tbTienThuoc.Text = CalculateTienThuoc()
+        tbTongTien.Text = (Double.Parse(tbTienThuoc.Text) + Double.Parse(tbTienKham.Text)).ToString("c", vnd)
+
+#Region "Load DataGridView"
+
+        'Properties
+        dgvThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+        'Contructing columns
+        Dim clTenThuoc = New DataGridViewTextBoxColumn()
+        clTenThuoc.Name = "TenThuoc"
+        clTenThuoc.HeaderText = "Tên Thuốc"
+        clTenThuoc.ReadOnly = True
+        dgvThuoc.Columns.Add(clTenThuoc)
+
+        Dim clDonVi = New DataGridViewTextBoxColumn()
+        clDonVi.Name = "DonVi"
+        clDonVi.HeaderText = "Đơn Vị"
+        clDonVi.ReadOnly = True
+        dgvThuoc.Columns.Add(clDonVi)
+
+        Dim clSoLuong = New DataGridViewTextBoxColumn()
+        clSoLuong.Name = "SoLuong"
+        clSoLuong.HeaderText = "Số Lượng"
+        clSoLuong.ReadOnly = False
+        dgvThuoc.Columns.Add(clSoLuong)
+
+        Dim clDonGia = New DataGridViewTextBoxColumn()
+        clDonGia.Name = "DonGia"
+        clDonGia.HeaderText = "Đơn Giá"
+        clDonGia.ReadOnly = True
+        dgvThuoc.Columns.Add(clDonGia)
+
+        Dim clTongTien = New DataGridViewTextBoxColumn()
+        clTongTien.Name = "TonTien"
+        clTongTien.HeaderText = "Tổng Tiền"
+        clTongTien.ReadOnly = True
+        dgvThuoc.Columns.Add(clTongTien)
+
+        'Load data 
+        LoadDataDataGridView()
+
+#End Region
 
     End Sub
 
@@ -119,7 +162,6 @@ Class frmLapHoaDon
         If (listBenhNhanInTheDay.Count <= 0) Then
             cbBenhNhan.DataSource = Nothing
             cbBenhNhan.Items.Clear()
-            MessageBox.Show("Chưa tạo danh sách khám cho ngày này.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         Else
             cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
             cbBenhNhan.DisplayMember = "HoTen"
@@ -128,12 +170,12 @@ Class frmLapHoaDon
 
     End Sub
 
+
     Private Sub cbBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBenhNhan.SelectedIndexChanged
 
         If (cbBenhNhan.SelectedIndex < 0) Then
             tbMaBenhNhan.Text = ""
             tbGioiTinh.Text = ""
-            tbDiaChi.Text = ""
             tbNamSinh.Text = ""
             Return
         End If
@@ -143,14 +185,29 @@ Class frmLapHoaDon
         'Auto show the information which is matched the BenhNhan
         tbMaBenhNhan.Text = selectedItem.MaBenhNhan
         tbGioiTinh.Text = selectedItem.GioiTinh
-        tbDiaChi.Text = selectedItem.DiaChi
         tbNamSinh.Text = selectedItem.NgaySinh.ToString("d")
+
+        'Re-get list ChiTietPhieuKham by MaPhieuKham
+        Dim result = New Result()
+        Dim currentMaPhieuKham = GetMaPhieuKham()
+
+        result = chiTietPhieuKhamBUS.SelectAll_ByMaPhieuKham(currentMaPhieuKham, listChiTietPK_ByMaPhieuKham)
+
+        If (Result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách chi tiết phiếu khám theo mã phiếu khám không thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(Result.SystemMessage)
+        End If
+
+        tbTienThuoc.Text = CalculateTienThuoc()
+        tbTongTien.Text = (Double.Parse(tbTienThuoc.Text) + Double.Parse(tbTienKham.Text)).ToString("c", vnd)
+        LoadDataDataGridView()
 
     End Sub
 
+
     Private Function GetMaPhieuKham() As String
 
-        'TODO: If BenhNhanDTO is nothing
+        If (cbBenhNhan.SelectedIndex = -1) Then Return ""
 
         Dim result = New Result()
 
@@ -188,13 +245,20 @@ Class frmLapHoaDon
 
         Dim currentMaPhieuKham = (From pk In listPhieuKham
                                   Where pk.MaChiTietDanhSach = currentMaChiTietDanhSach
-                                  Select pk.MaChiTietDanhSach).FirstOrDefault()
+                                  Select pk.MaPhieuKham).FirstOrDefault()
 
-        Return currentMaPhieuKham
+        If (currentMaPhieuKham IsNot Nothing) Then
+            Return currentMaPhieuKham
+        Else
+            'MessageBox.Show("Chưa lập phiếu khám bệnh cho bệnh nhân này. Vui lòng lập rồi tính tiền sau.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return ""
+        End If
+
 
     End Function
 
-    Private Function CalculateTienThuoc() As Single
+
+    Private Function CalculateTienThuoc() As Double
 
         Dim result = New Result
         Dim tongTienThuoc = 0
@@ -215,5 +279,88 @@ Class frmLapHoaDon
         Return tongTienThuoc
 
     End Function
+
+
+    Private Sub tbTienKham_TextChanged(sender As Object, e As EventArgs) Handles tbTienKham.TextChanged
+
+        Dim tienThuoc As Double = 0
+        Double.TryParse(tbTienThuoc.Text, tienThuoc)
+
+        Dim tienKham As Double = 0
+        Double.TryParse(tbTienKham.Text, tienKham)
+
+        tbTongTien.Text = (tienThuoc + tienKham).ToString("c", vnd)
+        
+    End Sub
+
+
+    Private Sub LoadDataDataGridView()
+
+        dgvThuoc.Rows.Clear()
+        Dim result = New Result
+        Dim thuoc = New ThuocDTO
+
+        For Each ctpk As ChiTietPhieuKhamDTO In listChiTietPK_ByMaPhieuKham
+
+            result = thuocBUS.Select_ByMaThuoc(ctpk.MaThuoc, thuoc)
+            If (result.FlagResult = False) Then
+                MessageBox.Show("Lấy thuốc theo mã thuốc không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                System.Console.WriteLine(result.SystemMessage)
+            End If
+
+            Dim tenThuoc = thuoc.TenThuoc
+            Dim listDonVi = New List(Of DonViDTO)
+            donViBUS.SelectAll(listDonVi)
+            Dim tenDonVi = (From dv In listDonVi
+                            Where dv.MaDonVi = thuoc.MaDonVi
+                            Select dv.DonVi).FirstOrDefault()
+            Dim soLuong = ctpk.SoLuong
+            Dim donGia = thuoc.DonGia
+            Dim tongTien = Integer.Parse(soLuong) * Double.Parse(donGia)
+
+            'Array hold data as a row
+            Dim row As String() = New String() {tenThuoc, tenDonVi, soLuong, donGia, tongTien}
+
+            dgvThuoc.Rows.Add(row)
+
+        Next
+    End Sub
+
+
+    Private Sub btLuuHoaDon_Click(sender As Object, e As EventArgs) Handles btLuuHoaDon.Click
+
+        If (cbBenhNhan.SelectedIndex = -1) Then
+            MessageBox.Show("Hãy chọn bệnh nhân.", "error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            Return
+        End If
+
+        Dim hoaDon = New HoaDonDTO()
+        hoaDon.MaHoaDon = tbMaHoaDon.Text
+        hoaDon.MaPhieuKham = GetMaPhieuKham()
+        hoaDon.TienThuoc = tbTienThuoc.Text
+
+        hoaDonBUS.Insert(hoaDon)
+
+        'After Add
+        Dim result = New Result()
+        Dim nextMaHoaDon = String.Empty
+        result = hoaDonBUS.BuildID(nextMaHoaDon)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy tự động mã hóa đơn không thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+
+        tbMaHoaDon.Text = nextMaHoaDon
+        cbBenhNhan.SelectedIndex = -1
+        tbTienThuoc.Text = ""
+        tbTongTien.Text = ""
+        dgvThuoc.Rows.Clear()
+
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 
 End Class
