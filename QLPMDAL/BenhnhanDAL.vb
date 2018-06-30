@@ -241,6 +241,49 @@ Public Class BenhNhanDAL
         Return New Result(True)
 
     End Function
+    Public Function SelectAll_ByLoaiBenh(maLoaiBenh As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+        Dim query As String = String.Empty
+        query &= "SELECT [ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham], [trieu_chung] "
+        query &= " FROM [tblbenh_nhan] "
+        query &= "     ,[tblphieu_kham]"
+        query &= "     ,[tbldanh_sach_kham]"
+        query &= "     ,[tblchi_tiet_danh_sach]"
+        query &= "     ,[tblloai_benh]"
+        query &= " WHERE "
+        query &= "     [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[mabenhnhan]"
+        query &= "     AND [tblphieu_kham].[ma_chi_tiet_danh_sach] = [tblchi_tiet_danh_sach].[ma_chi_tiet_danh_sach]"
+        query &= "     AND [tbldanh_sach_kham].[ma_danh_sach] = [tblchi_tiet_danh_sach].[ma_danh_sach]"
+        query &= "     AND [tblloaibenh].[ma_loai_benh] = [tblphieukham].[ma_loai_benh]"
+        query &= "     AND [tblloaibenh].[ma_loai_benh] = @ma_loai_benh"
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ma_loai_benh", maLoaiBenh)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listBenhNhan.Clear()
+                        While reader.Read()
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả Học sinh theo Loại không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
 
 #End Region
 
