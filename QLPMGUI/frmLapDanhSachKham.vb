@@ -36,7 +36,7 @@ Public Class frmLapDanhSachKham
 
 
         '3. Insert to Listview
-
+        countadded = countadded + 1
         count = count + 1
         Dim lvItem As ListViewItem
 
@@ -262,6 +262,11 @@ Public Class frmLapDanhSachKham
         If lvBenhNhan.SelectedItems.Count > 0 Then
             bnTemp = lvBenhNhan.SelectedIndices(0)
             txtMaSo.Text = List_BenhNhan(bnTemp).MaBenhNhan
+            txtHoTen.Text = List_BenhNhan(bnTemp).HoTen
+            txtDiaChi.Text = List_BenhNhan(bnTemp).DiaChi
+            dtpNgaySinh.Value = List_BenhNhan(bnTemp).NgaySinh
+            cbGioitinh.Text = List_BenhNhan(bnTemp).GioiTinh
+
             Button4.Visible = True
             Button1.Visible = True
 

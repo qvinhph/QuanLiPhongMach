@@ -197,7 +197,7 @@ Public Class LoaiBenhDAL
     Public Function SelectAll(ByRef listLoaiBenh As List(Of LoaiBenhDTO)) As Result
 
         Dim query As String = Nothing
-        query &= "SELECT * "
+        query &= "SELECT [ma_loai_benh], [loai_benh] "
         query &= "FROM [tblloai_benh] "
 
         Using conn As New SqlConnection(connectionString)

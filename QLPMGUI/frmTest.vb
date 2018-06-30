@@ -26,4 +26,9 @@ Public Class frmTest
         Dim lapdskham As frmPhieuKhamBenh = New frmPhieuKhamBenh()
         lapdskham.Show()
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim tracuubenhnhan As frmTraCuuBenhNhan = New frmTraCuuBenhNhan()
+        tracuubenhnhan.Show()
+    End Sub
 End Class

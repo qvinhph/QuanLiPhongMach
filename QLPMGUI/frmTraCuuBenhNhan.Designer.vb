@@ -32,7 +32,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnNhap = New System.Windows.Forms.Button()
         Me.txtHoTen = New System.Windows.Forms.TextBox()
-        Me.cbTrieuChung = New System.Windows.Forms.ComboBox()
+        Me.cbLoaiBenh = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -79,7 +79,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(268, 675)
+        Me.Panel1.Size = New System.Drawing.Size(268, 580)
         Me.Panel1.TabIndex = 60
         '
         'Label10
@@ -103,7 +103,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(7, 127)
+        Me.Label3.Location = New System.Drawing.Point(16, 122)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(157, 30)
@@ -115,7 +115,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(7, 91)
+        Me.Label7.Location = New System.Drawing.Point(16, 91)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(129, 30)
@@ -143,14 +143,14 @@ Partial Class frmTraCuuBenhNhan
         Me.txtHoTen.Size = New System.Drawing.Size(271, 20)
         Me.txtHoTen.TabIndex = 1
         '
-        'cbTrieuChung
+        'cbLoaiBenh
         '
-        Me.cbTrieuChung.FormattingEnabled = True
-        Me.cbTrieuChung.Items.AddRange(New Object() {"Nam", "Nữ", "Không xác định"})
-        Me.cbTrieuChung.Location = New System.Drawing.Point(174, 162)
-        Me.cbTrieuChung.Name = "cbTrieuChung"
-        Me.cbTrieuChung.Size = New System.Drawing.Size(221, 21)
-        Me.cbTrieuChung.TabIndex = 53
+        Me.cbLoaiBenh.FormattingEnabled = True
+        Me.cbLoaiBenh.Items.AddRange(New Object() {"Nam", "Nữ", "Không xác định"})
+        Me.cbLoaiBenh.Location = New System.Drawing.Point(174, 162)
+        Me.cbLoaiBenh.Name = "cbLoaiBenh"
+        Me.cbLoaiBenh.Size = New System.Drawing.Size(221, 21)
+        Me.cbLoaiBenh.TabIndex = 53
         '
         'Label1
         '
@@ -216,7 +216,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.cbTrieuChung)
+        Me.Panel2.Controls.Add(Me.cbLoaiBenh)
         Me.Panel2.Controls.Add(Me.txtHoTen)
         Me.Panel2.Controls.Add(Me.btnNhap)
         Me.Panel2.Controls.Add(Me.Label7)
@@ -233,7 +233,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(7, 152)
+        Me.Label2.Location = New System.Drawing.Point(16, 152)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 30)
@@ -243,23 +243,23 @@ Partial Class frmTraCuuBenhNhan
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(287, 262)
+        Me.DataGridView1.Location = New System.Drawing.Point(287, 261)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(454, 401)
+        Me.DataGridView1.Size = New System.Drawing.Size(454, 304)
         Me.DataGridView1.TabIndex = 63
         '
-        'frmTraCuuBenhNhanGUI
+        'frmTraCuuBenhNhan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(779, 675)
+        Me.ClientSize = New System.Drawing.Size(779, 580)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmTraCuuBenhNhanGUI"
+        Me.Name = "frmTraCuuBenhNhan"
         Me.Text = "frmTraCuuBenhNhanGUI"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -280,7 +280,7 @@ Partial Class frmTraCuuBenhNhan
     Friend WithEvents Label7 As Label
     Friend WithEvents btnNhap As Button
     Friend WithEvents txtHoTen As TextBox
-    Friend WithEvents cbTrieuChung As ComboBox
+    Friend WithEvents cbLoaiBenh As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Button3 As Button
