@@ -12,7 +12,7 @@ Public Class frmTraCuuBenhNhan
 
     End Sub
 
-    Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
+    Private Sub btnTraCuu_Click(sender As Object, e As EventArgs) Handles btnTraCuu.Click
 
     End Sub
 
@@ -34,9 +34,67 @@ Public Class frmTraCuuBenhNhan
         'cbLoaiBenh.ValueMember = "loai_benh"
         cbLoaiBenh.DisplayMember = "LoaiBenh"
         cbLoaiBenh.ValueMember = "MaLoaiBenh"
+
+        loadlistBenhNhan()
+    End Sub
+    Private Sub loadlistBenhNhan()
+        Dim listBenhNhan = New List(Of BenhNhanDTO)
+        Dim result As Result
+        result = bnbus.SelectAll(listBenhNhan)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+        dgvListBenhNhan.Columns.Clear()
+        dgvListBenhNhan.DataSource = Nothing
+
+        dgvListBenhNhan.AutoGenerateColumns = False
+        dgvListBenhNhan.AllowUserToAddRows = False
+        dgvListBenhNhan.DataSource = listBenhNhan
+
+        Dim clmBn = New DataGridViewTextBoxColumn()
+        clmBn.Name = "MaBenhNhan"
+        clmBn.HeaderText = "Mã số bệnh nhân"
+        clmBn.DataPropertyName = "MaBenhNhan"
+        dgvListBenhNhan.Columns.Add(clmBn)
+
+        Dim clmHoTen = New DataGridViewTextBoxColumn()
+        clmHoTen.Name = "HoTen"
+        clmHoTen.HeaderText = "Họ và tên"
+        clmHoTen.DataPropertyName = "HoTen"
+        dgvListBenhNhan.Columns.Add(clmHoTen)
+
+        Dim clmDiaChi = New DataGridViewTextBoxColumn()
+        clmDiaChi.Name = "DiaChi"
+        clmDiaChi.HeaderText = "Địa Chỉ"
+        clmDiaChi.DataPropertyName = "DiaChi"
+        dgvListBenhNhan.Columns.Add(clmDiaChi)
+
+        Dim clmNamSinh = New DataGridViewTextBoxColumn()
+        clmNamSinh.Name = "NgaySinh"
+        clmNamSinh.HeaderText = "Năm Sinh"
+        clmNamSinh.DataPropertyName = "NgaySinh"
+        dgvListBenhNhan.Columns.Add(clmNamSinh)
+
+        Dim clmGioiTinh = New DataGridViewTextBoxColumn()
+        clmGioiTinh.Name = "GioiTinh"
+        clmGioiTinh.HeaderText = "Giới Tính"
+        clmGioiTinh.DataPropertyName = "GioiTinh"
+        dgvListBenhNhan.Columns.Add(clmGioiTinh)
+
+        Dim clmTrieuChung = New DataGridViewTextBoxColumn()
+        clmTrieuChung.Name = "TrieuChung"
+        clmTrieuChung.HeaderText = "Triệu Chứng"
+        clmTrieuChung.DataPropertyName = "TrieuChung"
+        dgvListBenhNhan.Columns.Add(clmTrieuChung)
+
+
+
+
     End Sub
 
-    Private Sub cbTrieuChung_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiBenh.SelectedIndexChanged
+    Private Sub cbLoaiBenh_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiBenh.SelectedIndexChanged
 
     End Sub
 
