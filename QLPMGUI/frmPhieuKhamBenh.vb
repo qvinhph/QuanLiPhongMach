@@ -12,7 +12,7 @@ Public Class frmPhieuKhamBenh
     Private thuocBUS As ThuocBUS
     Private donViBUS As DonViBUS
     Private cachDungBUS As CachDungBUS
-
+    Private phieuKhamBUS As PhieuKhamBUS
 
     Private Sub frmPhieuKhamBenh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -23,13 +23,24 @@ Public Class frmPhieuKhamBenh
         thuocBUS = New ThuocBUS()
         donViBus = New DonViBUS()
         cachDungBUS = New CachDungBUS()
+        phieuKhamBUS = New PhieuKhamBUS()
 
 
 #Region "Load tabpage Thong Tin Phieu Kham"
 
+        'Load MaPhieuKham
+        Dim result As Result
+        Dim maPhieuKham As String = Nothing
+        result = phieuKhamBUS.BuildID(maPhieuKham)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy mã tự động danh sách khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+        tbMaPhieuKham.Text = maPhieuKham
+
         'Load list of LoaiBenh to combobox
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
-        Dim result As Result
         result = loaiBenhBUS.SelectAll(listLoaiBenh)
         If (result.FlagResult = False) Then
             MessageBox.Show("Lấy danh sách loại bệnh không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -145,6 +156,7 @@ Public Class frmPhieuKhamBenh
     Private Sub cbBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBenhNhan.SelectedIndexChanged
 
         If (cbBenhNhan.SelectedIndex < 0) Then
+            tbMaBenhNhan.Text = ""
             tbGioiTinh.Text = ""
             tbDiaChi.Text = ""
             tbNamSinh.Text = ""
@@ -154,6 +166,7 @@ Public Class frmPhieuKhamBenh
         Dim selectedItem = CType(cbBenhNhan.SelectedItem, BenhNhanDTO)
 
         'Auto show the information which is matched the BenhNhan
+        tbMaBenhNhan.Text = selectedItem.MaBenhNhan
         tbGioiTinh.Text = selectedItem.GioiTinh
         tbDiaChi.Text = selectedItem.DiaChi
         tbNamSinh.Text = selectedItem.NgaySinh.ToString("d")
@@ -225,6 +238,7 @@ Public Class frmPhieuKhamBenh
     Private Sub cbThuoc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbThuoc.SelectedIndexChanged
 
         If (cbThuoc.SelectedIndex < 0) Then
+            tbMaBenhNhan.Text = ""
             tbGioiTinh.Text = ""
             tbDiaChi.Text = ""
             tbNamSinh.Text = ""
@@ -251,6 +265,7 @@ Public Class frmPhieuKhamBenh
         'Auto show the information which is matched Thuoc
         tbDonVi.Text = donVi.DonVi
         tbCachDung.Text = cachDung.CachDung
+        tbMaThuoc.Text = selectedItem.MaThuoc
 
     End Sub
 
@@ -277,6 +292,7 @@ Public Class frmPhieuKhamBenh
                 tbDonVi.Text = ""
                 cbThuoc.SelectedIndex = -1
                 tbSoLuong.Text = ""
+                tbMaThuoc.Text = ""
             End If
         Else
             MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -327,6 +343,7 @@ Public Class frmPhieuKhamBenh
         tbDonVi.Text = donVi
         tbSoLuong.Text = soLuong
         tbCachDung.Text = cachDung
+        tbMaThuoc.Text = maThuoc
 
     End Sub
 
@@ -352,6 +369,7 @@ Public Class frmPhieuKhamBenh
                 tbDonVi.Text = ""
                 cbThuoc.SelectedIndex = -1
                 tbSoLuong.Text = ""
+                tbMaThuoc.Text = ""
             End If
         Else
             MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -374,5 +392,61 @@ Public Class frmPhieuKhamBenh
         Return True
 
     End Function
+
+
+    Private Sub btLapPhieu_Click(sender As Object, e As EventArgs) Handles btLapPhieu.Click
+
+        Dim phieuKham = New PhieuKhamDTO()
+        Dim chiTietPK = New ChiTietPhieuKhamDTO()
+
+        '1.Mapping data from GUI Control
+        'Get ChiTietDanhSach by MaBenhNhan and MaDanhSach
+        Dim maBenhNhan = tbMaBenhNhan.Text
+        Dim currentDay = dtpNgayKham.Value.ToString("d")
+
+        Dim currentDanhSachKham As DanhSachKhamDTO = Nothing
+        danhSachKhamBUS.Select_ByNgayKham(currentDay, currentDanhSachKham)
+
+        Dim listChiTietDanhSach = New List(Of ChiTietDanhSachDTO) ' all the chitietdanhsach in the current day
+        chiTietDanhSachBUS.SelectAll_MaDanhSach(currentDanhSachKham.MaDanhSach, listChiTietDanhSach)
+
+        Dim chiTietDanhSach = (From ctds In listChiTietDanhSach
+                               Where ctds.MaBenhNhan = maBenhNhan
+                               Select ctds).FirstOrDefault()
+
+        phieuKham.MaPhieuKham = tbMaPhieuKham.Text
+        phieuKham.TrieuChung = tbTrieuChung.Text
+        phieuKham.MaLoaiBenh = CType(cbLoaiBenh.SelectedItem, LoaiBenhDTO).MaLoaiBenh
+        phieuKham.MaChiTietDanhSach = chiTietDanhSach.MaChiTietDanhSach
+
+        '2. Business...
+
+        '3. Insert to DB
+        Dim result = phieuKhamBUS.Insert(phieuKham)
+        If (result.FlagResult = True) Then
+            MessageBox.Show("Thêm phiếu khám thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'set MaPhieuKham auto
+            Dim nextMaPhieuKham = String.Empty
+            result = phieuKhamBUS.BuildID(nextMaPhieuKham)
+            If (result.FlagResult = False) Then
+                MessageBox.Show("Lấy danh tự động mã phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
+                Return
+            End If
+            tbMaPhieuKham.Text = nextMaPhieuKham
+            tbMaBenhNhan.Text = String.Empty
+            tbNamSinh.Text = String.Empty
+            tbTrieuChung.Text = String.Empty
+            tbGioiTinh.Text = String.Empty
+            tbDiaChi.Text = String.Empty
+            cbLoaiBenh.SelectedIndex = -1
+            cbBenhNhan.SelectedIndex = -1
+        Else
+            MessageBox.Show("Thêm phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+
+    End Sub
+
 
 End Class

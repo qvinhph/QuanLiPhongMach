@@ -17,7 +17,7 @@ Public Class PhieuKhamBUS
     End Sub
 
     Public Sub New(connectionString As String)
-        phieuKhamDAL=New PhieuKhamDAL(connectionString)
+        phieuKhamDAL = New PhieuKhamDAL(connectionString)
     End Sub
 
 #End Region

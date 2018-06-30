@@ -30,6 +30,9 @@ Partial Class frmPhieuKhamBenh
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabPageThongTin = New System.Windows.Forms.TabPage()
+        Me.tbMaBenhNhan = New System.Windows.Forms.TextBox()
+        Me.lbMaBenhNhan = New System.Windows.Forms.Label()
+        Me.btLamLai = New System.Windows.Forms.Button()
         Me.btLapPhieu = New System.Windows.Forms.Button()
         Me.btKeThuoc = New System.Windows.Forms.Button()
         Me.cbLoaiBenh = New System.Windows.Forms.ComboBox()
@@ -47,6 +50,8 @@ Partial Class frmPhieuKhamBenh
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lbBenhNhan = New System.Windows.Forms.Label()
         Me.tabPageThuoc = New System.Windows.Forms.TabPage()
+        Me.tbMaThuoc = New System.Windows.Forms.TextBox()
+        Me.lbMaTh = New System.Windows.Forms.Label()
         Me.btTTPhieuKham = New System.Windows.Forms.Button()
         Me.btCapNhatThuoc = New System.Windows.Forms.Button()
         Me.btXoaThuoc = New System.Windows.Forms.Button()
@@ -60,7 +65,8 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
-        Me.btLamLai = New System.Windows.Forms.Button()
+        Me.lbMaPK = New System.Windows.Forms.Label()
+        Me.tbMaPhieuKham = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.tabPageThongTin.SuspendLayout()
@@ -119,11 +125,15 @@ Partial Class frmPhieuKhamBenh
         Me.tabControl.Location = New System.Drawing.Point(239, 12)
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
-        Me.tabControl.Size = New System.Drawing.Size(546, 403)
+        Me.tabControl.Size = New System.Drawing.Size(546, 502)
         Me.tabControl.TabIndex = 64
         '
         'tabPageThongTin
         '
+        Me.tabPageThongTin.Controls.Add(Me.tbMaPhieuKham)
+        Me.tabPageThongTin.Controls.Add(Me.lbMaPK)
+        Me.tabPageThongTin.Controls.Add(Me.tbMaBenhNhan)
+        Me.tabPageThongTin.Controls.Add(Me.lbMaBenhNhan)
         Me.tabPageThongTin.Controls.Add(Me.btLamLai)
         Me.tabPageThongTin.Controls.Add(Me.btLapPhieu)
         Me.tabPageThongTin.Controls.Add(Me.btKeThuoc)
@@ -144,17 +154,53 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThongTin.Location = New System.Drawing.Point(4, 30)
         Me.tabPageThongTin.Name = "tabPageThongTin"
         Me.tabPageThongTin.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPageThongTin.Size = New System.Drawing.Size(538, 369)
+        Me.tabPageThongTin.Size = New System.Drawing.Size(538, 468)
         Me.tabPageThongTin.TabIndex = 0
         Me.tabPageThongTin.Text = "Thông Tin Phiếu"
         Me.tabPageThongTin.UseVisualStyleBackColor = True
+        '
+        'tbMaBenhNhan
+        '
+        Me.tbMaBenhNhan.BackColor = System.Drawing.SystemColors.Control
+        Me.tbMaBenhNhan.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbMaBenhNhan.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaBenhNhan.Location = New System.Drawing.Point(211, 155)
+        Me.tbMaBenhNhan.Name = "tbMaBenhNhan"
+        Me.tbMaBenhNhan.ReadOnly = True
+        Me.tbMaBenhNhan.Size = New System.Drawing.Size(323, 29)
+        Me.tbMaBenhNhan.TabIndex = 91
+        '
+        'lbMaBenhNhan
+        '
+        Me.lbMaBenhNhan.AutoSize = True
+        Me.lbMaBenhNhan.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMaBenhNhan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbMaBenhNhan.Location = New System.Drawing.Point(60, 155)
+        Me.lbMaBenhNhan.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbMaBenhNhan.Name = "lbMaBenhNhan"
+        Me.lbMaBenhNhan.Size = New System.Drawing.Size(144, 28)
+        Me.lbMaBenhNhan.TabIndex = 90
+        Me.lbMaBenhNhan.Text = "Mã Bệnh Nhân:"
+        '
+        'btLamLai
+        '
+        Me.btLamLai.BackgroundImage = CType(resources.GetObject("btLamLai.BackgroundImage"), System.Drawing.Image)
+        Me.btLamLai.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btLamLai.ForeColor = System.Drawing.SystemColors.Control
+        Me.btLamLai.Location = New System.Drawing.Point(163, 418)
+        Me.btLamLai.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btLamLai.Name = "btLamLai"
+        Me.btLamLai.Size = New System.Drawing.Size(94, 40)
+        Me.btLamLai.TabIndex = 89
+        Me.btLamLai.Text = "Làm Lại"
+        Me.btLamLai.UseVisualStyleBackColor = True
         '
         'btLapPhieu
         '
         Me.btLapPhieu.BackgroundImage = CType(resources.GetObject("btLapPhieu.BackgroundImage"), System.Drawing.Image)
         Me.btLapPhieu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btLapPhieu.ForeColor = System.Drawing.SystemColors.Control
-        Me.btLapPhieu.Location = New System.Drawing.Point(23, 325)
+        Me.btLapPhieu.Location = New System.Drawing.Point(26, 418)
         Me.btLapPhieu.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btLapPhieu.Name = "btLapPhieu"
         Me.btLapPhieu.Size = New System.Drawing.Size(106, 40)
@@ -167,7 +213,7 @@ Partial Class frmPhieuKhamBenh
         Me.btKeThuoc.BackgroundImage = CType(resources.GetObject("btKeThuoc.BackgroundImage"), System.Drawing.Image)
         Me.btKeThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btKeThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btKeThuoc.Location = New System.Drawing.Point(421, 325)
+        Me.btKeThuoc.Location = New System.Drawing.Point(424, 418)
         Me.btKeThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btKeThuoc.Name = "btKeThuoc"
         Me.btKeThuoc.Size = New System.Drawing.Size(110, 40)
@@ -180,7 +226,7 @@ Partial Class frmPhieuKhamBenh
         Me.cbLoaiBenh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbLoaiBenh.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbLoaiBenh.FormattingEnabled = True
-        Me.cbLoaiBenh.Location = New System.Drawing.Point(208, 287)
+        Me.cbLoaiBenh.Location = New System.Drawing.Point(211, 380)
         Me.cbLoaiBenh.Name = "cbLoaiBenh"
         Me.cbLoaiBenh.Size = New System.Drawing.Size(324, 29)
         Me.cbLoaiBenh.TabIndex = 86
@@ -190,7 +236,7 @@ Partial Class frmPhieuKhamBenh
         Me.tbDiaChi.BackColor = System.Drawing.SystemColors.Control
         Me.tbDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbDiaChi.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDiaChi.Location = New System.Drawing.Point(208, 167)
+        Me.tbDiaChi.Location = New System.Drawing.Point(211, 260)
         Me.tbDiaChi.Name = "tbDiaChi"
         Me.tbDiaChi.ReadOnly = True
         Me.tbDiaChi.Size = New System.Drawing.Size(324, 29)
@@ -201,7 +247,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbDiaChi.AutoSize = True
         Me.lbDiaChi.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDiaChi.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbDiaChi.Location = New System.Drawing.Point(89, 163)
+        Me.lbDiaChi.Location = New System.Drawing.Point(60, 256)
         Me.lbDiaChi.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbDiaChi.Name = "lbDiaChi"
         Me.lbDiaChi.Size = New System.Drawing.Size(78, 28)
@@ -213,10 +259,10 @@ Partial Class frmPhieuKhamBenh
         Me.tbNamSinh.BackColor = System.Drawing.SystemColors.Control
         Me.tbNamSinh.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbNamSinh.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNamSinh.Location = New System.Drawing.Point(446, 117)
+        Me.tbNamSinh.Location = New System.Drawing.Point(423, 206)
         Me.tbNamSinh.Name = "tbNamSinh"
         Me.tbNamSinh.ReadOnly = True
-        Me.tbNamSinh.Size = New System.Drawing.Size(86, 29)
+        Me.tbNamSinh.Size = New System.Drawing.Size(111, 29)
         Me.tbNamSinh.TabIndex = 83
         '
         'tbGioiTinh
@@ -224,7 +270,7 @@ Partial Class frmPhieuKhamBenh
         Me.tbGioiTinh.BackColor = System.Drawing.SystemColors.Control
         Me.tbGioiTinh.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbGioiTinh.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbGioiTinh.Location = New System.Drawing.Point(208, 114)
+        Me.tbGioiTinh.Location = New System.Drawing.Point(211, 207)
         Me.tbGioiTinh.Name = "tbGioiTinh"
         Me.tbGioiTinh.ReadOnly = True
         Me.tbGioiTinh.Size = New System.Drawing.Size(80, 29)
@@ -235,7 +281,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbNamSinh.AutoSize = True
         Me.lbNamSinh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbNamSinh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbNamSinh.Location = New System.Drawing.Point(338, 114)
+        Me.lbNamSinh.Location = New System.Drawing.Point(324, 204)
         Me.lbNamSinh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbNamSinh.Name = "lbNamSinh"
         Me.lbNamSinh.Size = New System.Drawing.Size(101, 28)
@@ -247,7 +293,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbGioiTinh.AutoSize = True
         Me.lbGioiTinh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbGioiTinh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbGioiTinh.Location = New System.Drawing.Point(89, 114)
+        Me.lbGioiTinh.Location = New System.Drawing.Point(60, 207)
         Me.lbGioiTinh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbGioiTinh.Name = "lbGioiTinh"
         Me.lbGioiTinh.Size = New System.Drawing.Size(94, 28)
@@ -259,7 +305,7 @@ Partial Class frmPhieuKhamBenh
         Me.cbBenhNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbBenhNhan.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbBenhNhan.FormattingEnabled = True
-        Me.cbBenhNhan.Location = New System.Drawing.Point(208, 68)
+        Me.cbBenhNhan.Location = New System.Drawing.Point(211, 111)
         Me.cbBenhNhan.Name = "cbBenhNhan"
         Me.cbBenhNhan.Size = New System.Drawing.Size(324, 29)
         Me.cbBenhNhan.TabIndex = 79
@@ -267,7 +313,7 @@ Partial Class frmPhieuKhamBenh
         'tbTrieuChung
         '
         Me.tbTrieuChung.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTrieuChung.Location = New System.Drawing.Point(208, 215)
+        Me.tbTrieuChung.Location = New System.Drawing.Point(211, 308)
         Me.tbTrieuChung.Multiline = True
         Me.tbTrieuChung.Name = "tbTrieuChung"
         Me.tbTrieuChung.Size = New System.Drawing.Size(324, 50)
@@ -278,7 +324,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbNgayKham.AutoSize = True
         Me.lbNgayKham.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbNgayKham.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbNgayKham.Location = New System.Drawing.Point(18, 22)
+        Me.lbNgayKham.Location = New System.Drawing.Point(21, 65)
         Me.lbNgayKham.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbNgayKham.Name = "lbNgayKham"
         Me.lbNgayKham.Size = New System.Drawing.Size(118, 28)
@@ -290,7 +336,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbLoaiBenh.AutoSize = True
         Me.lbLoaiBenh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbLoaiBenh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbLoaiBenh.Location = New System.Drawing.Point(18, 284)
+        Me.lbLoaiBenh.Location = New System.Drawing.Point(21, 377)
         Me.lbLoaiBenh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbLoaiBenh.Name = "lbLoaiBenh"
         Me.lbLoaiBenh.Size = New System.Drawing.Size(183, 28)
@@ -302,7 +348,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbTrieuChung.AutoSize = True
         Me.lbTrieuChung.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbTrieuChung.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbTrieuChung.Location = New System.Drawing.Point(18, 212)
+        Me.lbTrieuChung.Location = New System.Drawing.Point(21, 305)
         Me.lbTrieuChung.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbTrieuChung.Name = "lbTrieuChung"
         Me.lbTrieuChung.Size = New System.Drawing.Size(120, 28)
@@ -311,10 +357,10 @@ Partial Class frmPhieuKhamBenh
         '
         'dtpNgayKham
         '
-        Me.dtpNgayKham.CustomFormat = "dd - MM - yyyy"
+        Me.dtpNgayKham.CustomFormat = "MM / dd / yyyy"
         Me.dtpNgayKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpNgayKham.Location = New System.Drawing.Point(208, 24)
+        Me.dtpNgayKham.Location = New System.Drawing.Point(211, 67)
         Me.dtpNgayKham.Name = "dtpNgayKham"
         Me.dtpNgayKham.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtpNgayKham.Size = New System.Drawing.Size(324, 29)
@@ -325,7 +371,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbBenhNhan.AutoSize = True
         Me.lbBenhNhan.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbBenhNhan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbBenhNhan.Location = New System.Drawing.Point(18, 65)
+        Me.lbBenhNhan.Location = New System.Drawing.Point(21, 108)
         Me.lbBenhNhan.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbBenhNhan.Name = "lbBenhNhan"
         Me.lbBenhNhan.Size = New System.Drawing.Size(111, 28)
@@ -334,6 +380,8 @@ Partial Class frmPhieuKhamBenh
         '
         'tabPageThuoc
         '
+        Me.tabPageThuoc.Controls.Add(Me.tbMaThuoc)
+        Me.tabPageThuoc.Controls.Add(Me.lbMaTh)
         Me.tabPageThuoc.Controls.Add(Me.btTTPhieuKham)
         Me.tabPageThuoc.Controls.Add(Me.btCapNhatThuoc)
         Me.tabPageThuoc.Controls.Add(Me.btXoaThuoc)
@@ -349,17 +397,40 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThuoc.Location = New System.Drawing.Point(4, 30)
         Me.tabPageThuoc.Name = "tabPageThuoc"
         Me.tabPageThuoc.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPageThuoc.Size = New System.Drawing.Size(538, 369)
+        Me.tabPageThuoc.Size = New System.Drawing.Size(538, 427)
         Me.tabPageThuoc.TabIndex = 1
         Me.tabPageThuoc.Text = "Thuốc"
         Me.tabPageThuoc.UseVisualStyleBackColor = True
+        '
+        'tbMaThuoc
+        '
+        Me.tbMaThuoc.BackColor = System.Drawing.SystemColors.Control
+        Me.tbMaThuoc.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbMaThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaThuoc.Location = New System.Drawing.Point(147, 102)
+        Me.tbMaThuoc.Name = "tbMaThuoc"
+        Me.tbMaThuoc.ReadOnly = True
+        Me.tbMaThuoc.Size = New System.Drawing.Size(280, 29)
+        Me.tbMaThuoc.TabIndex = 93
+        '
+        'lbMaTh
+        '
+        Me.lbMaTh.AutoSize = True
+        Me.lbMaTh.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMaTh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbMaTh.Location = New System.Drawing.Point(29, 99)
+        Me.lbMaTh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbMaTh.Name = "lbMaTh"
+        Me.lbMaTh.Size = New System.Drawing.Size(102, 28)
+        Me.lbMaTh.TabIndex = 92
+        Me.lbMaTh.Text = "Mã Thuốc:"
         '
         'btTTPhieuKham
         '
         Me.btTTPhieuKham.BackgroundImage = CType(resources.GetObject("btTTPhieuKham.BackgroundImage"), System.Drawing.Image)
         Me.btTTPhieuKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btTTPhieuKham.ForeColor = System.Drawing.SystemColors.Control
-        Me.btTTPhieuKham.Location = New System.Drawing.Point(353, 302)
+        Me.btTTPhieuKham.Location = New System.Drawing.Point(353, 364)
         Me.btTTPhieuKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btTTPhieuKham.Name = "btTTPhieuKham"
         Me.btTTPhieuKham.Size = New System.Drawing.Size(178, 40)
@@ -372,7 +443,7 @@ Partial Class frmPhieuKhamBenh
         Me.btCapNhatThuoc.BackgroundImage = CType(resources.GetObject("btCapNhatThuoc.BackgroundImage"), System.Drawing.Image)
         Me.btCapNhatThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btCapNhatThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btCapNhatThuoc.Location = New System.Drawing.Point(223, 302)
+        Me.btCapNhatThuoc.Location = New System.Drawing.Point(223, 364)
         Me.btCapNhatThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btCapNhatThuoc.Name = "btCapNhatThuoc"
         Me.btCapNhatThuoc.Size = New System.Drawing.Size(104, 40)
@@ -385,7 +456,7 @@ Partial Class frmPhieuKhamBenh
         Me.btXoaThuoc.BackgroundImage = CType(resources.GetObject("btXoaThuoc.BackgroundImage"), System.Drawing.Image)
         Me.btXoaThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btXoaThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btXoaThuoc.Location = New System.Drawing.Point(129, 302)
+        Me.btXoaThuoc.Location = New System.Drawing.Point(129, 364)
         Me.btXoaThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btXoaThuoc.Name = "btXoaThuoc"
         Me.btXoaThuoc.Size = New System.Drawing.Size(77, 40)
@@ -398,7 +469,7 @@ Partial Class frmPhieuKhamBenh
         Me.btThemThuoc.BackgroundImage = CType(resources.GetObject("btThemThuoc.BackgroundImage"), System.Drawing.Image)
         Me.btThemThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btThemThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btThemThuoc.Location = New System.Drawing.Point(28, 302)
+        Me.btThemThuoc.Location = New System.Drawing.Point(28, 364)
         Me.btThemThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btThemThuoc.Name = "btThemThuoc"
         Me.btThemThuoc.Size = New System.Drawing.Size(77, 40)
@@ -409,7 +480,7 @@ Partial Class frmPhieuKhamBenh
         'tbSoLuong
         '
         Me.tbSoLuong.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbSoLuong.Location = New System.Drawing.Point(147, 235)
+        Me.tbSoLuong.Location = New System.Drawing.Point(147, 297)
         Me.tbSoLuong.Name = "tbSoLuong"
         Me.tbSoLuong.Size = New System.Drawing.Size(279, 29)
         Me.tbSoLuong.TabIndex = 87
@@ -419,7 +490,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbCachDung.AutoSize = True
         Me.lbCachDung.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbCachDung.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbCachDung.Location = New System.Drawing.Point(23, 168)
+        Me.lbCachDung.Location = New System.Drawing.Point(29, 230)
         Me.lbCachDung.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbCachDung.Name = "lbCachDung"
         Me.lbCachDung.Size = New System.Drawing.Size(111, 28)
@@ -431,7 +502,7 @@ Partial Class frmPhieuKhamBenh
         Me.tbCachDung.BackColor = System.Drawing.SystemColors.Control
         Me.tbCachDung.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbCachDung.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCachDung.Location = New System.Drawing.Point(147, 171)
+        Me.tbCachDung.Location = New System.Drawing.Point(147, 233)
         Me.tbCachDung.Name = "tbCachDung"
         Me.tbCachDung.ReadOnly = True
         Me.tbCachDung.Size = New System.Drawing.Size(279, 29)
@@ -442,7 +513,7 @@ Partial Class frmPhieuKhamBenh
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(23, 232)
+        Me.Label1.Location = New System.Drawing.Point(29, 294)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(100, 28)
@@ -454,7 +525,7 @@ Partial Class frmPhieuKhamBenh
         Me.tbDonVi.BackColor = System.Drawing.SystemColors.Control
         Me.tbDonVi.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbDonVi.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDonVi.Location = New System.Drawing.Point(147, 102)
+        Me.tbDonVi.Location = New System.Drawing.Point(147, 164)
         Me.tbDonVi.Name = "tbDonVi"
         Me.tbDonVi.ReadOnly = True
         Me.tbDonVi.Size = New System.Drawing.Size(280, 29)
@@ -475,7 +546,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi.AutoSize = True
         Me.lbDonVi.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDonVi.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbDonVi.Location = New System.Drawing.Point(23, 99)
+        Me.lbDonVi.Location = New System.Drawing.Point(29, 161)
         Me.lbDonVi.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbDonVi.Name = "lbDonVi"
         Me.lbDonVi.Size = New System.Drawing.Size(75, 28)
@@ -487,7 +558,7 @@ Partial Class frmPhieuKhamBenh
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(23, 31)
+        Me.Label3.Location = New System.Drawing.Point(29, 31)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 28)
@@ -499,7 +570,7 @@ Partial Class frmPhieuKhamBenh
         Me.dgvThuoc.AllowUserToAddRows = False
         Me.dgvThuoc.AllowUserToDeleteRows = False
         Me.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvThuoc.Location = New System.Drawing.Point(243, 422)
+        Me.dgvThuoc.Location = New System.Drawing.Point(243, 520)
         Me.dgvThuoc.MultiSelect = False
         Me.dgvThuoc.Name = "dgvThuoc"
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -511,21 +582,31 @@ Partial Class frmPhieuKhamBenh
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvThuoc.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgvThuoc.Size = New System.Drawing.Size(538, 262)
+        Me.dgvThuoc.Size = New System.Drawing.Size(538, 164)
         Me.dgvThuoc.TabIndex = 65
         '
-        'btLamLai
+        'lbMaPK
         '
-        Me.btLamLai.BackgroundImage = CType(resources.GetObject("btLamLai.BackgroundImage"), System.Drawing.Image)
-        Me.btLamLai.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btLamLai.ForeColor = System.Drawing.SystemColors.Control
-        Me.btLamLai.Location = New System.Drawing.Point(160, 325)
-        Me.btLamLai.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btLamLai.Name = "btLamLai"
-        Me.btLamLai.Size = New System.Drawing.Size(94, 40)
-        Me.btLamLai.TabIndex = 89
-        Me.btLamLai.Text = "Làm Lại"
-        Me.btLamLai.UseVisualStyleBackColor = True
+        Me.lbMaPK.AutoSize = True
+        Me.lbMaPK.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMaPK.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbMaPK.Location = New System.Drawing.Point(23, 19)
+        Me.lbMaPK.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbMaPK.Name = "lbMaPK"
+        Me.lbMaPK.Size = New System.Drawing.Size(152, 28)
+        Me.lbMaPK.TabIndex = 92
+        Me.lbMaPK.Text = "Mã Phiếu Khám:"
+        '
+        'tbMaPhieuKham
+        '
+        Me.tbMaPhieuKham.BackColor = System.Drawing.SystemColors.Control
+        Me.tbMaPhieuKham.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbMaPhieuKham.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaPhieuKham.Location = New System.Drawing.Point(209, 19)
+        Me.tbMaPhieuKham.Name = "tbMaPhieuKham"
+        Me.tbMaPhieuKham.ReadOnly = True
+        Me.tbMaPhieuKham.Size = New System.Drawing.Size(323, 29)
+        Me.tbMaPhieuKham.TabIndex = 93
         '
         'frmPhieuKhamBenh
         '
@@ -590,4 +671,10 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents btCapNhatThuoc As Button
     Friend WithEvents dgvThuoc As DataGridView
     Friend WithEvents btLamLai As Button
+    Friend WithEvents tbMaBenhNhan As TextBox
+    Friend WithEvents lbMaBenhNhan As Label
+    Friend WithEvents tbMaThuoc As TextBox
+    Friend WithEvents lbMaTh As Label
+    Friend WithEvents tbMaPhieuKham As TextBox
+    Friend WithEvents lbMaPK As Label
 End Class

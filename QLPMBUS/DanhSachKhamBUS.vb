@@ -69,6 +69,13 @@ Public Class DanhSachKhamBUS
         Return danhSachKhamDAL.SelectAll(listDSKham)
     End Function
 
+    Public Function Select_ByNgayKham(ngayKham As Date, ByRef danhSachKham As DanhSachKhamDTO) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return danhSachKhamDAL.Select_ByNgayKham(ngayKham, danhSachKham)
+    End Function
+
 #End Region
 
 
