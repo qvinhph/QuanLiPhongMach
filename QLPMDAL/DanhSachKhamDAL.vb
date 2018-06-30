@@ -235,6 +235,47 @@ Public Class DanhSachKhamDAL
 
     End Function
 
+    Public Function Select_ByNgayKham(ngayKham As Date, ByRef danhSachKham As DanhSachKhamDTO) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT TOP 1 * "
+        query &= "FROM [tbldanh_sach_kham] "
+        query &= "WHERE [ngay_kham] = @ngay_kham "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ngay_kham", ngayKham)
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        While reader.Read()
+                            danhSachKham = New DanhSachKhamDTO(reader("ma_danh_sach"), reader("ngay_kham"))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy danh sách khám theo ngày không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class

@@ -21,38 +21,42 @@
 #End Region
 
 #Region "Property"
-    Property MaPhieuKham() As Integer
+    Property MaPhieuKham() As String
         Get
             Return strMaPhieuKham
         End Get
-        Set(ByVal Value As Integer)
+        Set(ByVal Value As String)
             strMaPhieuKham = Value
         End Set
     End Property
 
-    Property MaChiTietDanhSach() As Integer
+    Property MaChiTietDanhSach() As String
         Get
             Return strMaChiTietDanhSach
         End Get
-        Set(ByVal Value As Integer)
+        Set(ByVal Value As String)
             strMaChiTietDanhSach = Value
         End Set
     End Property
-    Property TrieuChung() As Integer
+
+    Property TrieuChung() As String
         Get
             Return strTrieuChung
         End Get
-        Set(ByVal Value As Integer)
+        Set(ByVal Value As String)
             strTrieuChung = Value
         End Set
     End Property
-    Property MaLoaiBenh() As Integer
+
+    Property MaLoaiBenh() As String
         Get
             Return strMaLoaiBenh
         End Get
-        Set(value As Integer)
+        Set(value As String)
             strMaLoaiBenh = value
         End Set
     End Property
+
 #End Region
+
 End Class
