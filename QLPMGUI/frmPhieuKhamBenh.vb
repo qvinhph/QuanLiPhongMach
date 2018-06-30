@@ -9,6 +9,9 @@ Public Class frmPhieuKhamBenh
     Private danhSachKhamBUS As DanhSachKhamBUS
     Private chiTietDanhSachBUS As ChiTietDanhSachBUS
     Private benhNhanBUS As BenhNhanBUS
+    Private thuocBUS As ThuocBUS
+    Private donViBUS As DonViBUS
+    Private cachDungBUS As CachDungBUS
 
 
     Private Sub frmPhieuKhamBenh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -17,6 +20,11 @@ Public Class frmPhieuKhamBenh
         danhSachKhamBUS = New DanhSachKhamBUS()
         chiTietDanhSachBUS = New ChiTietDanhSachBUS()
         benhNhanBUS = New BenhNhanBUS()
+        thuocBUS = New ThuocBUS()
+        donViBus = New DonViBUS()
+        cachDungBUS = New CachDungBUS()
+
+#Region "Load tabpage Thong Tin Phieu Kham"
 
         'Load list of LoaiBenh to combobox
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
@@ -31,6 +39,7 @@ Public Class frmPhieuKhamBenh
         cbLoaiBenh.DataSource = New BindingSource(listLoaiBenh, String.Empty)
         cbLoaiBenh.DisplayMember = "LoaiBenh"
         cbLoaiBenh.ValueMember = "MaLoaiBenh"
+
 
         'Load list of BenhNhan in the day to combobox
         ''Get MaDanhSach of the current day
@@ -66,20 +75,65 @@ Public Class frmPhieuKhamBenh
                                         }).ToList()
 
         ''Load the list of BenhNhan to combobox
-        'cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
-        cbBenhNhan.DataSource = listBenhNhanInTheDay
+        cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
         cbBenhNhan.DisplayMember = "HoTen"
         cbBenhNhan.ValueMember = "MaBenhNhan"
 
-        'DataGridView
-        Dim listThuoc = New List(Of String)
-        listThuoc.Add("d")
-        listThuoc.Add("c")
-        Dim cbThuoc = New DataGridViewComboBoxColumn()
-        cbThuoc.DataSource = listThuoc
-        'cbThuoc.DisplayMember = "Key"
-        'cbThuoc.ValueMember = "Value"
-        dgvThuoc.Columns.Add(cbThuoc)
+#End Region
+
+#Region "Load TabPage Thuoc"
+
+        'Load List of LoaiBenh to combobox
+        Dim listThuoc = New List(Of ThuocDTO)
+        result = thuocBUS.SelectAll(listThuoc)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách thuốc không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+
+        cbThuoc.DataSource = New BindingSource(listThuoc, String.Empty)
+        cbThuoc.DisplayMember = "TenThuoc"
+        cbThuoc.ValueMember = "MaThuoc"
+
+#End Region
+
+#Region "Load DataGridView Thuoc"
+
+        'Properties
+        dgvThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+        'Contructing columns
+        Dim clMaThuoc = New DataGridViewTextBoxColumn()
+        clMaThuoc.Name = "MaThuoc"
+        clMaThuoc.HeaderText = "Mã Thuốc"
+        clMaThuoc.ReadOnly = True
+        dgvThuoc.Columns.Add(clMaThuoc)
+
+        Dim clTenThuoc = New DataGridViewTextBoxColumn()
+        clTenThuoc.Name = "TenThuoc"
+        clTenThuoc.HeaderText = "Tên Thuốc"
+        clTenThuoc.ReadOnly = True
+        dgvThuoc.Columns.Add(clTenThuoc)
+
+        Dim clDonVi = New DataGridViewTextBoxColumn()
+        clDonVi.Name = "DonVi"
+        clDonVi.HeaderText = "Đơn Vị"
+        dgvThuoc.Columns.Add(clDonVi)
+
+        Dim clSoLuong = New DataGridViewTextBoxColumn()
+        clSoLuong.Name = "SoLuong"
+        clSoLuong.HeaderText = "Số Lượng"
+        clSoLuong.ReadOnly = False
+        dgvThuoc.Columns.Add(clSoLuong)
+
+        Dim clCachDung = New DataGridViewTextBoxColumn()
+        clCachDung.Name = "CachDung"
+        clCachDung.HeaderText = "Cách Dùng"
+        clCachDung.ReadOnly = True
+        dgvThuoc.Columns.Add(clCachDung)
+
+#End Region
 
     End Sub
 
@@ -141,26 +195,92 @@ Public Class frmPhieuKhamBenh
         If (listBenhNhanInTheDay.Count <= 0) Then
             cbBenhNhan.DataSource = Nothing
             cbBenhNhan.Items.Clear()
-            Return
+        Else
+            cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
+            cbBenhNhan.DisplayMember = "HoTen"
+            cbBenhNhan.ValueMember = "MaBenhNhan"
         End If
 
-        cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
-        cbBenhNhan.DisplayMember = "HoTen"
-        cbBenhNhan.ValueMember = "MaBenhNhan"
+    End Sub
 
+    Private Sub btTTPhieuKham_Click(sender As Object, e As EventArgs) Handles btTTPhieuKham.Click
+        'Change the tab page
+        tabControl.SelectedTab = tabPageThongTin
     End Sub
 
     Private Sub btKeThuoc_Click(sender As Object, e As EventArgs) Handles btKeThuoc.Click
-        pnThuoc.BringToFront()
+        'Change the tab page
+        tabControl.SelectedTab = tabPageThuoc
     End Sub
 
-    Private Sub btPhieuKham_Click(sender As Object, e As EventArgs) Handles btPhieuKham.Click
-        pnPhieuKham.BringToFront()
+    Private Sub cbThuoc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbThuoc.SelectedIndexChanged
+
+        If (cbThuoc.SelectedIndex < 0) Then
+            tbGioiTinh.Text = ""
+            tbDiaChi.Text = ""
+            tbNamSinh.Text = ""
+            Return
+        End If
+
+        Dim selectedItem = CType(cbThuoc.SelectedItem, ThuocDTO)
+
+        'Get the corresponding CachDung and DonVi
+        Dim listDonVi = New List(Of DonViDTO)
+        Dim listCachDung = New List(Of CachDungDTO)
+
+        cachDungBUS.SelectAll(listCachDung)
+        donViBUS.SelectAll(listDonVi)
+
+        Dim cachDung = (From cd In listCachDung
+                        Where cd.MaCachDung = selectedItem.MaCachDung
+                        Select cd).FirstOrDefault()
+
+        Dim donVi = (From dv In listDonVi
+                     Where dv.MaDonVi = selectedItem.MaDonVi
+                     Select dv).FirstOrDefault()
+
+        'Auto show the information which is matched Thuoc
+        tbDonVi.Text = donVi.DonVi
+        tbCachDung.Text = cachDung.CachDung
+
     End Sub
 
-    Private Sub themRow_Click(sender As Object, e As EventArgs) Handles themRow.Click
-        dgvThuoc.Rows.Add()
+    Private Sub btThemThuoc_Click(sender As Object, e As EventArgs) Handles btThemThuoc.Click
+
+        'Get selected Thuoc
+        Dim selectedItem = CType(cbThuoc.SelectedItem, ThuocDTO)
+
+        'Create row that hold data
+        Dim row As String() = New String() {selectedItem.MaThuoc, selectedItem.TenThuoc, tbDonVi.Text, tbSoLuong.Text, tbCachDung.Text}
+
+        'Add
+        Dim integerNumber As Integer
+        If (Int32.TryParse(tbSoLuong.Text, integerNumber)) Then
+
+            If (IsValidToAdd(selectedItem.MaThuoc)) Then
+                dgvThuoc.Rows.Add(row)
+            End If
+
+        Else
+
+            MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If
+
+
     End Sub
 
+    Private Function IsValidToAdd(maThuoc As String) As Boolean
+
+        For Each row As DataGridViewRow In dgvThuoc.Rows
+            If (row.Cells(0).Value = maThuoc) Then
+                MessageBox.Show("Loại thuốc này đã được thêm.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End If
+        Next
+
+        Return True
+
+    End Function
 
 End Class

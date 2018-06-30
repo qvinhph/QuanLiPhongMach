@@ -63,8 +63,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachDungBUS.vb" />
     <Compile Include="ChiTietDanhSachBUS.vb" />
     <Compile Include="DanhSachKhamBUS.vb" />
+    <Compile Include="DonViBUS.vb" />
     <Compile Include="LoaiBenhBUS.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -82,6 +84,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="BenhNhanBUS.vb" />
+    <Compile Include="ThuocBUS.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
