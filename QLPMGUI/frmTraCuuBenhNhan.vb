@@ -4,6 +4,8 @@ Imports Utility
 Public Class frmTraCuuBenhNhan
     Private bnbus As BenhNhanBUS
     Private loaiBenhBUS As LoaiBenhBUS
+
+    Private phieuKhamBUS As PhieuKhamBUS
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
 
     End Sub
@@ -19,6 +21,7 @@ Public Class frmTraCuuBenhNhan
     Private Sub frmTraCuuBenhNhan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bnbus = New BenhNhanBUS()
         loaiBenhBUS = New LoaiBenhBUS()
+        phieuKhamBUS = New PhieuKhamBUS()
 
         ' Load LoaiBenh list
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
@@ -44,6 +47,15 @@ Public Class frmTraCuuBenhNhan
         If (result.FlagResult = False) Then
             MessageBox.Show("Lấy danh sách bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+
+        Dim listPhieuKham = New List(Of PhieuKhamDTO)
+        Dim result1 As Result
+        result1 = phieuKhamBUS.SelectAll(listPhieuKham)
+        If (result1.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách triệu chứng không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result1.SystemMessage)
             Return
         End If
         dgvListBenhNhan.Columns.Clear()
