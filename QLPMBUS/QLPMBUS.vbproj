@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="CachDungBUS.vb" />
     <Compile Include="ChiTietDanhSachBUS.vb" />
+    <Compile Include="ChiTietPhieuKhamBUS.vb" />
     <Compile Include="DanhSachKhamBUS.vb" />
     <Compile Include="DonViBUS.vb" />
     <Compile Include="LoaiBenhBUS.vb" />

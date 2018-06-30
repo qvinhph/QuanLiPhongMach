@@ -13,6 +13,8 @@ Public Class frmPhieuKhamBenh
     Private donViBUS As DonViBUS
     Private cachDungBUS As CachDungBUS
     Private phieuKhamBUS As PhieuKhamBUS
+    Private chiTietPhieuKhamBUS As ChiTietPhieuKhamBUS
+
 
     Private Sub frmPhieuKhamBenh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -24,6 +26,7 @@ Public Class frmPhieuKhamBenh
         donViBus = New DonViBUS()
         cachDungBUS = New CachDungBUS()
         phieuKhamBUS = New PhieuKhamBUS()
+        chiTietPhieuKhamBUS = New ChiTietPhieuKhamBUS()
 
 
 #Region "Load tabpage Thong Tin Phieu Kham"
@@ -238,10 +241,10 @@ Public Class frmPhieuKhamBenh
     Private Sub cbThuoc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbThuoc.SelectedIndexChanged
 
         If (cbThuoc.SelectedIndex < 0) Then
-            tbMaBenhNhan.Text = ""
-            tbGioiTinh.Text = ""
-            tbDiaChi.Text = ""
-            tbNamSinh.Text = ""
+            tbCachDung.Text = ""
+            tbDonVi.Text = ""
+            tbSoLuong.Text = ""
+            tbMaThuoc.Text = ""
             Return
         End If
 
@@ -396,11 +399,17 @@ Public Class frmPhieuKhamBenh
 
     Private Sub btLapPhieu_Click(sender As Object, e As EventArgs) Handles btLapPhieu.Click
 
+        If (cbBenhNhan.SelectedIndex = -1) Then
+            MessageBox.Show("Bạn chưa chọn bệnh nhân.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         Dim phieuKham = New PhieuKhamDTO()
         Dim chiTietPK = New ChiTietPhieuKhamDTO()
 
-        '1.Mapping data from GUI Control
-        'Get ChiTietDanhSach by MaBenhNhan and MaDanhSach
+        'Insert to PhieuKham Table
+        ''1.Mapping data from GUI Control
+        ''Get ChiTietDanhSach by MaBenhNhan and MaDanhSach
         Dim maBenhNhan = tbMaBenhNhan.Text
         Dim currentDay = dtpNgayKham.Value.ToString("d")
 
@@ -419,34 +428,65 @@ Public Class frmPhieuKhamBenh
         phieuKham.MaLoaiBenh = CType(cbLoaiBenh.SelectedItem, LoaiBenhDTO).MaLoaiBenh
         phieuKham.MaChiTietDanhSach = chiTietDanhSach.MaChiTietDanhSach
 
-        '2. Business...
+        ''2. Business...
 
-        '3. Insert to DB
+        ''3. Insert to DB
         Dim result = phieuKhamBUS.Insert(phieuKham)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Thêm phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+
+
+        'Insert to ChiTietPhieuKham Table
+        Dim maChiTietPK = String.Empty
+        For Each row In dgvThuoc.Rows
+
+            ''1. Mapping data
+            chiTietPhieuKhamBUS.BuildID(maChiTietPK)
+            chiTietPK.MaChiTietPhieuKham = maChiTietPK
+            chiTietPK.MaPhieuKham = tbMaPhieuKham.Text
+            chiTietPK.MaThuoc = row.Cells(0).Value
+            chiTietPK.SoLuong = row.Cells(3).Value
+
+            ''2.Business
+
+            ''3.Insert to DB
+            result = chiTietPhieuKhamBUS.Insert(chiTietPK)
+
+        Next
+
         If (result.FlagResult = True) Then
-            MessageBox.Show("Thêm phiếu khám thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'set MaPhieuKham auto
+            'get next MaPhieuKham
             Dim nextMaPhieuKham = String.Empty
+
             result = phieuKhamBUS.BuildID(nextMaPhieuKham)
             If (result.FlagResult = False) Then
                 MessageBox.Show("Lấy danh tự động mã phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Me.Close()
                 Return
             End If
+
+            'After add
+            ClearForm()
             tbMaPhieuKham.Text = nextMaPhieuKham
-            tbMaBenhNhan.Text = String.Empty
-            tbNamSinh.Text = String.Empty
-            tbTrieuChung.Text = String.Empty
-            tbGioiTinh.Text = String.Empty
-            tbDiaChi.Text = String.Empty
-            cbLoaiBenh.SelectedIndex = -1
-            cbBenhNhan.SelectedIndex = -1
-        Else
-            MessageBox.Show("Thêm phiếu khám không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
+            dgvThuoc.Rows.Clear()
+            MessageBox.Show("Thêm phiếu khám thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
 
+
+    Private Sub ClearForm()
+
+        tbMaBenhNhan.Text = String.Empty
+        tbNamSinh.Text = String.Empty
+        tbTrieuChung.Text = String.Empty
+        tbGioiTinh.Text = String.Empty
+        tbDiaChi.Text = String.Empty
+        cbLoaiBenh.SelectedIndex = -1
+        cbBenhNhan.SelectedIndex = -1
+
+    End Sub
 
 End Class
