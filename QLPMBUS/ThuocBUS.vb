@@ -68,6 +68,13 @@ Public Class ThuocBUS
         Return thuocDAL.SelectAll(listThuoc)
     End Function
 
+    Public Function Select_ByMaThuoc(maThuoc As String, ByRef thuoc As ThuocDTO) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return thuocDAL.Select_ByMaThuoc(maThuoc, thuoc)
+    End Function
+
 #End Region
 
 End Class

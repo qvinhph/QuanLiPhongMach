@@ -244,6 +244,48 @@ Public Class ThuocDAL
 
     End Function
 
+    Public Function Select_ByMaThuoc(maThuoc As String, ByRef thuoc As ThuocDTO) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT TOP 1 * "
+        query &= "FROM [tblthuoc] "
+        query &= "WHERE [ma_thuoc] = @ma_thuoc "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ma_thuoc", maThuoc)
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        While reader.Read()
+                            thuoc = New ThuocDTO(reader("ma_thuoc"), reader("ten_thuoc"), reader("ma_don_vi"),
+                                                    reader("ma_cach_dung"), reader("don_gia"))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy thuốc theo mã thuốc không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
 #End Region
 
 End Class

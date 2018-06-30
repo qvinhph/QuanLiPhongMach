@@ -31,4 +31,9 @@ Public Class frmTest
         Dim tracuubenhnhan As frmTraCuuBenhNhan = New frmTraCuuBenhNhan()
         tracuubenhnhan.Show()
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim hoadonfrm As frmLapHoaDon = New frmLapHoaDon()
+        hoadonfrm.Show()
+    End Sub
 End Class

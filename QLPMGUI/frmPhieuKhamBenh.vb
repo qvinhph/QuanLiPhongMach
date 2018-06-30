@@ -42,6 +42,7 @@ Public Class frmPhieuKhamBenh
         End If
         tbMaPhieuKham.Text = maPhieuKham
 
+
         'Load list of LoaiBenh to combobox
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
         result = loaiBenhBUS.SelectAll(listLoaiBenh)
@@ -56,43 +57,8 @@ Public Class frmPhieuKhamBenh
         cbLoaiBenh.ValueMember = "MaLoaiBenh"
 
 
-        'Load list of BenhNhan in the day to combobox
-        ''Get MaDanhSach of the current day
-        Dim currentDay = dtpNgayKham.Value.ToString("d")
-
-        Dim listDanhSachKham = New List(Of DanhSachKhamDTO)
-        danhSachKhamBUS.SelectAll(listDanhSachKham)
-
-        Dim currentMaDanhSach = String.Empty
-        currentMaDanhSach = (From danhSach In listDanhSachKham
-                             Where danhSach.NgayKham.ToString("d") = currentDay
-                             Select danhSach.MaDanhSach).FirstOrDefault()
-
-
-
-        ''Get list of BenhNhan in the day
-        Dim listChiTietDanhSach = New List(Of ChiTietDanhSachDTO) 'Contains all the ChiTietDanhSachDTO in the day
-        chiTietDanhSachBUS.SelectAll_MaDanhSach(currentMaDanhSach, listChiTietDanhSach)
-
-        Dim allBenhNhan = New List(Of BenhNhanDTO)
-        benhNhanBUS.SelectAll(allBenhNhan)
-
-        Dim listBenhNhanInTheDay = (From ctds In listChiTietDanhSach
-                                    From bn In allBenhNhan
-                                    Where ctds.MaBenhNhan = bn.MaBenhNhan
-                                    Select New BenhNhanDTO With
-                                        {
-                                            .MaBenhNhan = bn.MaBenhNhan,
-                                            .HoTen = bn.HoTen,
-                                            .GioiTinh = bn.GioiTinh,
-                                            .DiaChi = bn.DiaChi,
-                                            .NgaySinh = bn.NgaySinh
-                                        }).ToList()
-
-        ''Load the list of BenhNhan to combobox
-        cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
-        cbBenhNhan.DisplayMember = "HoTen"
-        cbBenhNhan.ValueMember = "MaBenhNhan"
+        'To raise daytime picker value changed events for loading BenhNhan ComboBox
+        dtpNgayKham.Value = DateTime.Now
 
 #End Region
 
@@ -217,6 +183,7 @@ Public Class frmPhieuKhamBenh
         If (listBenhNhanInTheDay.Count <= 0) Then
             cbBenhNhan.DataSource = Nothing
             cbBenhNhan.Items.Clear()
+            MessageBox.Show("Chưa tạo danh sách khám cho ngày này.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         Else
             cbBenhNhan.DataSource = New BindingSource(listBenhNhanInTheDay, String.Empty)
             cbBenhNhan.DisplayMember = "HoTen"

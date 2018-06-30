@@ -2,7 +2,7 @@
 
 #Region "Fields"
     Private iSoBenhNhanToiDa As Integer
-    Private iTienKham As Integer
+    Private iTienKham As Single
 #End Region
 
 #Region "Constructor"
@@ -10,7 +10,7 @@
 
     End Sub
 
-    Public Sub New(intSoBenhNhanMax As Integer, intTienKham As Integer)
+    Public Sub New(iSoBenhNhanMax As Integer, iTienKham As Single)
         SoBenhNhanToiDa = iSoBenhNhanToiDa
         TienKham = iTienKham
 
@@ -27,11 +27,11 @@
         End Set
     End Property
 
-    Property TienKham() As Integer
+    Property TienKham() As Single
         Get
             Return iTienKham
         End Get
-        Set(ByVal Value As Integer)
+        Set(ByVal Value As Single)
             iTienKham = Value
         End Set
     End Property
