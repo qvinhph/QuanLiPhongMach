@@ -243,18 +243,14 @@ Public Class BenhNhanDAL
     End Function
     Public Function SelectAll_ByLoaiBenh(maLoaiBenh As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
         Dim query As String = String.Empty
-        query &= "SELECT [ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham], [trieu_chung] "
+        query &= "SELECT [tblbenh_nhan].[ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi]"
         query &= " FROM [tblbenh_nhan] "
         query &= "     ,[tblphieu_kham]"
-        query &= "     ,[tbldanh_sach_kham]"
         query &= "     ,[tblchi_tiet_danh_sach]"
-        query &= "     ,[tblloai_benh]"
         query &= " WHERE "
-        query &= "     [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[mabenhnhan]"
+        query &= "      [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[ma_benh_nhan]"
         query &= "     AND [tblphieu_kham].[ma_chi_tiet_danh_sach] = [tblchi_tiet_danh_sach].[ma_chi_tiet_danh_sach]"
-        query &= "     AND [tbldanh_sach_kham].[ma_danh_sach] = [tblchi_tiet_danh_sach].[ma_danh_sach]"
-        query &= "     AND [tblloaibenh].[ma_loai_benh] = [tblphieukham].[ma_loai_benh]"
-        query &= "     AND [tblloaibenh].[ma_loai_benh] = @ma_loai_benh"
+        query &= "     AND [tblphieu_kham].[ma_loai_benh] = @ma_loai_benh"
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -278,13 +274,136 @@ Public Class BenhNhanDAL
                 Catch ex As Exception
                     conn.Close()
                     System.Console.WriteLine(ex.StackTrace)
-                    Return New Result(False, "Lấy tất cả Học sinh theo Loại không thành công", ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả Bệnh nhân theo Loại bệnh không thành công", ex.StackTrace)
                 End Try
             End Using
         End Using
         Return New Result(True) ' thanh cong
     End Function
 
+    Public Function SelectAll_ByNgayKham(ngayKham As Date, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+        Dim query As String = String.Empty
+        query &= "SELECT [tblbenh_nhan].[ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi]"
+        query &= " FROM [tblbenh_nhan] "
+        query &= "     ,[tbldanh_sach_kham]"
+        query &= "     ,[tblchi_tiet_danh_sach]"
+        query &= " WHERE "
+        query &= "      [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[ma_benh_nhan]"
+        query &= "     AND [tbldanh_sach_kham].[ma_danh_sach] = [tblchi_tiet_danh_sach].[ma_danh_sach]"
+        query &= "     AND [tbldanh_sach_kham].[ngay_kham] = @ngaykham"
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ngaykham", ngayKham)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listBenhNhan.Clear()
+                        While reader.Read()
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    conn.Close()
+                    System.Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả Bệnh nhân theo Ngày khám không thành công", ex.StackTrace)
+                End Try
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
+
+    Public Function SelectAll_ByName(HoTen As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblbenh_nhan] "
+        query &= " WHERE [tblbenh_nhan].[ho_ten]=@hoten"
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@hoten", HoTen)
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listBenhNhan.Clear()
+                        While reader.Read()
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả bệnh nhân theo tên không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
+
+    Public Function SelectAll_ByID(MaSo As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblbenh_nhan] "
+        query &= " WHERE [tblbenh_nhan].[ma_benh_nhan] = @maso"
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@maso", MaSo)
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listBenhNhan.Clear()
+                        While reader.Read()
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả bệnh nhân theo mã số không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
 #End Region
 
 End Class

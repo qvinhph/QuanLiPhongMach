@@ -67,6 +67,12 @@ Public Class ChiTietDanhSachBUS
         '2. Insert to DB
         Return chiTietDanhSach.SelectAll_MaDanhSach(maDanhSach, listChiTietDS)
     End Function
+    Public Function SelectAll(ByRef listChiTietDS As List(Of ChiTietDanhSachDTO)) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return chiTietDanhSach.SelectAll(listChiTietDS)
+    End Function
 
 #End Region
 

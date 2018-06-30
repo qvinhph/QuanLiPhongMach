@@ -11,7 +11,7 @@
     End Sub
 
     Public Sub New(iSoBenhNhanMax As Integer, iTienKham As Double)
-        SoBenhNhanToiDa = iSoBenhNhanToiDa
+        SoBenhNhanToiDa = iSoBenhNhanMax
         TienKham = iTienKham
 
     End Sub

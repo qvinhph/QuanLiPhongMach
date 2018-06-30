@@ -93,6 +93,24 @@ Public Class BenhNhanBUS
         '2. Insert to DB
         Return benhNhanDAL.SelectAll_ByLoaiBenh(maLoaiBenh, listBenhNhan)
     End Function
+    Public Function SelectAll_ByNgayKham(ngayKham As Date, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return benhNhanDAL.SelectAll_ByNgayKham(ngayKham, listBenhNhan)
+    End Function
+    Public Function SelectAll_ByName(hoTen As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return benhNhanDAL.SelectAll_ByName(hoTen, listBenhNhan)
+    End Function
+    Public Function SelectAll_ByID(maSo As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
+        '1. verify data here!!
+
+        '2. Insert to DB
+        Return benhNhanDAL.SelectAll_ByID(maSo, listBenhNhan)
+    End Function
 
     Public Function IsValidName(benhNhan As BenhNhanDTO) As Boolean
 

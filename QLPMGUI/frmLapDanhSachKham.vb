@@ -7,12 +7,53 @@ Public Class frmLapDanhSachKham
     Private bnBus As BenhNhanBUS
     Dim List_BenhNhan As New List(Of BenhNhanDTO)
     Dim List_Items_Added As New List(Of ListViewItem)
+    Private thamSoBUS As ThamSoBUS
+    Private thamSo As ThamSoDTO
 
+    'Temp Variable
     Dim count As Integer
     Dim countadded As Integer
-
     Dim bnTemp
 
+
+    Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'init
+        countadded = 0
+        count = 0
+        dtpNgayKham.Value = Date.Today()
+        thamSoBUS = New ThamSoBUS()
+        thamSoBUS.GetThamSoOnDB(thamSo)
+
+        'Auto generate patient id
+        bnBus = New BenhNhanBUS()
+        Dim result
+        Dim nextMsbn = "1"
+        result = bnBus.BuildID(nextMsbn)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Me.Close()
+            Return
+        End If
+        txtMaSo.Text = nextMsbn
+
+        '
+        CreateListView()
+
+
+
+    End Sub
+
+#Region "Load listview data"
+    Private Sub CreateListView()
+        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 100, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Mã số", 80, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Địa Chỉ", 130, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Ngày Sinh", 100, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Giới Tính", 70, HorizontalAlignment.Center)
+        lvBenhNhan.Columns.Add("Ngày Khám", 100, HorizontalAlignment.Center)
+    End Sub
 
     Private Sub btnNhap_Click(sender As Object, e As EventArgs) Handles btnNhap.Click
 
@@ -47,6 +88,7 @@ Public Class frmLapDanhSachKham
         lvItem.SubItems.Add(cbGioitinh.Text)
         lvItem.SubItems.Add(dtpNgayKham.Value)
 
+        'List manage
         List_BenhNhan.Add(Benhnhan)
         List_Items_Added.Add(lvItem)
 
@@ -60,11 +102,12 @@ Public Class frmLapDanhSachKham
         Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
         txtMaSo.Text = "BN" + strNextNumberID
         MessageBox.Show("Đã thêm một bệnh nhân!")
+
+        'Some item properties
         txtHoTen.Focus()
         txtHoTen.Clear()
         txtDiaChi.Clear()
         cbGioitinh.SelectedIndex = 0
-
         Button2.Visible = True
 
 
@@ -94,16 +137,8 @@ Public Class frmLapDanhSachKham
         'End If
 
     End Sub
+#End Region
 
-    Private Sub CreateListView()
-        lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 100, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Mã số", 80, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Địa Chỉ", 130, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Ngày Sinh", 100, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Giới Tính", 70, HorizontalAlignment.Center)
-        lvBenhNhan.Columns.Add("Ngày Khám", 100, HorizontalAlignment.Center)
-    End Sub
-    Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         countadded = 0
         count = 0
@@ -113,14 +148,14 @@ Public Class frmLapDanhSachKham
         'Auto generate patient id
         bnBus = New BenhNhanBUS()
         Dim result
-        Dim nextMsbn = "1"
+    Dim nextMsbn = "1"
         result = bnBus.BuildID(nextMsbn)
         If (result.FlagResult = False) Then
             MessageBox.Show("Lấy danh sách tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             System.Console.WriteLine(result.SystemMessage)
             Me.Close()
-            Return
-        End If
+    Return
+    End If
         txtMaSo.Text = nextMsbn
 
         '
@@ -189,17 +224,18 @@ Public Class frmLapDanhSachKham
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
     End Sub
 
-    Private Sub Label11_Click_1(sender As Object, e As EventArgs)
+    Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
         If count = 0 Then
-            Application.Exit()
+            Me.Close()
         Else
             Dim Answer As DialogResult = MessageBox.Show("Bạn chưa lưu, bạn có muốn lưu trước khi thoát không", "Data Check", MessageBoxButtons.YesNoCancel)
             Select Case Answer
                 Case DialogResult.Yes
                     Button2_Click(sender, e)
-                    Application.Exit()
+                    Me.Close()
                 Case DialogResult.No
-                    Application.Exit()
+
+                    Me.Close()
                 Case DialogResult.Cancel
                     Exit Sub
                 Case Else
@@ -208,30 +244,7 @@ Public Class frmLapDanhSachKham
         End If
     End Sub
 
-    Private Sub Label6_Click_1(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtNguoilap_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub dtpNgaySinh_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgaySinh.ValueChanged
-
-    End Sub
-
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
-
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub Label5_Click_1(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
-
+    'Update button
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         Dim index As ListViewItem
@@ -257,6 +270,7 @@ Public Class frmLapDanhSachKham
 
     End Sub
 
+    'Handle update function
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
         If lvBenhNhan.SelectedItems.Count > 0 Then
             bnTemp = lvBenhNhan.SelectedIndices(0)
@@ -284,10 +298,12 @@ Public Class frmLapDanhSachKham
 
     End Sub
 
+    'Exit button 2
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Label11_Click_1(sender, e)
     End Sub
 
+    'Add button
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
         For Each benhnhan In List_BenhNhan
@@ -322,6 +338,7 @@ Public Class frmLapDanhSachKham
 
     End Sub
 
+    'Delete button
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If count = 0 Then
             MessageBox.Show("Không thể xóa vì danh sách chưa có bệnh nhân nào")
@@ -334,4 +351,6 @@ Public Class frmLapDanhSachKham
             count = count - 1
         End If
     End Sub
+
+
 End Class
