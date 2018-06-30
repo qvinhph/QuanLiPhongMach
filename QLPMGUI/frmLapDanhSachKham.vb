@@ -189,7 +189,7 @@ Public Class frmLapDanhSachKham
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
     End Sub
 
-    Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
+    Private Sub Label11_Click_1(sender As Object, e As EventArgs)
         If count = 0 Then
             Application.Exit()
         Else
@@ -233,7 +233,6 @@ Public Class frmLapDanhSachKham
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
 
         Dim index As ListViewItem
         index = lvBenhNhan.SelectedItems(0)

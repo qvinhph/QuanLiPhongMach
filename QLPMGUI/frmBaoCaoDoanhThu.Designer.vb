@@ -23,7 +23,6 @@ Partial Class frmBaoCaoDoanhThu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBaoCaoDoanhThu))
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvBaoCao = New System.Windows.Forms.DataGridView()
@@ -31,9 +30,8 @@ Partial Class frmBaoCaoDoanhThu
         Me.tbMaBaoCao = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.lbThang = New System.Windows.Forms.Label()
-        Me.btnLapBaoCao = New System.Windows.Forms.Button()
+        Me.btnLuuBaoCao = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbTongBenhNhan = New System.Windows.Forms.Label()
@@ -43,20 +41,12 @@ Partial Class frmBaoCaoDoanhThu
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(637, 568)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(0, 13)
-        Me.Label10.TabIndex = 64
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Light", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(12, 52)
+        Me.Label9.Location = New System.Drawing.Point(34, 217)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(197, 153)
         Me.Label9.TabIndex = 0
@@ -89,9 +79,8 @@ Partial Class frmBaoCaoDoanhThu
         Me.Panel2.Controls.Add(Me.tbMaBaoCao)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.dtpNgayKham)
-        Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.lbThang)
-        Me.Panel2.Controls.Add(Me.btnLapBaoCao)
+        Me.Panel2.Controls.Add(Me.btnLuuBaoCao)
         Me.Panel2.Location = New System.Drawing.Point(274, 12)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(539, 159)
@@ -129,19 +118,6 @@ Partial Class frmBaoCaoDoanhThu
         Me.dtpNgayKham.Size = New System.Drawing.Size(309, 29)
         Me.dtpNgayKham.TabIndex = 96
         '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(416, 108)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(110, 40)
-        Me.Button3.TabIndex = 56
-        Me.Button3.Text = "Thoát"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'lbThang
         '
         Me.lbThang.AutoSize = True
@@ -154,18 +130,18 @@ Partial Class frmBaoCaoDoanhThu
         Me.lbThang.TabIndex = 18
         Me.lbThang.Text = "Tháng:"
         '
-        'btnLapBaoCao
+        'btnLuuBaoCao
         '
-        Me.btnLapBaoCao.BackgroundImage = CType(resources.GetObject("btnLapBaoCao.BackgroundImage"), System.Drawing.Image)
-        Me.btnLapBaoCao.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLapBaoCao.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnLapBaoCao.Location = New System.Drawing.Point(26, 108)
-        Me.btnLapBaoCao.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnLapBaoCao.Name = "btnLapBaoCao"
-        Me.btnLapBaoCao.Size = New System.Drawing.Size(111, 40)
-        Me.btnLapBaoCao.TabIndex = 7
-        Me.btnLapBaoCao.Text = "Lập Báo Cáo"
-        Me.btnLapBaoCao.UseVisualStyleBackColor = True
+        Me.btnLuuBaoCao.BackgroundImage = CType(resources.GetObject("btnLuuBaoCao.BackgroundImage"), System.Drawing.Image)
+        Me.btnLuuBaoCao.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLuuBaoCao.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnLuuBaoCao.Location = New System.Drawing.Point(26, 108)
+        Me.btnLuuBaoCao.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnLuuBaoCao.Name = "btnLuuBaoCao"
+        Me.btnLuuBaoCao.Size = New System.Drawing.Size(111, 40)
+        Me.btnLuuBaoCao.TabIndex = 7
+        Me.btnLuuBaoCao.Text = "Lưu Báo Cáo"
+        Me.btnLuuBaoCao.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -226,7 +202,6 @@ Partial Class frmBaoCaoDoanhThu
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dgvBaoCao)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmBaoCaoDoanhThu"
@@ -240,7 +215,6 @@ Partial Class frmBaoCaoDoanhThu
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dgvBaoCao As DataGridView
@@ -248,9 +222,8 @@ Partial Class frmBaoCaoDoanhThu
     Friend WithEvents tbMaBaoCao As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents dtpNgayKham As DateTimePicker
-    Friend WithEvents Button3 As Button
     Friend WithEvents lbThang As Label
-    Friend WithEvents btnLapBaoCao As Button
+    Friend WithEvents btnLuuBaoCao As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lbTongBenhNhan As Label

@@ -41,4 +41,9 @@ Public Class frmTest
         Dim baocaongay As frmBaoCaoDoanhThu = New frmBaoCaoDoanhThu()
         baocaongay.Show()
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim aaaa As frmBaoCaoSuDungThuoc = New frmBaoCaoSuDungThuoc()
+        aaaa.Show()
+    End Sub
 End Class
