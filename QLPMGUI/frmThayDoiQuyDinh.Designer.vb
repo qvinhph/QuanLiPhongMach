@@ -24,16 +24,14 @@ Partial Class frmThayDoiQuyDinh
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmThayDoiQuyDinh))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tbSoLuongMax = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.tbSoLuongMax = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -45,8 +43,15 @@ Partial Class frmThayDoiQuyDinh
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Location = New System.Drawing.Point(310, 25)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(454, 58)
+        Me.Panel2.Size = New System.Drawing.Size(454, 98)
         Me.Panel2.TabIndex = 72
+        '
+        'tbSoLuongMax
+        '
+        Me.tbSoLuongMax.Location = New System.Drawing.Point(411, 19)
+        Me.tbSoLuongMax.Name = "tbSoLuongMax"
+        Me.tbSoLuongMax.Size = New System.Drawing.Size(27, 20)
+        Me.tbSoLuongMax.TabIndex = 19
         '
         'Label8
         '
@@ -106,56 +111,23 @@ Partial Class frmThayDoiQuyDinh
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(310, 182)
+        Me.Panel3.Location = New System.Drawing.Point(310, 150)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(454, 199)
+        Me.Panel3.Size = New System.Drawing.Size(454, 231)
         Me.Panel3.TabIndex = 73
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(16, 9)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 30)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "Số lượng:"
-        '
-        'tbSoLuongMax
-        '
-        Me.tbSoLuongMax.Location = New System.Drawing.Point(411, 19)
-        Me.tbSoLuongMax.Name = "tbSoLuongMax"
-        Me.tbSoLuongMax.Size = New System.Drawing.Size(27, 20)
-        Me.tbSoLuongMax.TabIndex = 19
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(16, 57)
+        Me.Label2.Location = New System.Drawing.Point(4, 20)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 30)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Loại Bệnh:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(16, 108)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 30)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Thuốc:"
         '
         'frmThayDoiQuyDinh
         '
@@ -189,7 +161,5 @@ Partial Class frmThayDoiQuyDinh
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
 End Class

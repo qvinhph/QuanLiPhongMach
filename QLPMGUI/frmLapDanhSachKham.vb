@@ -7,6 +7,8 @@ Public Class frmLapDanhSachKham
     Private bnBus As BenhNhanBUS
     Dim List_BenhNhan As New List(Of BenhNhanDTO)
     Dim List_Items_Added As New List(Of ListViewItem)
+    Private thamSoBUS As ThamSoBUS
+    Private thamSo As ThamSoDTO
 
     'Temp Variable
     Dim count As Integer
@@ -16,10 +18,12 @@ Public Class frmLapDanhSachKham
 
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        'init
         countadded = 0
         count = 0
-
         dtpNgayKham.Value = Date.Today()
+        thamSoBUS = New ThamSoBUS()
+        thamSoBUS.GetThamSoOnDB(thamSo)
 
         'Auto generate patient id
         bnBus = New BenhNhanBUS()
@@ -40,6 +44,7 @@ Public Class frmLapDanhSachKham
 
 
     End Sub
+
 #Region "Load listview data"
     Private Sub CreateListView()
         lvBenhNhan.Columns.Add("Họ Tên Bệnh Nhân", 100, HorizontalAlignment.Center)
@@ -182,6 +187,7 @@ Public Class frmLapDanhSachKham
         Button1.Visible = False
 
     End Sub
+
     'Handle update function
     Private Sub lvBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvBenhNhan.SelectedIndexChanged
         If lvBenhNhan.SelectedItems.Count > 0 Then
@@ -209,10 +215,12 @@ Public Class frmLapDanhSachKham
 
 
     End Sub
+
     'Exit button 2
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Label11_Click_1(sender, e)
     End Sub
+
     'Add button
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
@@ -247,6 +255,7 @@ Public Class frmLapDanhSachKham
 
 
     End Sub
+
     'Delete button
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If count = 0 Then
