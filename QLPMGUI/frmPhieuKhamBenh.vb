@@ -28,6 +28,44 @@ Public Class frmPhieuKhamBenh
         phieuKhamBUS = New PhieuKhamBUS()
         chiTietPhieuKhamBUS = New ChiTietPhieuKhamBUS()
 
+#Region "Load DataGridView Thuoc"
+
+        'Properties
+        dgvThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+        'Contructing columns
+        Dim clMaThuoc = New DataGridViewTextBoxColumn()
+        clMaThuoc.Name = "MaThuoc"
+        clMaThuoc.HeaderText = "Mã Thuốc"
+        clMaThuoc.ReadOnly = True
+        dgvThuoc.Columns.Add(clMaThuoc)
+
+        Dim clTenThuoc = New DataGridViewTextBoxColumn()
+        clTenThuoc.Name = "TenThuoc"
+        clTenThuoc.HeaderText = "Tên Thuốc"
+        clTenThuoc.ReadOnly = True
+        dgvThuoc.Columns.Add(clTenThuoc)
+
+        Dim clDonVi = New DataGridViewTextBoxColumn()
+        clDonVi.Name = "DonVi"
+        clDonVi.HeaderText = "Đơn Vị"
+        clDonVi.ReadOnly = True
+        dgvThuoc.Columns.Add(clDonVi)
+
+        Dim clSoLuong = New DataGridViewTextBoxColumn()
+        clSoLuong.Name = "SoLuong"
+        clSoLuong.HeaderText = "Số Lượng"
+        clSoLuong.ReadOnly = False
+        dgvThuoc.Columns.Add(clSoLuong)
+
+        Dim clCachDung = New DataGridViewTextBoxColumn()
+        clCachDung.Name = "CachDung"
+        clCachDung.HeaderText = "Cách Dùng"
+        clCachDung.ReadOnly = True
+        dgvThuoc.Columns.Add(clCachDung)
+
+#End Region
+
 
 #Region "Load tabpage Thong Tin Phieu Kham"
 
@@ -81,43 +119,6 @@ Public Class frmPhieuKhamBenh
 #End Region
 
 
-#Region "Load DataGridView Thuoc"
-
-        'Properties
-        dgvThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-
-        'Contructing columns
-        Dim clMaThuoc = New DataGridViewTextBoxColumn()
-        clMaThuoc.Name = "MaThuoc"
-        clMaThuoc.HeaderText = "Mã Thuốc"
-        clMaThuoc.ReadOnly = True
-        dgvThuoc.Columns.Add(clMaThuoc)
-
-        Dim clTenThuoc = New DataGridViewTextBoxColumn()
-        clTenThuoc.Name = "TenThuoc"
-        clTenThuoc.HeaderText = "Tên Thuốc"
-        clTenThuoc.ReadOnly = True
-        dgvThuoc.Columns.Add(clTenThuoc)
-
-        Dim clDonVi = New DataGridViewTextBoxColumn()
-        clDonVi.Name = "DonVi"
-        clDonVi.HeaderText = "Đơn Vị"
-        clDonVi.ReadOnly = True
-        dgvThuoc.Columns.Add(clDonVi)
-
-        Dim clSoLuong = New DataGridViewTextBoxColumn()
-        clSoLuong.Name = "SoLuong"
-        clSoLuong.HeaderText = "Số Lượng"
-        clSoLuong.ReadOnly = False
-        dgvThuoc.Columns.Add(clSoLuong)
-
-        Dim clCachDung = New DataGridViewTextBoxColumn()
-        clCachDung.Name = "CachDung"
-        clCachDung.HeaderText = "Cách Dùng"
-        clCachDung.ReadOnly = True
-        dgvThuoc.Columns.Add(clCachDung)
-
-#End Region
 
     End Sub
 

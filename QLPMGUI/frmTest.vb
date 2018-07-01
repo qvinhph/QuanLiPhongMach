@@ -51,4 +51,9 @@ Public Class frmTest
         Dim zzz As frmThayDoiQuyDinh = New frmThayDoiQuyDinh()
         zzz.Show()
     End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim cachdung As frmQuanLiCachDung = New frmQuanLiCachDung()
+        cachdung.Show()
+    End Sub
 End Class

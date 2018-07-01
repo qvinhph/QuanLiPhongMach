@@ -111,6 +111,12 @@
     <Compile Include="frmPhieuKhamBenh.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmQuanLiCachDung.Designer.vb">
+      <DependentUpon>frmQuanLiCachDung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLiCachDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTest.Designer.vb">
       <DependentUpon>frmTest.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuKhamBenh.resx">
       <DependentUpon>frmPhieuKhamBenh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLiCachDung.resx">
+      <DependentUpon>frmQuanLiCachDung.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.vb</DependentUpon>

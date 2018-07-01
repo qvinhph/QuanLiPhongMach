@@ -23,13 +23,14 @@ Partial Class frmPhieuKhamBenh
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPhieuKhamBenh))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabPageThongTin = New System.Windows.Forms.TabPage()
+        Me.btnThoat = New System.Windows.Forms.Button()
         Me.tbMaPhieuKham = New System.Windows.Forms.TextBox()
         Me.lbMaPK = New System.Windows.Forms.Label()
         Me.tbMaBenhNhan = New System.Windows.Forms.TextBox()
@@ -67,7 +68,6 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
-        Me.btnThoat = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.tabPageThongTin.SuspendLayout()
@@ -160,6 +160,19 @@ Partial Class frmPhieuKhamBenh
         Me.tabPageThongTin.TabIndex = 0
         Me.tabPageThongTin.Text = "Thông Tin Phiếu"
         Me.tabPageThongTin.UseVisualStyleBackColor = True
+        '
+        'btnThoat
+        '
+        Me.btnThoat.BackgroundImage = CType(resources.GetObject("btnThoat.BackgroundImage"), System.Drawing.Image)
+        Me.btnThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnThoat.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnThoat.Location = New System.Drawing.Point(298, 418)
+        Me.btnThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnThoat.Name = "btnThoat"
+        Me.btnThoat.Size = New System.Drawing.Size(94, 40)
+        Me.btnThoat.TabIndex = 94
+        Me.btnThoat.Text = "Thoát"
+        Me.btnThoat.UseVisualStyleBackColor = True
         '
         'tbMaPhieuKham
         '
@@ -598,30 +611,17 @@ Partial Class frmPhieuKhamBenh
         Me.dgvThuoc.Location = New System.Drawing.Point(243, 520)
         Me.dgvThuoc.MultiSelect = False
         Me.dgvThuoc.Name = "dgvThuoc"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvThuoc.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgvThuoc.Size = New System.Drawing.Size(538, 164)
         Me.dgvThuoc.TabIndex = 65
-        '
-        'btnThoat
-        '
-        Me.btnThoat.BackgroundImage = CType(resources.GetObject("btnThoat.BackgroundImage"), System.Drawing.Image)
-        Me.btnThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnThoat.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnThoat.Location = New System.Drawing.Point(298, 418)
-        Me.btnThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnThoat.Name = "btnThoat"
-        Me.btnThoat.Size = New System.Drawing.Size(94, 40)
-        Me.btnThoat.TabIndex = 94
-        Me.btnThoat.Text = "Thoát"
-        Me.btnThoat.UseVisualStyleBackColor = True
         '
         'frmPhieuKhamBenh
         '
