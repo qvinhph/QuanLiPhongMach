@@ -36,7 +36,7 @@ Partial Class frmTraCuuBenhNhan
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.tbTrieuChung = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -189,17 +189,17 @@ Partial Class frmTraCuuBenhNhan
         Me.Button3.Text = "Thoát"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'dtpNgayKham
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(153, 16)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.DateTimePicker1.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
-        Me.DateTimePicker1.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(242, 20)
-        Me.DateTimePicker1.TabIndex = 57
-        Me.DateTimePicker1.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
+        Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpNgayKham.Location = New System.Drawing.Point(153, 16)
+        Me.dtpNgayKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.dtpNgayKham.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
+        Me.dtpNgayKham.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
+        Me.dtpNgayKham.Name = "dtpNgayKham"
+        Me.dtpNgayKham.Size = New System.Drawing.Size(242, 20)
+        Me.dtpNgayKham.TabIndex = 57
+        Me.dtpNgayKham.Value = New Date(1998, 1, 1, 0, 0, 0, 0)
         '
         'tbTrieuChung
         '
@@ -212,7 +212,7 @@ Partial Class frmTraCuuBenhNhan
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.tbTrieuChung)
-        Me.Panel2.Controls.Add(Me.DateTimePicker1)
+        Me.Panel2.Controls.Add(Me.dtpNgayKham)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -284,7 +284,7 @@ Partial Class frmTraCuuBenhNhan
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Button3 As Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpNgayKham As DateTimePicker
     Friend WithEvents tbTrieuChung As TextBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label2 As Label
