@@ -99,4 +99,55 @@ Public Class frmQuanLiCachDung
         tbTenCachDung.Text = cachDung
     End Sub
 
+    Private Sub btThem_Click(sender As Object, e As EventArgs) Handles btThem.Click
+
+        If (tbTenCachDung.Text = "") Then
+            Return
+        End If
+
+        Dim cachDung = New CachDungDTO()
+        cachDung.MaCachDung = String.Empty 'Insert tu them
+        cachDung.CachDung = tbTenCachDung.Text
+
+        cachDungBUS.Insert(cachDung)
+
+        LoadDataDataGridView()
+
+    End Sub
+
+
+    Private Sub btXoa_Click(sender As Object, e As EventArgs) Handles btXoa.Click
+
+        Dim maCachDung = tbMaCD.Text
+
+        cachDungBUS.Delete(maCachDung)
+
+        LoadDataDataGridView()
+
+    End Sub
+
+
+    Private Sub btCapNhat_Click(sender As Object, e As EventArgs) Handles btCapNhat.Click
+
+        If (tbTenCachDung.Text = "") Then
+            Return
+        End If
+
+        Dim cachDung = New CachDungDTO()
+        cachDung.MaCachDung = tbMaCD.Text
+        cachDung.CachDung = tbTenCachDung.Text
+
+        Dim result = New Result
+        result = cachDungBUS.Update(cachDung)
+        If (result.FlagResult = False) Then
+            Console.WriteLine("sasdasd")
+        End If
+
+        LoadDataDataGridView()
+
+    End Sub
+
+    Private Sub btThoat_Click(sender As Object, e As EventArgs) Handles btThoat.Click
+        Me.Close()
+    End Sub
 End Class
