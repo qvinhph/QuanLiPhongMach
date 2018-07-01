@@ -17,6 +17,8 @@ Public Class frmBaoCaoDoanhThu
     Private chiTietPhieuKhamBUS As ChiTietPhieuKhamBUS
     Private hoaDonBUS As HoaDonBUS
     Private thamSoBUS As ThamSoBUS
+    Private baoCaoDoanhThuBUS As BaoCaoDoanhThuBUS
+    Private chiTietBaoCaoDoanhThuBUS As ChiTietBaoCaoDoanhThuBUS
 
     Private thangBaoCao As Date
     Private lineNumber As Integer
@@ -39,14 +41,22 @@ Public Class frmBaoCaoDoanhThu
         chiTietPhieuKhamBUS = New ChiTietPhieuKhamBUS()
         hoaDonBUS = New HoaDonBUS()
         thamSoBUS = New ThamSoBUS()
+        baoCaoDoanhThuBUS = New BaoCaoDoanhThuBUS()
+        chiTietBaoCaoDoanhThuBUS = New ChiTietBaoCaoDoanhThuBUS()
 
         thangBaoCao = dtpNgayKham.Value.Date
         lineNumber = 0
 
-        'Load MaDoanhThu
+        'Load MaBaoCaoDoanhThu
         Dim result = New Result()
         Dim maBaoCao = String.Empty
-        'result = baocaoBUS
+        result = baoCaoDoanhThuBUS.BuildID(maBaoCao)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy mã báo cáo doanh thu không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+        tbMaBaoCao.Text = maBaoCao
+
 
 #Region "Load DataGridView"
 
@@ -273,5 +283,78 @@ Public Class frmBaoCaoDoanhThu
 
     End Function
 
+
+    Private Sub btnLapBaoCao_Click(sender As Object, e As EventArgs) Handles btnLapBaoCao.Click
+
+        Dim result = New Result()
+
+        If (dgvBaoCao.Rows.Count < 2) Then
+            MessageBox.Show("Không có số liệu nào để lưu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            Return
+        End If
+
+        'Save to BaoCaoDoanhThu table
+        ''1. Matching data from GUI
+        Dim baoCaoDoanhThu = New BaoCaoDoanhThuDTO()
+        baoCaoDoanhThu.MaBaoCaoDoanhThu = tbMaBaoCao.Text
+        baoCaoDoanhThu.ThangBaoCao = thangBaoCao.Month
+
+        ''2. Business
+
+        ''3. Insert to DB
+        result = baoCaoDoanhThuBUS.Insert(baoCaoDoanhThu)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Thêm báo cáo doanh thu không thành không.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+
+        'Save to ChiTietBaoCaoDoanhThu table
+        Dim chiTietBaoCaoDoanhThu = New ChiTietBaoCaoDoanhThuDTO()
+        Dim maChiTietBaoCaoDoanhthu = String.Empty
+        For Each row In dgvBaoCao.Rows
+
+            Console.WriteLine(row.Cells(0).Value)
+            Console.WriteLine(row.Cells(1).Value)
+            Console.WriteLine(row.Cells(2).Value)
+            Console.WriteLine(row.Cells(3).Value)
+            Console.WriteLine(row.Cells(4).Value)
+
+            ''1. Matching data from GUI
+            chiTietBaoCaoDoanhThuBUS.BuildID(maChiTietBaoCaoDoanhthu)
+            chiTietBaoCaoDoanhThu.MaChiTietBaoCaoDoanhThu = maChiTietBaoCaoDoanhthu
+            chiTietBaoCaoDoanhThu.Ngay = row.Cells(1).Value
+            chiTietBaoCaoDoanhThu.SoBenhNhan = row.Cells(2).Value
+
+            Dim doubleNumber As Double
+            'Dim stringDoanhThu = CType(row.Cells(3).Value, String)
+            'Double.TryParse(stringDoanhThu, doubleNumber)
+            'chiTietBaoCaoDoanhThu.DoanhThu = doubleNumber
+            chiTietBaoCaoDoanhThu.DoanhThu = row.Cells(3).Value
+
+            Dim stringTyLe As String = row.Cells(3).Value
+            Dim stringTyLe2 = stringTyLe.ToString()
+            Dim onlyNumber = stringTyLe.Substring(0, stringTyLe.Length - 1)
+            Double.TryParse(onlyNumber, doubleNumber)
+            chiTietBaoCaoDoanhThu.TyLe = doubleNumber
+
+            chiTietBaoCaoDoanhThu.MaBaoCaoDoanhThu = tbMaBaoCao.Text
+
+            ''2.Business
+
+
+            ''3. Insert to DB
+            chiTietBaoCaoDoanhThuBUS.Insert(chiTietBaoCaoDoanhThu)
+        Next
+
+        'After save
+        MessageBox.Show("Thêm báo cáo doanh thu thành không.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Dim nextMaBaoCaoDoanhThu = String.Empty
+        baoCaoDoanhThuBUS.BuildID(nextMaBaoCaoDoanhThu)
+        tbMaBaoCao.Text = nextMaBaoCaoDoanhThu
+        dgvBaoCao.Rows.Clear()
+        lbTongBenhNhan.Text = "0"
+        lbTongDoanhThu.Text = "0"
+
+    End Sub
 
 End Class

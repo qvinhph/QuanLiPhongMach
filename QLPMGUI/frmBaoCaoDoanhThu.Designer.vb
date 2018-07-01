@@ -28,13 +28,12 @@ Partial Class frmBaoCaoDoanhThu
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvBaoCao = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tbMaBaoCao = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.lbThang = New System.Windows.Forms.Label()
         Me.btnLapBaoCao = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbTongBenhNhan = New System.Windows.Forms.Label()
@@ -77,6 +76,8 @@ Partial Class frmBaoCaoDoanhThu
         '
         'dgvBaoCao
         '
+        Me.dgvBaoCao.AllowUserToAddRows = False
+        Me.dgvBaoCao.AllowUserToDeleteRows = False
         Me.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBaoCao.Location = New System.Drawing.Point(274, 189)
         Me.dgvBaoCao.Name = "dgvBaoCao"
@@ -85,7 +86,7 @@ Partial Class frmBaoCaoDoanhThu
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.TextBox1)
+        Me.Panel2.Controls.Add(Me.tbMaBaoCao)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.dtpNgayKham)
         Me.Panel2.Controls.Add(Me.Button3)
@@ -96,14 +97,14 @@ Partial Class frmBaoCaoDoanhThu
         Me.Panel2.Size = New System.Drawing.Size(539, 159)
         Me.Panel2.TabIndex = 75
         '
-        'TextBox1
+        'tbMaBaoCao
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(156, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(309, 29)
-        Me.TextBox1.TabIndex = 98
+        Me.tbMaBaoCao.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaBaoCao.Location = New System.Drawing.Point(156, 19)
+        Me.tbMaBaoCao.Name = "tbMaBaoCao"
+        Me.tbMaBaoCao.ReadOnly = True
+        Me.tbMaBaoCao.Size = New System.Drawing.Size(309, 29)
+        Me.tbMaBaoCao.TabIndex = 98
         '
         'Label1
         '
@@ -166,19 +167,6 @@ Partial Class frmBaoCaoDoanhThu
         Me.btnLapBaoCao.Text = "Lập Báo Cáo"
         Me.btnLapBaoCao.UseVisualStyleBackColor = True
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label2.Location = New System.Drawing.Point(815, 9)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(22, 30)
-        Me.Label2.TabIndex = 74
-        Me.Label2.Text = "x"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -238,7 +226,6 @@ Partial Class frmBaoCaoDoanhThu
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dgvBaoCao)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -258,13 +245,12 @@ Partial Class frmBaoCaoDoanhThu
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dgvBaoCao As DataGridView
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbMaBaoCao As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents dtpNgayKham As DateTimePicker
     Friend WithEvents Button3 As Button
     Friend WithEvents lbThang As Label
     Friend WithEvents btnLapBaoCao As Button
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lbTongBenhNhan As Label
