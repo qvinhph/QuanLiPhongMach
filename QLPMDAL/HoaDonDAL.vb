@@ -33,8 +33,8 @@ Public Class HoaDonDAL
     Public Function Insert(hoaDon As HoaDonDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblhoa_don] ([ma_hoa_don], [ma_phieu_kham], [tien_thuoc]) "
-        query &= "VALUES (@ma_hoa_don, @ma_phieu_kham, @tien_thuoc) "
+        query &= "INSERT INTO [tblhoa_don] ([ma_hoa_don], [ma_phieu_kham], [tien_thuoc], [tien_kham]) "
+        query &= "VALUES (@ma_hoa_don, @ma_phieu_kham, @tien_thuoc, @tien_kham) "
 
         Dim nextID = Nothing
         BuildID(nextID)
@@ -49,6 +49,7 @@ Public Class HoaDonDAL
                     .Parameters.AddWithValue("@ma_hoa_don", hoaDon.MaHoaDon)
                     .Parameters.AddWithValue("@ma_phieu_kham", hoaDon.MaPhieuKham)
                     .Parameters.AddWithValue("@tien_thuoc", hoaDon.TienThuoc)
+                    .Parameters.AddWithValue("@tien_kham", hoaDon.TienKham)
                 End With
 
                 Try
@@ -75,6 +76,7 @@ Public Class HoaDonDAL
         query &= "[ma_hoa_don] = @ma_hoa_don "
         query &= "[ma_phieu_kham] = @ma_phieu_kham "
         query &= "[tien_thuoc] = @tien_thuoc "
+        query &= "[tien_kham] = @tien_kham"
         query &= "WHERE [ma_hoa_don] = @ma_hoa_don "
 
         Using conn As New SqlConnection(connectionString)
@@ -86,6 +88,7 @@ Public Class HoaDonDAL
                     .Parameters.AddWithValue("@ma_hoa_don", hoaDon.MaHoaDon)
                     .Parameters.AddWithValue("@ma_phieu_kham", hoaDon.MaPhieuKham)
                     .Parameters.AddWithValue("@tien_thuoc", hoaDon.TienThuoc)
+                    .Parameters.AddWithValue("@tien_kham", hoaDon.TienKham)
                 End With
 
                 Try
@@ -218,7 +221,8 @@ Public Class HoaDonDAL
                     If reader.HasRows = True Then
                         listHoaDon.Clear()
                         While reader.Read()
-                            listHoaDon.Add(New HoaDonDTO(reader("ma_hoa_don"), reader("ma_phieu_kham"), reader("tien_thuoc")))
+                            listHoaDon.Add(New HoaDonDTO(reader("ma_hoa_don"), reader("ma_phieu_kham"),
+                                                         reader("tien_thuoc"), reader("tien_kham")))
                         End While
                     End If
 
