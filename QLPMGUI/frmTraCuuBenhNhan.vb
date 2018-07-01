@@ -352,12 +352,7 @@ Public Class frmTraCuuBenhNhan
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
     End Sub
-    Private Sub BtnTraCuu_Clickz(sender As Object, e As EventArgs) Handles btnTraCuu.Click
-        txtHoTen.Text = Nothing
-        txtMaSo.Text = Nothing
-        loadlistBenhNhan()
 
-    End Sub
 
     Private Sub dtpNgayKham_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgayKham.ValueChanged
         txtHoTen.Text = Nothing
@@ -384,7 +379,9 @@ Public Class frmTraCuuBenhNhan
     End Sub
 
     Private Sub btnTraCuu_Click(sender As Object, e As EventArgs) Handles btnTraCuu.Click
-
+        txtHoTen.Text = Nothing
+        txtMaSo.Text = Nothing
+        loadlistBenhNhan()
     End Sub
 
     Private Sub txtMaSo_TextChanged(sender As Object, e As EventArgs) Handles txtMaSo.TextChanged
