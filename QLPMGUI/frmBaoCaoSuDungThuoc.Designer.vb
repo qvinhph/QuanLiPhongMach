@@ -32,6 +32,7 @@ Partial Class frmBaoCaoSuDungThuoc
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lbThang = New System.Windows.Forms.Label()
         Me.btnLuuBaoCao = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvBaoCao, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -72,6 +73,7 @@ Partial Class frmBaoCaoSuDungThuoc
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.tbMaBaoCao)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.dtpNgayKham)
@@ -139,6 +141,19 @@ Partial Class frmBaoCaoSuDungThuoc
         Me.btnLuuBaoCao.Text = "Lưu Báo Cáo"
         Me.btnLuuBaoCao.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button3.Location = New System.Drawing.Point(355, 109)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(110, 40)
+        Me.Button3.TabIndex = 99
+        Me.Button3.Text = "Thoát"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'frmBaoCaoSuDungThuoc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -167,4 +182,5 @@ Partial Class frmBaoCaoSuDungThuoc
     Friend WithEvents dtpNgayKham As DateTimePicker
     Friend WithEvents lbThang As Label
     Friend WithEvents btnLuuBaoCao As Button
+    Friend WithEvents Button3 As Button
 End Class

@@ -80,7 +80,7 @@ Public Class frmMain
 
     Private Sub BáoCáoDoanhThuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BáoCáoDoanhThuToolStripMenuItem.Click
         Dim frmBaoCaoDT As frmBaoCaoDoanhThu = New frmBaoCaoDoanhThu()
-        frmLapHoaDon.Show()
+        frmBaoCaoDT.Show()
     End Sub
 
     Private Sub BáoCáoSửDụngThuốcToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BáoCáoSửDụngThuốcToolStripMenuItem.Click
@@ -90,5 +90,41 @@ Public Class frmMain
 
     Private Sub Panel2_Paint_1(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub btnLapDSKham_Click(sender As Object, e As EventArgs) Handles btnLapDSKham.Click
+        LapDSKhamToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        TraCứuBệnhNhânToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        PhiếuKhámBệnhToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        LậpHóaĐơnToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) 
+        ThêmLoạiBệnhToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        ThayĐổiQuyĐịnhToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        BáoCáoDoanhThuToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        BáoCáoSửDụngThuốcToolStripMenuItem_Click(sender, e)
     End Sub
 End Class

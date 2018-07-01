@@ -37,7 +37,7 @@ Public Class DonViDAL
         query &= "VALUES (@ma_don_vi, @don_vi) "
 
         Dim nextID = Nothing
-        nextID = BuildID(nextID)
+        BuildID(nextID)
         donVi.MaDonVi = nextID
 
         Using conn As New SqlConnection(connectionString)
