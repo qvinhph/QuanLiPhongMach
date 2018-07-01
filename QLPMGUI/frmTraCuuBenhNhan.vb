@@ -241,7 +241,7 @@ Public Class frmTraCuuBenhNhan
     Private Sub cbLoaiBenh_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLoaiBenh.SelectedIndexChanged
         Try
             Dim maLoaiBenh As String
-            maLoaiBenh = cbLoaiBenh.SelectedValue.ToString()
+            maLoaiBenh = Convert.ToString(cbLoaiBenh.SelectedValue)
 
             loadListBenhNhan(maLoaiBenh)
         Catch ex As Exception
@@ -259,8 +259,7 @@ Public Class frmTraCuuBenhNhan
 
     Private Sub dtpNgayKham_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgayKham.ValueChanged
         Try
-            Dim NgayKham As Date
-            NgayKham = dtpNgayKham.Value
+            Dim NgayKham = Convert.ToDateTime(dtpNgayKham.Value)
 
             loadListBenhNhan(NgayKham)
         Catch ex As Exception

@@ -267,7 +267,7 @@ Public Class BenhNhanDAL
                     If reader.HasRows = True Then
                         listBenhNhan.Clear()
                         While reader.Read()
-                            listBenhNhan.Add(New BenhNhanDTO(reader("[ma_benh_nhan]"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
                         End While
                     End If
 
@@ -307,7 +307,7 @@ Public Class BenhNhanDAL
                     If reader.HasRows = True Then
                         listBenhNhan.Clear()
                         While reader.Read()
-                            listBenhNhan.Add(New BenhNhanDTO(reader("[ma_benh_nhan]"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
                         End While
                     End If
 
