@@ -113,7 +113,7 @@ Partial Class frmTraCuuBenhNhan
         Me.btnTraCuu.BackgroundImage = CType(resources.GetObject("btnTraCuu.BackgroundImage"), System.Drawing.Image)
         Me.btnTraCuu.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTraCuu.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnTraCuu.Location = New System.Drawing.Point(50, 148)
+        Me.btnTraCuu.Location = New System.Drawing.Point(39, 148)
         Me.btnTraCuu.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnTraCuu.Name = "btnTraCuu"
         Me.btnTraCuu.Size = New System.Drawing.Size(170, 40)
@@ -167,10 +167,10 @@ Partial Class frmTraCuuBenhNhan
         Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(285, 148)
+        Me.Button3.Location = New System.Drawing.Point(320, 148)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(110, 40)
+        Me.Button3.Size = New System.Drawing.Size(171, 40)
         Me.Button3.TabIndex = 56
         Me.Button3.Text = "Thoát"
         Me.Button3.UseVisualStyleBackColor = True
@@ -219,6 +219,8 @@ Partial Class frmTraCuuBenhNhan
         '
         'dgvListBenhNhan
         '
+        Me.dgvListBenhNhan.AllowUserToAddRows = False
+        Me.dgvListBenhNhan.AllowUserToDeleteRows = False
         Me.dgvListBenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListBenhNhan.Location = New System.Drawing.Point(209, 209)
         Me.dgvListBenhNhan.Name = "dgvListBenhNhan"

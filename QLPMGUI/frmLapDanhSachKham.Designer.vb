@@ -44,9 +44,9 @@ Partial Class frmLapDanhSachKham
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lvBenhNhan = New System.Windows.Forms.ListView()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -170,7 +170,7 @@ Partial Class frmLapDanhSachKham
         Me.btnNhap.BackgroundImage = CType(resources.GetObject("btnNhap.BackgroundImage"), System.Drawing.Image)
         Me.btnNhap.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNhap.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnNhap.Location = New System.Drawing.Point(201, 245)
+        Me.btnNhap.Location = New System.Drawing.Point(216, 245)
         Me.btnNhap.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnNhap.Name = "btnNhap"
         Me.btnNhap.Size = New System.Drawing.Size(71, 40)
@@ -241,7 +241,7 @@ Partial Class frmLapDanhSachKham
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(9, 244)
+        Me.Button1.Location = New System.Drawing.Point(10, 246)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(95, 40)
@@ -255,7 +255,7 @@ Partial Class frmLapDanhSachKham
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(276, 244)
+        Me.Button2.Location = New System.Drawing.Point(310, 245)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(71, 40)
@@ -269,7 +269,7 @@ Partial Class frmLapDanhSachKham
         Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(348, 244)
+        Me.Button3.Location = New System.Drawing.Point(389, 245)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(110, 40)
@@ -301,6 +301,20 @@ Partial Class frmLapDanhSachKham
         Me.Panel2.Size = New System.Drawing.Size(503, 298)
         Me.Panel2.TabIndex = 57
         '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button4.Location = New System.Drawing.Point(113, 246)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(81, 40)
+        Me.Button4.TabIndex = 58
+        Me.Button4.Text = "Xóa"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
+        '
         'dtpNgayKham
         '
         Me.dtpNgayKham.Location = New System.Drawing.Point(141, 20)
@@ -319,20 +333,6 @@ Partial Class frmLapDanhSachKham
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         Me.lvBenhNhan.View = System.Windows.Forms.View.Details
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(112, 245)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(81, 40)
-        Me.Button4.TabIndex = 58
-        Me.Button4.Text = "Xóa"
-        Me.Button4.UseVisualStyleBackColor = True
-        Me.Button4.Visible = False
         '
         'frmLapDanhSachKham
         '
