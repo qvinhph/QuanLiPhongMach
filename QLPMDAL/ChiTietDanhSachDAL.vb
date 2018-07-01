@@ -196,7 +196,46 @@ Public Class ChiTietDanhSachDAL
         Return New Result(True)
 
     End Function
+    Public Function SelectAll(ByRef listChiTietDS As List(Of ChiTietDanhSachDTO)) As Result
 
+        Dim query As String = Nothing
+        query &= "SELECT * "
+        query &= "FROM [tblchi_tiet_danh_sach] "
+
+        Using conn As New SqlConnection(connectionString)
+            Using comm As New SqlCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        listChiTietDS.Clear()
+                        While reader.Read()
+                            listChiTietDS.Add(New ChiTietDanhSachDTO(reader("ma_chi_tiet_danh_sach"), reader("ma_danh_sach"),
+                                                                      reader("ma_benh_nhan")))
+                        End While
+                    End If
+
+                Catch ex As Exception
+                    'Failure
+                    conn.Close()
+                    Console.WriteLine(ex.StackTrace)
+                    Return New Result(False, "Lấy tất cả chi tiết danh sách không thành công", ex.StackTrace)
+                End Try
+
+            End Using
+        End Using
+
+        'Success
+        Return New Result(True)
+
+    End Function
     Public Function SelectAll_MaDanhSach(maDanhSach As String, ByRef listChiTietDS As List(Of ChiTietDanhSachDTO)) As Result
 
         Dim query As String = Nothing

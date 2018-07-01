@@ -243,18 +243,14 @@ Public Class BenhNhanDAL
     End Function
     Public Function SelectAll_ByLoaiBenh(maLoaiBenh As String, ByRef listBenhNhan As List(Of BenhNhanDTO)) As Result
         Dim query As String = String.Empty
-        query &= "SELECT [ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi], [ngay_kham], [trieu_chung] "
+        query &= "SELECT [tblbenh_nhan].[ma_benh_nhan], [ho_ten], [gioi_tinh], [nam_sinh], [dia_chi]"
         query &= " FROM [tblbenh_nhan] "
         query &= "     ,[tblphieu_kham]"
-        query &= "     ,[tbldanh_sach_kham]"
         query &= "     ,[tblchi_tiet_danh_sach]"
-        query &= "     ,[tblloai_benh]"
         query &= " WHERE "
-        query &= "     [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[mabenhnhan]"
+        query &= "      [tblbenh_nhan].[ma_benh_nhan] = [tblchi_tiet_danh_sach].[ma_benh_nhan]"
         query &= "     AND [tblphieu_kham].[ma_chi_tiet_danh_sach] = [tblchi_tiet_danh_sach].[ma_chi_tiet_danh_sach]"
-        query &= "     AND [tbldanh_sach_kham].[ma_danh_sach] = [tblchi_tiet_danh_sach].[ma_danh_sach]"
-        query &= "     AND [tblloaibenh].[ma_loai_benh] = [tblphieukham].[ma_loai_benh]"
-        query &= "     AND [tblloaibenh].[ma_loai_benh] = @ma_loai_benh"
+        query &= "     AND [tblphieu_kham].[ma_loai_benh] = @ma_loai_benh"
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
@@ -271,7 +267,7 @@ Public Class BenhNhanDAL
                     If reader.HasRows = True Then
                         listBenhNhan.Clear()
                         While reader.Read()
-                            listBenhNhan.Add(New BenhNhanDTO(reader("ma_benh_nhan"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
+                            listBenhNhan.Add(New BenhNhanDTO(reader("[tblbenh_nhan].[ma_benh_nhan]"), reader("ho_ten"), reader("dia_chi"), reader("nam_sinh"), reader("gioi_tinh")))
                         End While
                     End If
 

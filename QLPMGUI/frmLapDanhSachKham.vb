@@ -191,15 +191,16 @@ Public Class frmLapDanhSachKham
 
     Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
         If count = 0 Then
-            Application.Exit()
+            Me.Close()
         Else
             Dim Answer As DialogResult = MessageBox.Show("Bạn chưa lưu, bạn có muốn lưu trước khi thoát không", "Data Check", MessageBoxButtons.YesNoCancel)
             Select Case Answer
                 Case DialogResult.Yes
                     Button2_Click(sender, e)
-                    Application.Exit()
+                    Me.Close()
                 Case DialogResult.No
-                    Application.Exit()
+
+                    Me.Close()
                 Case DialogResult.Cancel
                     Exit Sub
                 Case Else
