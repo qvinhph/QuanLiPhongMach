@@ -21,6 +21,7 @@ Class frmLapHoaDon
 
     'Use for getting all the drugs that patient use
     Dim listChiTietPK_ByMaPhieuKham = New List(Of ChiTietPhieuKhamDTO)
+
     'For currency number format
     Dim vnd = New CultureInfo("vi")
 
@@ -337,7 +338,8 @@ Class frmLapHoaDon
         Dim hoaDon = New HoaDonDTO()
         hoaDon.MaHoaDon = tbMaHoaDon.Text
         hoaDon.MaPhieuKham = GetMaPhieuKham()
-        hoaDon.TienThuoc = tbTienThuoc.Text
+        hoaDon.TienThuoc = Double.Parse(tbTienThuoc.Text)
+        hoaDon.TienKham = Double.Parse(tbTienKham.Text)
 
         hoaDonBUS.Insert(hoaDon)
 
@@ -358,9 +360,5 @@ Class frmLapHoaDon
 
     End Sub
 
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-    End Sub
 
 End Class

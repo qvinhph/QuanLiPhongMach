@@ -36,4 +36,9 @@ Public Class frmTest
         Dim hoadonfrm As frmLapHoaDon = New frmLapHoaDon()
         hoadonfrm.Show()
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim baocaongay As frmBaoCaoDoanhThu = New frmBaoCaoDoanhThu()
+        baocaongay.Show()
+    End Sub
 End Class

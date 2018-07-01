@@ -4,7 +4,8 @@
 
     Private strMaHoaDon As String
     Private strMaPhieuKham As String
-    Private iTienThuoc As Integer
+    Private dTienThuoc As Double
+    Private dTienKham As Double
 
 #End Region
 
@@ -13,10 +14,11 @@
     Public Sub New()
     End Sub
 
-    Public Sub New(strMaHoaDon As String, strMaPhieuKham As String, iTienThuoc As Integer)
+    Public Sub New(strMaHoaDon As String, strMaPhieuKham As String, dTienThuoc As Double, dTienKham As Double)
         MaHoaDon = strMaHoaDon
         MaPhieuKham = strMaPhieuKham
-        TienThuoc = iTienThuoc
+        TienThuoc = dTienThuoc
+        TienKham = dTienKham
     End Sub
 
 #End Region
@@ -40,12 +42,21 @@
             strMaHoaDon = value
         End Set
     End Property
-    Public Property TienThuoc As Integer
+    Public Property TienThuoc As Double
         Get
-            Return iTienThuoc
+            Return dTienThuoc
         End Get
-        Set(value As Integer)
-            iTienThuoc = value
+        Set(value As Double)
+            dTienThuoc = value
+        End Set
+    End Property
+
+    Public Property TienKham As Double
+        Get
+            Return dTienKham
+        End Get
+        Set(value As Double)
+            dTienKham = value
         End Set
     End Property
 
