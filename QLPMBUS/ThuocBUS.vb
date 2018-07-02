@@ -75,6 +75,14 @@ Public Class ThuocBUS
         Return thuocDAL.Select_ByMaThuoc(maThuoc, thuoc)
     End Function
 
+    Public Function IsValidName(thuoc As ThuocDTO) As Boolean
+
+        If (thuoc.TenThuoc.Length < 1) Then
+            Return False
+        End If
+
+        Return True
+    End Function
 #End Region
 
 End Class

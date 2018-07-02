@@ -24,6 +24,7 @@ Public Class frmThayDoiQuyDinh
         tbTienKham.Text = thamSo.TienKham
 
         LoadListLoaiBenh()
+        LoadListThuoc()
     End Sub
     Private Sub LoadListLoaiBenh()
         loaibenhBUS = New LoaiBenhBUS()
@@ -88,6 +89,25 @@ Public Class frmThayDoiQuyDinh
         clTenThuoc.HeaderText = "Tên Thuốc"
         clTenThuoc.DataPropertyName = "TenThuoc"
         dgvThuoc.Columns.Add(clTenThuoc)
+
+        Dim clMaDonVi = New DataGridViewTextBoxColumn()
+        clMaDonVi.Name = "MaDonVi"
+        clMaDonVi.HeaderText = "Mã Đơn Vị"
+        clMaDonVi.DataPropertyName = "MaDonVi"
+        dgvThuoc.Columns.Add(clMaDonVi)
+
+        Dim clMaCachDung = New DataGridViewTextBoxColumn()
+        clMaCachDung.Name = "MaCachDung"
+        clMaCachDung.HeaderText = "Mã Cách Dùng"
+        clMaCachDung.DataPropertyName = "MaCachDung"
+        dgvThuoc.Columns.Add(clMaCachDung)
+
+        Dim clDonGia = New DataGridViewTextBoxColumn()
+        clDonGia.Name = "DonGia"
+        clDonGia.HeaderText = "Đơn Giá"
+        clDonGia.DataPropertyName = "DonGia"
+        dgvThuoc.Columns.Add(clDonGia)
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles tbSoLuongMax.TextChanged
@@ -233,5 +253,128 @@ Public Class frmThayDoiQuyDinh
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim frmThem As frmThemLoaiBenh = New frmThemLoaiBenh()
         frmThem.Show()
+    End Sub
+
+    Private Sub btnCapNhatThuoc_Click(sender As Object, e As EventArgs)
+
+        ' Get the current cell location.
+        Dim currentRowIndex As Integer = dgvThuoc.CurrentCellAddress.Y 'current row selected
+
+
+        'Verify that indexing OK
+        If (-1 < currentRowIndex And currentRowIndex < dgvLoaiBenh.RowCount) Then
+            Try
+                Dim thuoc As ThuocDTO
+                thuoc = New ThuocDTO()
+
+                '1. Mapping data from GUI control
+                thuoc.MaThuoc = txtMaThuoc.Text
+                thuoc.TenThuoc = txtTenThuoc.Text
+                thuoc.MaDonVi = txtMaDonVi.Text
+                thuoc.MaCachDung = txtMaCachDung.Text
+                thuoc.DonGia = txtDonGia.Text
+
+                '2. Business .....
+                If (thuocBUS.IsValidName(thuoc) = False) Then
+                    MessageBox.Show("Tên Thuốc không đúng. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    tbTenLoaiBenh.Focus()
+                    Return
+                End If
+
+                '3. Insert to DB
+
+                Dim result As Result
+                result = thuocBUS.Update(thuoc)
+                If (result.FlagResult = True) Then
+                    ' Re-Load LoaiHocSinh list
+                    LoadListLoaiBenh()
+                    ' Hightlight the row has been updated on table
+                    dgvLoaiBenh.Rows(currentRowIndex).Selected = True
+
+                    MessageBox.Show("Cập nhật Thuốc thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("Cập nhật Thuốc không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    System.Console.WriteLine(result.SystemMessage)
+                End If
+            Catch ex As Exception
+                Console.WriteLine(ex.StackTrace)
+            End Try
+
+        End If
+
+    End Sub
+
+    Private Sub btnXoaThuoc_Click(sender As Object, e As EventArgs)
+        ' Get the current cell location.
+        Dim currentRowIndex As Integer = dgvThuoc.CurrentCellAddress.Y 'current row selected
+
+
+        'Verify that indexing OK
+        If (-1 < currentRowIndex And currentRowIndex < dgvThuoc.RowCount) Then
+            Select Case MsgBox("Bạn có thực sự muốn xóa thuốc có mã: " + txtMaThuoc.Text, MsgBoxStyle.YesNo, "Information")
+                Case MsgBoxResult.Yes
+                    Try
+
+                        '1. Delete from DB
+                        Dim result As Result
+                        result = thuocBUS.Delete(txtMaThuoc.Text)
+                        If (result.FlagResult = True) Then
+
+                            ' Re-Load LoaiHocSinh list
+                            LoadListThuoc()
+
+                            ' Hightlight the next row on table
+                            If (currentRowIndex >= dgvThuoc.Rows.Count) Then
+                                currentRowIndex = currentRowIndex - 1
+                            End If
+                            If (currentRowIndex >= 0) Then
+                                dgvThuoc.Rows(currentRowIndex).Selected = True
+                            End If
+                            MessageBox.Show("Xóa Thuốc thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            MessageBox.Show("Xóa Thuốc không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            System.Console.WriteLine(result.SystemMessage)
+                        End If
+                    Catch ex As Exception
+                        Console.WriteLine(ex.StackTrace)
+                    End Try
+                Case MsgBoxResult.No
+                    Return
+            End Select
+
+        End If
+    End Sub
+    Private Sub dgvThuoc_SelectionChanged(sender As Object, e As EventArgs) Handles dgvThuoc.SelectionChanged
+
+        ' Get the current cell location.
+        Dim currentRowIndex As Integer = dgvThuoc.CurrentCellAddress.Y 'current row selected
+        'Dim x As Integer = dgvDanhSachLoaiHS.CurrentCellAddress.X 'curent column selected
+
+        ' Write coordinates to console for debugging
+        'Console.WriteLine(y.ToString + " " + x.ToString)
+
+        'Verify that indexing OK
+        If (-1 < currentRowIndex And currentRowIndex < dgvThuoc.RowCount) Then
+            Try
+                Dim thuoc = CType(dgvThuoc.Rows(currentRowIndex).DataBoundItem, ThuocDTO)
+                txtMaThuoc.Text = thuoc.MaThuoc
+                txtTenThuoc.Text = thuoc.TenThuoc
+                txtMaCachDung.Text = thuoc.MaCachDung
+                txtDonGia.Text = thuoc.DonGia
+                txtMaDonVi.Text = thuoc.MaDonVi
+            Catch ex As Exception
+                Console.WriteLine(ex.StackTrace)
+            End Try
+
+        End If
+
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub btnXoaThuoc_Click_1(sender As Object, e As EventArgs) Handles btnXoaThuoc.Click
+
     End Sub
 End Class

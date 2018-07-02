@@ -43,15 +43,14 @@ Partial Class frmMain
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnLapDSKham = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnLapDSKham = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -120,19 +119,19 @@ Partial Class frmMain
         'LậpHóaĐơnToolStripMenuItem
         '
         Me.LậpHóaĐơnToolStripMenuItem.Name = "LậpHóaĐơnToolStripMenuItem"
-        Me.LậpHóaĐơnToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LậpHóaĐơnToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.LậpHóaĐơnToolStripMenuItem.Text = "Lập Hóa Đơn"
         '
         'ThêmLoạiBệnhToolStripMenuItem
         '
         Me.ThêmLoạiBệnhToolStripMenuItem.Name = "ThêmLoạiBệnhToolStripMenuItem"
-        Me.ThêmLoạiBệnhToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ThêmLoạiBệnhToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ThêmLoạiBệnhToolStripMenuItem.Text = "Thêm Loại Bệnh"
         '
         'ThayĐổiQuyĐịnhToolStripMenuItem
         '
         Me.ThayĐổiQuyĐịnhToolStripMenuItem.Name = "ThayĐổiQuyĐịnhToolStripMenuItem"
-        Me.ThayĐổiQuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ThayĐổiQuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ThayĐổiQuyĐịnhToolStripMenuItem.Text = "Thay Đổi Quy Định"
         '
         'BáoCáoToolStripMenuItem
@@ -204,7 +203,6 @@ Partial Class frmMain
         Me.Panel2.Controls.Add(Me.Button7)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button5)
-        Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
@@ -215,50 +213,63 @@ Partial Class frmMain
         Me.Panel2.Size = New System.Drawing.Size(519, 423)
         Me.Panel2.TabIndex = 78
         '
-        'btnLapDSKham
+        'Label1
         '
-        Me.btnLapDSKham.BackgroundImage = CType(resources.GetObject("btnLapDSKham.BackgroundImage"), System.Drawing.Image)
-        Me.btnLapDSKham.FlatAppearance.BorderSize = 0
-        Me.btnLapDSKham.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLapDSKham.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLapDSKham.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnLapDSKham.Location = New System.Drawing.Point(42, 6)
-        Me.btnLapDSKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnLapDSKham.Name = "btnLapDSKham"
-        Me.btnLapDSKham.Size = New System.Drawing.Size(177, 86)
-        Me.btnLapDSKham.TabIndex = 88
-        Me.btnLapDSKham.Text = "Lập Danh Sách Khám"
-        Me.btnLapDSKham.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label1.Location = New System.Drawing.Point(497, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(22, 30)
+        Me.Label1.TabIndex = 96
+        Me.Label1.Text = "x"
         '
-        'Button1
+        'Button7
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(270, 6)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(177, 86)
-        Me.Button1.TabIndex = 89
-        Me.Button1.Text = "Tra Cứu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Bệnh Nhân"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), System.Drawing.Image)
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button7.Location = New System.Drawing.Point(270, 202)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(177, 86)
+        Me.Button7.TabIndex = 95
+        Me.Button7.Text = "Báo Cáo Sử Dụng Thuốc"
+        Me.Button7.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Button6
         '
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(42, 104)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(177, 86)
-        Me.Button2.TabIndex = 90
-        Me.Button2.Text = "Phiếu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Khám Bệnh"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button6.Location = New System.Drawing.Point(42, 202)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(177, 86)
+        Me.Button6.TabIndex = 94
+        Me.Button6.Text = "Báo Cáo Doanh Thu"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button5.Location = New System.Drawing.Point(42, 300)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(405, 86)
+        Me.Button5.TabIndex = 93
+        Me.Button5.Text = "Thay Đổi " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Quy Định"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -275,78 +286,50 @@ Partial Class frmMain
         Me.Button3.Text = "Lập Hóa Đơn"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button4
+        'Button2
         '
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(42, 202)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(177, 86)
-        Me.Button4.TabIndex = 92
-        Me.Button4.Text = "Thêm Loại Bệnh"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button2.Location = New System.Drawing.Point(42, 104)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(177, 86)
+        Me.Button2.TabIndex = 90
+        Me.Button2.Text = "Phiếu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Khám Bệnh"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button5
+        'Button1
         '
-        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button5.Location = New System.Drawing.Point(270, 202)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(177, 86)
-        Me.Button5.TabIndex = 93
-        Me.Button5.Text = "Thay Đổi " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Quy Định"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(270, 6)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(177, 86)
+        Me.Button1.TabIndex = 89
+        Me.Button1.Text = "Tra Cứu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Bệnh Nhân"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnLapDSKham
         '
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button6.Location = New System.Drawing.Point(42, 309)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(177, 86)
-        Me.Button6.TabIndex = 94
-        Me.Button6.Text = "Báo Cáo Doanh Thu"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), System.Drawing.Image)
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button7.Location = New System.Drawing.Point(270, 309)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(177, 86)
-        Me.Button7.TabIndex = 95
-        Me.Button7.Text = "Báo Cáo Sử Dụng Thuốc"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label1.Location = New System.Drawing.Point(497, 0)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(22, 30)
-        Me.Label1.TabIndex = 96
-        Me.Label1.Text = "x"
+        Me.btnLapDSKham.BackgroundImage = CType(resources.GetObject("btnLapDSKham.BackgroundImage"), System.Drawing.Image)
+        Me.btnLapDSKham.FlatAppearance.BorderSize = 0
+        Me.btnLapDSKham.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLapDSKham.Font = New System.Drawing.Font("Segoe UI Light", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLapDSKham.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnLapDSKham.Location = New System.Drawing.Point(42, 6)
+        Me.btnLapDSKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnLapDSKham.Name = "btnLapDSKham"
+        Me.btnLapDSKham.Size = New System.Drawing.Size(177, 86)
+        Me.btnLapDSKham.TabIndex = 88
+        Me.btnLapDSKham.Text = "Lập Danh Sách Khám"
+        Me.btnLapDSKham.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -402,6 +385,5 @@ Partial Class frmMain
     Friend WithEvents Button7 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
     Friend WithEvents Label1 As Label
 End Class

@@ -112,7 +112,7 @@ Public Class frmMain
         LậpHóaĐơnToolStripMenuItem_Click(sender, e)
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) 
         ThêmLoạiBệnhToolStripMenuItem_Click(sender, e)
     End Sub
 

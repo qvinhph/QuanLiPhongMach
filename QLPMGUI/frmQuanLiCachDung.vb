@@ -140,7 +140,7 @@ Public Class frmQuanLiCachDung
         Dim result = New Result
         result = cachDungBUS.Update(cachDung)
         If (result.FlagResult = False) Then
-            Console.WriteLine("sasdasd")
+            Console.WriteLine("Cập nhật đơn vị không thành công")
         End If
 
         LoadDataDataGridView()
@@ -149,5 +149,41 @@ Public Class frmQuanLiCachDung
 
     Private Sub btThoat_Click(sender As Object, e As EventArgs) Handles btThoat.Click
         Me.Close()
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+
+    End Sub
+
+    Private Sub dgvCD_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCD.CellContentClick
+
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub tbMaCD_TextChanged(sender As Object, e As EventArgs) Handles tbMaCD.TextChanged
+
+    End Sub
+
+    Private Sub lbMaTh_Click(sender As Object, e As EventArgs) Handles lbMaTh.Click
+
+    End Sub
+
+    Private Sub tbTenCachDung_TextChanged(sender As Object, e As EventArgs) Handles tbTenCachDung.TextChanged
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
     End Sub
 End Class
