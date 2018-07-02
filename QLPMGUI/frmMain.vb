@@ -127,4 +127,19 @@ Public Class frmMain
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         BáoCáoSửDụngThuốcToolStripMenuItem_Click(sender, e)
     End Sub
+
+    Private Sub QuảnLýThuốcToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýThuốcToolStripMenuItem.Click
+        Dim frmQuanLiThuoc As frmQuanLiThuoc = New frmQuanLiThuoc()
+        frmQuanLiThuoc.Show()
+    End Sub
+
+    Private Sub QuảnLýCáchDùngToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýCáchDùngToolStripMenuItem.Click
+        Dim frmQuanLiCachDung As frmQuanLiCachDung = New frmQuanLiCachDung()
+        frmQuanLiCachDung.Show()
+    End Sub
+
+    Private Sub QuảnLýĐơnVịToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuảnLýĐơnVịToolStripMenuItem.Click
+        Dim frmQuanLiDonVi As frmQuanLiDonVi = New frmQuanLiDonVi()
+        frmQuanLiDonVi.Show()
+    End Sub
 End Class

@@ -340,16 +340,16 @@ Partial Class frmLapDanhSachKham
         Me.Label6.Location = New System.Drawing.Point(220, 350)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(312, 28)
+        Me.Label6.Size = New System.Drawing.Size(228, 28)
         Me.Label6.TabIndex = 59
-        Me.Label6.Text = "Số Bệnh Nhân Tối Đa Trong Ngày: "
+        Me.Label6.Text = "Có Thể Tiếp Nhận Thêm: "
         '
         'lbSoLuongBnTrongNgay
         '
         Me.lbSoLuongBnTrongNgay.AutoSize = True
         Me.lbSoLuongBnTrongNgay.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbSoLuongBnTrongNgay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbSoLuongBnTrongNgay.Location = New System.Drawing.Point(531, 350)
+        Me.lbSoLuongBnTrongNgay.Location = New System.Drawing.Point(447, 350)
         Me.lbSoLuongBnTrongNgay.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbSoLuongBnTrongNgay.Name = "lbSoLuongBnTrongNgay"
         Me.lbSoLuongBnTrongNgay.Size = New System.Drawing.Size(43, 28)
