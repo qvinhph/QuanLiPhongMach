@@ -58,7 +58,7 @@ Public Class frmTest
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Dim donvi As frmQuanLiDonVi = New frmQuanLiDonVi()
-        donvi.Show()
+        Dim cachdung As frmQuanLiThuoc = New frmQuanLiThuoc()
+        cachdung.Show()
     End Sub
 End Class

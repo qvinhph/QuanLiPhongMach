@@ -137,11 +137,11 @@ Partial Class frmTest
         '
         'Button11
         '
-        Me.Button11.Location = New System.Drawing.Point(193, 283)
+        Me.Button11.Location = New System.Drawing.Point(587, 320)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(75, 23)
         Me.Button11.TabIndex = 11
-        Me.Button11.Text = "Button11"
+        Me.Button11.Text = "quanlithuoc"
         Me.Button11.UseVisualStyleBackColor = True
         '
         'frmTest
