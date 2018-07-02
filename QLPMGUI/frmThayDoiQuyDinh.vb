@@ -6,6 +6,7 @@ Public Class frmThayDoiQuyDinh
     Private thamSoBUS As ThamSoBUS
     Private thamSo As ThamSoDTO
     Private loaibenhBUS As LoaiBenhBUS
+    Private thuocBUS As ThuocBUS
 
     Private Sub frmThayDoiQuyDinh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -55,6 +56,40 @@ Public Class frmThayDoiQuyDinh
         clTenLoai.DataPropertyName = "LoaiBenh"
         dgvLoaiBenh.Columns.Add(clTenLoai)
     End Sub
+
+
+    Private Sub LoadListThuoc()
+        thuocBUS = New ThuocBUS()
+        Dim listThuoc = New List(Of ThuocDTO)
+        Dim result As Result
+        result = thuocBUS.SelectAll(listThuoc)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy danh sách thuốc không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+
+        dgvThuoc.Columns.Clear()
+        dgvThuoc.DataSource = Nothing
+
+        dgvThuoc.AutoGenerateColumns = False
+        dgvThuoc.AllowUserToAddRows = False
+        dgvThuoc.DataSource = listThuoc
+
+
+        Dim clMaThuoc = New DataGridViewTextBoxColumn()
+        clMaThuoc.Name = "MaThuoc"
+        clMaThuoc.HeaderText = "Mã Thuốc"
+        clMaThuoc.DataPropertyName = "MaThuoc"
+        dgvThuoc.Columns.Add(clMaThuoc)
+
+        Dim clTenThuoc = New DataGridViewTextBoxColumn()
+        clTenThuoc.Name = "TenThuoc"
+        clTenThuoc.HeaderText = "Tên Thuốc"
+        clTenThuoc.DataPropertyName = "TenThuoc"
+        dgvThuoc.Columns.Add(clTenThuoc)
+    End Sub
+
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles tbSoLuongMax.TextChanged
 
     End Sub

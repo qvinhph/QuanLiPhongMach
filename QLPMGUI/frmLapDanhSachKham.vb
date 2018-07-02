@@ -11,7 +11,6 @@ Public Class frmLapDanhSachKham
     Private thamSo As ThamSoDTO
 
     'Temp Variable
-    Dim count As Integer
     Dim countadded As Integer
     Dim bnTemp
 
@@ -20,7 +19,6 @@ Public Class frmLapDanhSachKham
 
         'init
         countadded = 0
-        count = 0
         dtpNgayKham.Value = Date.Today()
         thamSoBUS = New ThamSoBUS()
         thamSoBUS.GetThamSoOnDB(thamSo)
@@ -86,7 +84,6 @@ Public Class frmLapDanhSachKham
 
         '3. Insert to Listview
         countadded = countadded + 1
-        count = count + 1
         Dim lvItem As ListViewItem
 
         lvItem = lvBenhNhan.Items.Add(txtHoTen.Text)
@@ -150,7 +147,7 @@ Public Class frmLapDanhSachKham
 
     'Exit button and save before close form
     Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
-        If count = 0 Then
+        If countadded = 0 Then
             Me.Close()
         Else
             Dim Answer As DialogResult = MessageBox.Show("Bạn chưa lưu, bạn có muốn lưu trước khi thoát không", "Data Check", MessageBoxButtons.YesNoCancel)
@@ -237,7 +234,6 @@ Public Class frmLapDanhSachKham
             Dim result As Result
             result = bnBus.Insert(benhnhan)
             If (result.FlagResult = True) Then
-                countadded = countadded + 1
 
                 Dim nextMsbn = "1"
                 result = bnBus.BuildID(nextMsbn)
@@ -255,7 +251,7 @@ Public Class frmLapDanhSachKham
         Next
         List_BenhNhan.Clear()
         MessageBox.Show("Thêm " & countadded & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        count = 0
+        countadded = 0
 
         For Each lvItem In List_Items_Added
             lvItem.Remove()
@@ -266,7 +262,7 @@ Public Class frmLapDanhSachKham
 
     'Delete button
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        If count = 0 Then
+        If countadded = 0 Then
             MessageBox.Show("Không thể xóa vì danh sách chưa có bệnh nhân nào")
         ElseIf lvBenhNhan.SelectedItems.Count = 0 Then
             MessageBox.Show("Bạn chưa chọn bệnh nhân để xóa")
@@ -274,7 +270,7 @@ Public Class frmLapDanhSachKham
         Else
             lvBenhNhan.Items.RemoveAt(lvBenhNhan.SelectedIndices(0))
             MessageBox.Show("Đã xóa một bệnh nhân")
-            count = count - 1
+            countadded = countadded - 1
         End If
     End Sub
 

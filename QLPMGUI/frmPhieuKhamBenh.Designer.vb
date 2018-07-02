@@ -67,6 +67,7 @@ Partial Class frmPhieuKhamBenh
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
+        Me.btnThoat = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.tabPageThongTin.SuspendLayout()
@@ -130,6 +131,7 @@ Partial Class frmPhieuKhamBenh
         '
         'tabPageThongTin
         '
+        Me.tabPageThongTin.Controls.Add(Me.btnThoat)
         Me.tabPageThongTin.Controls.Add(Me.tbMaPhieuKham)
         Me.tabPageThongTin.Controls.Add(Me.lbMaPK)
         Me.tabPageThongTin.Controls.Add(Me.tbMaBenhNhan)
@@ -608,6 +610,19 @@ Partial Class frmPhieuKhamBenh
         Me.dgvThuoc.Size = New System.Drawing.Size(538, 164)
         Me.dgvThuoc.TabIndex = 65
         '
+        'btnThoat
+        '
+        Me.btnThoat.BackgroundImage = CType(resources.GetObject("btnThoat.BackgroundImage"), System.Drawing.Image)
+        Me.btnThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnThoat.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnThoat.Location = New System.Drawing.Point(298, 418)
+        Me.btnThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnThoat.Name = "btnThoat"
+        Me.btnThoat.Size = New System.Drawing.Size(94, 40)
+        Me.btnThoat.TabIndex = 94
+        Me.btnThoat.Text = "Thoát"
+        Me.btnThoat.UseVisualStyleBackColor = True
+        '
         'frmPhieuKhamBenh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -677,4 +692,5 @@ Partial Class frmPhieuKhamBenh
     Friend WithEvents lbMaTh As Label
     Friend WithEvents tbMaPhieuKham As TextBox
     Friend WithEvents lbMaPK As Label
+    Friend WithEvents btnThoat As Button
 End Class

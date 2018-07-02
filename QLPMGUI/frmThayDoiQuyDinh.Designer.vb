@@ -34,6 +34,7 @@ Partial Class frmThayDoiQuyDinh
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnCapNhatLoaiBenh = New System.Windows.Forms.Button()
         Me.btXoa = New System.Windows.Forms.Button()
         Me.tbTenLoaiBenh = New System.Windows.Forms.TextBox()
@@ -42,11 +43,15 @@ Partial Class frmThayDoiQuyDinh
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvLoaiBenh = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.dgvThuoc = New System.Windows.Forms.DataGridView()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvLoaiBenh, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -71,12 +76,12 @@ Partial Class frmThayDoiQuyDinh
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(16, 55)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 30)
+        Me.Label1.Size = New System.Drawing.Size(105, 28)
         Me.Label1.TabIndex = 56
         Me.Label1.Text = "Tiền khám:"
         '
@@ -103,12 +108,12 @@ Partial Class frmThayDoiQuyDinh
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(16, 9)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(372, 30)
+        Me.Label8.Size = New System.Drawing.Size(351, 28)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "Số lượng bệnh nhân tối đa trong ngày:"
         '
@@ -171,6 +176,19 @@ Partial Class frmThayDoiQuyDinh
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(499, 190)
         Me.Panel3.TabIndex = 73
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(396, 124)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(74, 40)
+        Me.Button1.TabIndex = 61
+        Me.Button1.Text = "Thêm "
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'btnCapNhatLoaiBenh
         '
@@ -247,33 +265,50 @@ Partial Class frmThayDoiQuyDinh
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(4, 0)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 30)
+        Me.Label2.Size = New System.Drawing.Size(100, 28)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Loại Bệnh:"
         '
-        'Button1
+        'Panel4
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(396, 124)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(74, 40)
-        Me.Button1.TabIndex = 61
-        Me.Button1.Text = "Thêm "
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Panel4.Controls.Add(Me.dgvThuoc)
+        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Location = New System.Drawing.Point(274, 365)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(499, 283)
+        Me.Panel4.TabIndex = 74
+        '
+        'dgvThuoc
+        '
+        Me.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvThuoc.Location = New System.Drawing.Point(3, 33)
+        Me.dgvThuoc.Name = "dgvThuoc"
+        Me.dgvThuoc.Size = New System.Drawing.Size(402, 247)
+        Me.dgvThuoc.TabIndex = 63
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(1, 0)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(69, 28)
+        Me.Label5.TabIndex = 62
+        Me.Label5.Text = "Thuốc:"
         '
         'frmThayDoiQuyDinh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 660)
+        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -289,6 +324,9 @@ Partial Class frmThayDoiQuyDinh
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.dgvLoaiBenh, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -314,4 +352,7 @@ Partial Class frmThayDoiQuyDinh
     Friend WithEvents btnCapNhatLoaiBenh As Button
     Friend WithEvents btXoa As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents dgvThuoc As DataGridView
+    Friend WithEvents Label5 As Label
 End Class
