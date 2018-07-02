@@ -180,7 +180,7 @@ Partial Class frmTraCuuBenhNhan
         Me.dtpNgayKham.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpNgayKham.Location = New System.Drawing.Point(285, 45)
         Me.dtpNgayKham.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.dtpNgayKham.MaxDate = New Date(2003, 12, 31, 0, 0, 0, 0)
+        Me.dtpNgayKham.MaxDate = New Date(2222, 12, 31, 0, 0, 0, 0)
         Me.dtpNgayKham.MinDate = New Date(1998, 1, 1, 0, 0, 0, 0)
         Me.dtpNgayKham.Name = "dtpNgayKham"
         Me.dtpNgayKham.Size = New System.Drawing.Size(242, 20)

@@ -269,6 +269,9 @@ Public Class frmPhieuKhamBenh
             MessageBox.Show("Số lượng thuốc không hợp lệ.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
+        Dim nextMaThuoc
+        thuocBUS.BuildID(nextMaThuoc)
+        tbMaThuoc.Text = nextMaThuoc
 
     End Sub
 
