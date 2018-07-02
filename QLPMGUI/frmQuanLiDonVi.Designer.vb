@@ -212,6 +212,7 @@ Partial Class frmQuanLiDonVi
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmQuanLiDonVi"
         Me.Text = "frmQuanLiDonVi"
         CType(Me.dgvDonVi, System.ComponentModel.ISupportInitialize).EndInit()

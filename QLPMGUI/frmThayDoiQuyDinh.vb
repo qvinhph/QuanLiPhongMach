@@ -377,4 +377,14 @@ Public Class frmThayDoiQuyDinh
     Private Sub btnXoaThuoc_Click_1(sender As Object, e As EventArgs) Handles btnXoaThuoc.Click
 
     End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim frmQuanLiDonVi As frmQuanLiDonVi = New frmQuanLiDonVi()
+        frmQuanLiDonVi.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim frmQuanLiCachDung As frmQuanLiCachDung = New frmQuanLiCachDung()
+        frmQuanLiCachDung.Show()
+    End Sub
 End Class

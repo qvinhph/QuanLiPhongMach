@@ -212,6 +212,7 @@ Partial Class frmQuanLiCachDung
         Me.Controls.Add(Me.dgvCD)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmQuanLiCachDung"
         Me.Text = "frmQuanLiLoaiBenh"
         CType(Me.dgvCD, System.ComponentModel.ISupportInitialize).EndInit()
