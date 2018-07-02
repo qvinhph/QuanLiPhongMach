@@ -91,7 +91,7 @@ Public Class frmQuanLiThuoc
         cbDonVi.DisplayMember = "DonVi"
         cbDonVi.ValueMember = "MaDonVi"
 
-        Dim maThuoc
+        Dim maThuoc = String.Empty
         thuocBUS.BuildID(maThuoc)
         tbMaThuoc.Text = maThuoc
 

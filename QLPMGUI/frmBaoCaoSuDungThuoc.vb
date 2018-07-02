@@ -140,6 +140,8 @@ Public Class frmBaoCaoSuDungThuoc
 
         For Each thuoc In allThuoc
 
+            soLuong = 0
+            soLanDung = 0
             lineNumber = lineNumber + 1
             STT = lineNumber
             tenThuoc = thuoc.TenThuoc

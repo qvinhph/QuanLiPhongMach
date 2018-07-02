@@ -179,6 +179,9 @@ Class frmLapHoaDon
 
     Private Sub cbBenhNhan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBenhNhan.SelectedIndexChanged
 
+        dgvThuoc.Rows.Clear()
+        listChiTietPK_ByMaPhieuKham.Clear()
+
         If (cbBenhNhan.SelectedIndex < 0) Then
             tbMaBenhNhan.Text = ""
             tbGioiTinh.Text = ""
@@ -208,8 +211,8 @@ Class frmLapHoaDon
         Dim dTienThuoc As Double
         Dim dTienKham As Double
         Double.TryParse(tbTienThuoc.Text, dTienThuoc)
-        Double.TryParse(tbTienThuoc.Text, dTienKham)
-        tbTongTien.Text = (dTienThuoc + dTienKham).ToString()
+        Double.TryParse(tbTienKham.Text, dTienKham)
+        tbTongTien.Text = (dTienThuoc + dTienKham).ToString("c", vnd)
         LoadDataDataGridView()
 
     End Sub

@@ -24,7 +24,7 @@ Partial Class frmLapHoaDon
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLapHoaDon))
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnThoat = New System.Windows.Forms.Button()
         Me.btLuuHoaDon = New System.Windows.Forms.Button()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
         Me.tbTongTien = New System.Windows.Forms.TextBox()
@@ -49,7 +49,6 @@ Partial Class frmLapHoaDon
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.btnThoat = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -58,7 +57,6 @@ Partial Class frmLapHoaDon
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.btnThoat)
-        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.btLuuHoaDon)
         Me.Panel2.Controls.Add(Me.dgvThuoc)
         Me.Panel2.Controls.Add(Me.tbTongTien)
@@ -85,18 +83,18 @@ Partial Class frmLapHoaDon
         Me.Panel2.Size = New System.Drawing.Size(545, 634)
         Me.Panel2.TabIndex = 67
         '
-        'Button1
+        'btnThoat
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(198, 358)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(118, 40)
-        Me.Button1.TabIndex = 116
-        Me.Button1.Text = "In Hóa Đơn"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnThoat.BackgroundImage = CType(resources.GetObject("btnThoat.BackgroundImage"), System.Drawing.Image)
+        Me.btnThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnThoat.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnThoat.Location = New System.Drawing.Point(381, 358)
+        Me.btnThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnThoat.Name = "btnThoat"
+        Me.btnThoat.Size = New System.Drawing.Size(153, 40)
+        Me.btnThoat.TabIndex = 117
+        Me.btnThoat.Text = "Thoát"
+        Me.btnThoat.UseVisualStyleBackColor = True
         '
         'btLuuHoaDon
         '
@@ -367,19 +365,6 @@ Partial Class frmLapHoaDon
         Me.Label9.TabIndex = 1
         Me.Label9.Text = "Lập Hóa Đơn " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Thanh Toán"
         '
-        'btnThoat
-        '
-        Me.btnThoat.BackgroundImage = CType(resources.GetObject("btnThoat.BackgroundImage"), System.Drawing.Image)
-        Me.btnThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnThoat.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnThoat.Location = New System.Drawing.Point(381, 358)
-        Me.btnThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnThoat.Name = "btnThoat"
-        Me.btnThoat.Size = New System.Drawing.Size(153, 40)
-        Me.btnThoat.TabIndex = 117
-        Me.btnThoat.Text = "Thoát"
-        Me.btnThoat.UseVisualStyleBackColor = True
-        '
         'frmLapHoaDon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -424,7 +409,6 @@ Partial Class frmLapHoaDon
     Friend WithEvents btLuuHoaDon As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents dgvThuoc As DataGridView
     Friend WithEvents btnThoat As Button
 End Class

@@ -15,8 +15,8 @@ Public Class frmThemLoaiBenh
         loaibenhBUS = New LoaiBenhBUS()
 
         ' Get Next ID
-        Dim nextID As String
-        Dim result As Result
+        Dim nextID As String = String.Empty
+        Dim result As Result = New Result
         result = loaibenhBUS.BuildID(nextID)
         If (result.FlagResult = True) Then
             txtMaSo.Text = nextID.ToString()
@@ -48,7 +48,7 @@ Public Class frmThemLoaiBenh
             txtTenLoai.Text = String.Empty
 
             ' Get Next ID
-            Dim nextID As String
+            Dim nextID As String = String.Empty
             result = loaibenhBUS.BuildID(nextID)
             If (result.FlagResult = True) Then
                 txtMaSo.Text = nextID.ToString()

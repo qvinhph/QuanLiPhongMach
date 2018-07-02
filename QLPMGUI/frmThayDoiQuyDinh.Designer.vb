@@ -47,26 +47,11 @@ Partial Class frmThayDoiQuyDinh
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtDonGia = New System.Windows.Forms.TextBox()
-        Me.txtMaCachDung = New System.Windows.Forms.TextBox()
-        Me.txtMaDonVi = New System.Windows.Forms.TextBox()
-        Me.txtTenThuoc = New System.Windows.Forms.TextBox()
-        Me.txtMaThuoc = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnXoaThuoc = New System.Windows.Forms.Button()
-        Me.btnCapNhatThuoc = New System.Windows.Forms.Button()
-        Me.dgvThuoc = New System.Windows.Forms.DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvLoaiBenh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
-        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -78,14 +63,15 @@ Partial Class frmThayDoiQuyDinh
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Location = New System.Drawing.Point(274, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(454, 142)
+        Me.Panel2.Size = New System.Drawing.Size(490, 142)
         Me.Panel2.TabIndex = 72
         '
         'tbTienKham
         '
-        Me.tbTienKham.Location = New System.Drawing.Point(322, 55)
+        Me.tbTienKham.Font = New System.Drawing.Font("Segoe UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbTienKham.Location = New System.Drawing.Point(371, 51)
         Me.tbTienKham.Name = "tbTienKham"
-        Me.tbTienKham.Size = New System.Drawing.Size(100, 20)
+        Me.tbTienKham.Size = New System.Drawing.Size(116, 29)
         Me.tbTienKham.TabIndex = 57
         '
         'Label1
@@ -115,9 +101,10 @@ Partial Class frmThayDoiQuyDinh
         '
         'tbSoLuongMax
         '
-        Me.tbSoLuongMax.Location = New System.Drawing.Point(395, 16)
+        Me.tbSoLuongMax.Font = New System.Drawing.Font("Segoe UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbSoLuongMax.Location = New System.Drawing.Point(423, 12)
         Me.tbSoLuongMax.Name = "tbSoLuongMax"
-        Me.tbSoLuongMax.Size = New System.Drawing.Size(27, 20)
+        Me.tbSoLuongMax.Size = New System.Drawing.Size(64, 29)
         Me.tbSoLuongMax.TabIndex = 19
         '
         'Label8
@@ -178,13 +165,6 @@ Partial Class frmThayDoiQuyDinh
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.btnCapNhatLoaiBenh)
-        Me.Panel3.Controls.Add(Me.btXoa)
-        Me.Panel3.Controls.Add(Me.tbTenLoaiBenh)
-        Me.Panel3.Controls.Add(Me.tbMaLoaiBenh)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.dgvLoaiBenh)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(274, 148)
@@ -197,7 +177,7 @@ Partial Class frmThayDoiQuyDinh
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(396, 124)
+        Me.Button1.Location = New System.Drawing.Point(338, 136)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(74, 40)
@@ -210,7 +190,7 @@ Partial Class frmThayDoiQuyDinh
         Me.btnCapNhatLoaiBenh.BackgroundImage = CType(resources.GetObject("btnCapNhatLoaiBenh.BackgroundImage"), System.Drawing.Image)
         Me.btnCapNhatLoaiBenh.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCapNhatLoaiBenh.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnCapNhatLoaiBenh.Location = New System.Drawing.Point(314, 124)
+        Me.btnCapNhatLoaiBenh.Location = New System.Drawing.Point(178, 136)
         Me.btnCapNhatLoaiBenh.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCapNhatLoaiBenh.Name = "btnCapNhatLoaiBenh"
         Me.btnCapNhatLoaiBenh.Size = New System.Drawing.Size(74, 40)
@@ -223,7 +203,7 @@ Partial Class frmThayDoiQuyDinh
         Me.btXoa.BackgroundImage = CType(resources.GetObject("btXoa.BackgroundImage"), System.Drawing.Image)
         Me.btXoa.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btXoa.ForeColor = System.Drawing.SystemColors.Control
-        Me.btXoa.Location = New System.Drawing.Point(240, 124)
+        Me.btXoa.Location = New System.Drawing.Point(38, 136)
         Me.btXoa.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btXoa.Name = "btXoa"
         Me.btXoa.Size = New System.Drawing.Size(66, 40)
@@ -233,39 +213,41 @@ Partial Class frmThayDoiQuyDinh
         '
         'tbTenLoaiBenh
         '
-        Me.tbTenLoaiBenh.Location = New System.Drawing.Point(256, 95)
+        Me.tbTenLoaiBenh.Font = New System.Drawing.Font("Segoe UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbTenLoaiBenh.Location = New System.Drawing.Point(178, 83)
         Me.tbTenLoaiBenh.Name = "tbTenLoaiBenh"
-        Me.tbTenLoaiBenh.Size = New System.Drawing.Size(188, 20)
+        Me.tbTenLoaiBenh.Size = New System.Drawing.Size(260, 29)
         Me.tbTenLoaiBenh.TabIndex = 59
         '
         'tbMaLoaiBenh
         '
-        Me.tbMaLoaiBenh.Location = New System.Drawing.Point(256, 34)
+        Me.tbMaLoaiBenh.Font = New System.Drawing.Font("Segoe UI Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaLoaiBenh.Location = New System.Drawing.Point(178, 29)
         Me.tbMaLoaiBenh.Name = "tbMaLoaiBenh"
-        Me.tbMaLoaiBenh.Size = New System.Drawing.Size(188, 20)
+        Me.tbMaLoaiBenh.Size = New System.Drawing.Size(260, 29)
         Me.tbMaLoaiBenh.TabIndex = 58
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(251, 67)
+        Me.Label4.Location = New System.Drawing.Point(1, 80)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(121, 25)
+        Me.Label4.Size = New System.Drawing.Size(134, 28)
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Tên Loại Bệnh:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(251, 6)
+        Me.Label3.Location = New System.Drawing.Point(4, 26)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 25)
+        Me.Label3.Size = New System.Drawing.Size(133, 28)
         Me.Label3.TabIndex = 21
         Me.Label3.Text = "Mã Loại Bệnh:"
         '
@@ -274,7 +256,7 @@ Partial Class frmThayDoiQuyDinh
         Me.dgvLoaiBenh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvLoaiBenh.Location = New System.Drawing.Point(9, 33)
         Me.dgvLoaiBenh.Name = "dgvLoaiBenh"
-        Me.dgvLoaiBenh.Size = New System.Drawing.Size(224, 144)
+        Me.dgvLoaiBenh.Size = New System.Drawing.Size(487, 144)
         Me.dgvLoaiBenh.TabIndex = 20
         '
         'Label2
@@ -291,23 +273,16 @@ Partial Class frmThayDoiQuyDinh
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Controls.Add(Me.Button4)
+        Me.Panel4.Controls.Add(Me.btnCapNhatLoaiBenh)
         Me.Panel4.Controls.Add(Me.Button3)
+        Me.Panel4.Controls.Add(Me.btXoa)
         Me.Panel4.Controls.Add(Me.Button2)
-        Me.Panel4.Controls.Add(Me.Label14)
-        Me.Panel4.Controls.Add(Me.Label13)
-        Me.Panel4.Controls.Add(Me.Label12)
-        Me.Panel4.Controls.Add(Me.txtDonGia)
-        Me.Panel4.Controls.Add(Me.txtMaCachDung)
-        Me.Panel4.Controls.Add(Me.txtMaDonVi)
-        Me.Panel4.Controls.Add(Me.txtTenThuoc)
-        Me.Panel4.Controls.Add(Me.txtMaThuoc)
-        Me.Panel4.Controls.Add(Me.Label6)
-        Me.Panel4.Controls.Add(Me.Label7)
-        Me.Panel4.Controls.Add(Me.btnXoaThuoc)
-        Me.Panel4.Controls.Add(Me.btnCapNhatThuoc)
-        Me.Panel4.Controls.Add(Me.dgvThuoc)
-        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Controls.Add(Me.tbTenLoaiBenh)
+        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Controls.Add(Me.tbMaLoaiBenh)
+        Me.Panel4.Controls.Add(Me.Label4)
         Me.Panel4.Location = New System.Drawing.Point(274, 341)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(499, 327)
@@ -318,7 +293,7 @@ Partial Class frmThayDoiQuyDinh
         Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(21, 278)
+        Me.Button4.Location = New System.Drawing.Point(9, 258)
         Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(140, 40)
@@ -331,7 +306,7 @@ Partial Class frmThayDoiQuyDinh
         Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(199, 278)
+        Me.Button3.Location = New System.Drawing.Point(355, 258)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(140, 40)
@@ -344,154 +319,13 @@ Partial Class frmThayDoiQuyDinh
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(368, 278)
+        Me.Button2.Location = New System.Drawing.Point(178, 258)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(114, 40)
+        Me.Button2.Size = New System.Drawing.Size(140, 40)
         Me.Button2.TabIndex = 82
         Me.Button2.Text = "Quản Lí Đơn Vị"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(213, 198)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(78, 25)
-        Me.Label14.TabIndex = 81
-        Me.Label14.Text = "Đơn Giá:"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(185, 163)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(130, 25)
-        Me.Label13.TabIndex = 80
-        Me.Label13.Text = "Mã Cách Dùng:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(194, 123)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(97, 25)
-        Me.Label12.TabIndex = 79
-        Me.Label12.Text = "Mã Đơn Vị:"
-        '
-        'txtDonGia
-        '
-        Me.txtDonGia.Location = New System.Drawing.Point(322, 203)
-        Me.txtDonGia.Name = "txtDonGia"
-        Me.txtDonGia.Size = New System.Drawing.Size(160, 20)
-        Me.txtDonGia.TabIndex = 78
-        '
-        'txtMaCachDung
-        '
-        Me.txtMaCachDung.Location = New System.Drawing.Point(322, 168)
-        Me.txtMaCachDung.Name = "txtMaCachDung"
-        Me.txtMaCachDung.Size = New System.Drawing.Size(160, 20)
-        Me.txtMaCachDung.TabIndex = 77
-        '
-        'txtMaDonVi
-        '
-        Me.txtMaDonVi.Location = New System.Drawing.Point(322, 127)
-        Me.txtMaDonVi.Name = "txtMaDonVi"
-        Me.txtMaDonVi.Size = New System.Drawing.Size(160, 20)
-        Me.txtMaDonVi.TabIndex = 76
-        '
-        'txtTenThuoc
-        '
-        Me.txtTenThuoc.Location = New System.Drawing.Point(9, 198)
-        Me.txtTenThuoc.Name = "txtTenThuoc"
-        Me.txtTenThuoc.Size = New System.Drawing.Size(160, 20)
-        Me.txtTenThuoc.TabIndex = 75
-        '
-        'txtMaThuoc
-        '
-        Me.txtMaThuoc.Location = New System.Drawing.Point(9, 150)
-        Me.txtMaThuoc.Name = "txtMaThuoc"
-        Me.txtMaThuoc.Size = New System.Drawing.Size(160, 20)
-        Me.txtMaThuoc.TabIndex = 74
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(4, 173)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 25)
-        Me.Label6.TabIndex = 73
-        Me.Label6.Text = "Tên Thuốc:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Light", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(4, 122)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(92, 25)
-        Me.Label7.TabIndex = 72
-        Me.Label7.Text = "Mã Thuốc:"
-        '
-        'btnXoaThuoc
-        '
-        Me.btnXoaThuoc.BackgroundImage = CType(resources.GetObject("btnXoaThuoc.BackgroundImage"), System.Drawing.Image)
-        Me.btnXoaThuoc.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnXoaThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnXoaThuoc.Location = New System.Drawing.Point(118, 226)
-        Me.btnXoaThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnXoaThuoc.Name = "btnXoaThuoc"
-        Me.btnXoaThuoc.Size = New System.Drawing.Size(115, 40)
-        Me.btnXoaThuoc.TabIndex = 71
-        Me.btnXoaThuoc.Text = "Xóa"
-        Me.btnXoaThuoc.UseVisualStyleBackColor = True
-        '
-        'btnCapNhatThuoc
-        '
-        Me.btnCapNhatThuoc.BackgroundImage = CType(resources.GetObject("btnCapNhatThuoc.BackgroundImage"), System.Drawing.Image)
-        Me.btnCapNhatThuoc.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCapNhatThuoc.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnCapNhatThuoc.Location = New System.Drawing.Point(297, 226)
-        Me.btnCapNhatThuoc.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnCapNhatThuoc.Name = "btnCapNhatThuoc"
-        Me.btnCapNhatThuoc.Size = New System.Drawing.Size(112, 40)
-        Me.btnCapNhatThuoc.TabIndex = 70
-        Me.btnCapNhatThuoc.Text = "Cập nhật"
-        Me.btnCapNhatThuoc.UseVisualStyleBackColor = True
-        '
-        'dgvThuoc
-        '
-        Me.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvThuoc.Location = New System.Drawing.Point(0, 28)
-        Me.dgvThuoc.Name = "dgvThuoc"
-        Me.dgvThuoc.Size = New System.Drawing.Size(493, 92)
-        Me.dgvThuoc.TabIndex = 63
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(1, -3)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(69, 28)
-        Me.Label5.TabIndex = 62
-        Me.Label5.Text = "Thuốc:"
         '
         'frmThayDoiQuyDinh
         '
@@ -517,7 +351,6 @@ Partial Class frmThayDoiQuyDinh
         CType(Me.dgvLoaiBenh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -544,20 +377,6 @@ Partial Class frmThayDoiQuyDinh
     Friend WithEvents btXoa As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents dgvThuoc As DataGridView
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txtTenThuoc As TextBox
-    Friend WithEvents txtMaThuoc As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents btnXoaThuoc As Button
-    Friend WithEvents btnCapNhatThuoc As Button
-    Friend WithEvents txtDonGia As TextBox
-    Friend WithEvents txtMaCachDung As TextBox
-    Friend WithEvents txtMaDonVi As TextBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label12 As Label
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
