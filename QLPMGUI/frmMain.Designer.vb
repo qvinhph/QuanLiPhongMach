@@ -51,6 +51,9 @@ Partial Class frmMain
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnLapDSKham = New System.Windows.Forms.Button()
+        Me.QuảnLýThuốcToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuảnLýCáchDùngToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuảnLýĐơnVịToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -111,7 +114,7 @@ Partial Class frmMain
         '
         'QuảnLýToolStripMenuItem
         '
-        Me.QuảnLýToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LậpHóaĐơnToolStripMenuItem, Me.ThêmLoạiBệnhToolStripMenuItem, Me.ThayĐổiQuyĐịnhToolStripMenuItem})
+        Me.QuảnLýToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LậpHóaĐơnToolStripMenuItem, Me.ThêmLoạiBệnhToolStripMenuItem, Me.ThayĐổiQuyĐịnhToolStripMenuItem, Me.QuảnLýThuốcToolStripMenuItem, Me.QuảnLýCáchDùngToolStripMenuItem, Me.QuảnLýĐơnVịToolStripMenuItem})
         Me.QuảnLýToolStripMenuItem.Name = "QuảnLýToolStripMenuItem"
         Me.QuảnLýToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.QuảnLýToolStripMenuItem.Text = "Quản Lý"
@@ -119,19 +122,19 @@ Partial Class frmMain
         'LậpHóaĐơnToolStripMenuItem
         '
         Me.LậpHóaĐơnToolStripMenuItem.Name = "LậpHóaĐơnToolStripMenuItem"
-        Me.LậpHóaĐơnToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.LậpHóaĐơnToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LậpHóaĐơnToolStripMenuItem.Text = "Lập Hóa Đơn"
         '
         'ThêmLoạiBệnhToolStripMenuItem
         '
         Me.ThêmLoạiBệnhToolStripMenuItem.Name = "ThêmLoạiBệnhToolStripMenuItem"
-        Me.ThêmLoạiBệnhToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ThêmLoạiBệnhToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ThêmLoạiBệnhToolStripMenuItem.Text = "Thêm Loại Bệnh"
         '
         'ThayĐổiQuyĐịnhToolStripMenuItem
         '
         Me.ThayĐổiQuyĐịnhToolStripMenuItem.Name = "ThayĐổiQuyĐịnhToolStripMenuItem"
-        Me.ThayĐổiQuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ThayĐổiQuyĐịnhToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ThayĐổiQuyĐịnhToolStripMenuItem.Text = "Thay Đổi Quy Định"
         '
         'BáoCáoToolStripMenuItem
@@ -331,6 +334,24 @@ Partial Class frmMain
         Me.btnLapDSKham.Text = "Lập Danh Sách Khám"
         Me.btnLapDSKham.UseVisualStyleBackColor = True
         '
+        'QuảnLýThuốcToolStripMenuItem
+        '
+        Me.QuảnLýThuốcToolStripMenuItem.Name = "QuảnLýThuốcToolStripMenuItem"
+        Me.QuảnLýThuốcToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuảnLýThuốcToolStripMenuItem.Text = "Quản Lý Thuốc"
+        '
+        'QuảnLýCáchDùngToolStripMenuItem
+        '
+        Me.QuảnLýCáchDùngToolStripMenuItem.Name = "QuảnLýCáchDùngToolStripMenuItem"
+        Me.QuảnLýCáchDùngToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuảnLýCáchDùngToolStripMenuItem.Text = "Quản Lý Cách Dùng"
+        '
+        'QuảnLýĐơnVịToolStripMenuItem
+        '
+        Me.QuảnLýĐơnVịToolStripMenuItem.Name = "QuảnLýĐơnVịToolStripMenuItem"
+        Me.QuảnLýĐơnVịToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuảnLýĐơnVịToolStripMenuItem.Text = "Quản Lý Đơn Vị"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,4 +407,7 @@ Partial Class frmMain
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents QuảnLýThuốcToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuảnLýCáchDùngToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuảnLýĐơnVịToolStripMenuItem As ToolStripMenuItem
 End Class
