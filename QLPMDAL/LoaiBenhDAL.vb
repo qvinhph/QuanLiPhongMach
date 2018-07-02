@@ -72,7 +72,7 @@ Public Class LoaiBenhDAL
         Dim query As String = Nothing
         query &= "UPDATE [tblloai_benh] SET "
         query &= "[ma_loai_benh] = @ma_loai_benh "
-        query &= "[loai_benh] = @loai_benh "
+        query &= ",[loai_benh] = @loai_benh "
         query &= "WHERE [ma_loai_benh] = @ma_loai_benh "
 
         Using conn As New SqlConnection(connectionString)

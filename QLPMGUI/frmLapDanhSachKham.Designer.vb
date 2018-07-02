@@ -47,6 +47,8 @@ Partial Class frmLapDanhSachKham
         Me.Button4 = New System.Windows.Forms.Button()
         Me.dtpNgayKham = New System.Windows.Forms.DateTimePicker()
         Me.lvBenhNhan = New System.Windows.Forms.ListView()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lbSoLuongBnTrongNgay = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -334,6 +336,30 @@ Partial Class frmLapDanhSachKham
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         Me.lvBenhNhan.View = System.Windows.Forms.View.Details
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(216, 301)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(335, 30)
+        Me.Label6.TabIndex = 59
+        Me.Label6.Text = "Số Bệnh Nhân Tối Đa Trong Ngày: "
+        '
+        'lbSoLuongBnTrongNgay
+        '
+        Me.lbSoLuongBnTrongNgay.AutoSize = True
+        Me.lbSoLuongBnTrongNgay.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbSoLuongBnTrongNgay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbSoLuongBnTrongNgay.Location = New System.Drawing.Point(551, 301)
+        Me.lbSoLuongBnTrongNgay.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbSoLuongBnTrongNgay.Name = "lbSoLuongBnTrongNgay"
+        Me.lbSoLuongBnTrongNgay.Size = New System.Drawing.Size(46, 30)
+        Me.lbSoLuongBnTrongNgay.TabIndex = 60
+        Me.lbSoLuongBnTrongNgay.Text = "abc"
+        '
         'frmLapDanhSachKham
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -341,6 +367,8 @@ Partial Class frmLapDanhSachKham
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(792, 645)
+        Me.Controls.Add(Me.lbSoLuongBnTrongNgay)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lvBenhNhan)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel1)
@@ -385,4 +413,6 @@ Partial Class frmLapDanhSachKham
     Friend WithEvents lvBenhNhan As ListView
     Friend WithEvents dtpNgayKham As DateTimePicker
     Friend WithEvents Button4 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents lbSoLuongBnTrongNgay As Label
 End Class

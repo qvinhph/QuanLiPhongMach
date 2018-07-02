@@ -25,6 +25,9 @@ Public Class frmLapDanhSachKham
         thamSoBUS = New ThamSoBUS()
         thamSoBUS.GetThamSoOnDB(thamSo)
 
+        lbSoLuongBnTrongNgay.Text = thamSo.SoBenhNhanToiDa
+
+
         'Auto generate patient id
         bnBus = New BenhNhanBUS()
         Dim result
@@ -60,6 +63,8 @@ Public Class frmLapDanhSachKham
         Dim Benhnhan As BenhNhanDTO
         Benhnhan = New BenhNhanDTO()
 
+
+
         '1. Mapping data from GUI control
         Benhnhan.MaBenhNhan = txtMaSo.Text
         Benhnhan.HoTen = txtHoTen.Text
@@ -73,6 +78,9 @@ Public Class frmLapDanhSachKham
             txtHoTen.Focus()
             Return
         End If
+
+        lbSoLuongBnTrongNgay.Text = lbSoLuongBnTrongNgay.Text - 1
+
 
 
 
@@ -270,5 +278,11 @@ Public Class frmLapDanhSachKham
         End If
     End Sub
 
+    Private Sub dtpNgayKham_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgayKham.ValueChanged
+        thamSoBUS = New ThamSoBUS()
+        thamSoBUS.GetThamSoOnDB(thamSo)
+
+        lbSoLuongBnTrongNgay.Text = thamSo.SoBenhNhanToiDa
+    End Sub
 
 End Class

@@ -68,6 +68,14 @@ Public Class LoaiBenhBUS
         Return loaiBenhDAL.SelectAll(listLoaiBenh)
     End Function
 
+    Public Function IsValidName(loaiBenh As LoaiBenhDTO) As Boolean
+
+        If (loaiBenh.LoaiBenh.Length < 1) Then
+            Return False
+        End If
+
+        Return True
+    End Function
 #End Region
 
 End Class

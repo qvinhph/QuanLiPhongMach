@@ -68,7 +68,7 @@ Public Class ThamSoDAL
         Dim query As String = Nothing
         query &= "UPDATE [tbltham_so] SET "
         query &= "[so_benh_nhan_toi_da] = @so_benh_nhan_toi_da "
-        query &= "[tien_kham] = @tien_kham "
+        query &= ",[tien_kham] = @tien_kham "
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()
