@@ -74,11 +74,11 @@ Public Class ThuocDAL
 
         Dim query As String = Nothing
         query &= "UPDATE [tblthuoc] SET "
-        query &= "[ma_thuoc] = @ma_thuoc "
-        query &= ",[ten_thuoc] = @ten_thuoc "
-        query &= ",[ma_don_vi] = @ma_don_vi "
-        query &= ",[ma_cach_dung] = @ma_cach_dung "
-        query &= ",[don_gia] = @don_gia "
+        query &= "[ma_thuoc] = @ma_thuoc, "
+        query &= "[ten_thuoc] = @ten_thuoc, "
+        query &= "[ma_don_vi] = @ma_don_vi, "
+        query &= "[ma_cach_dung] = @ma_cach_dung, "
+        query &= "[don_gia] = @don_gia "
         query &= "WHERE [ma_thuoc] = @ma_thuoc "
 
         Using conn As New SqlConnection(connectionString)

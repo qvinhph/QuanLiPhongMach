@@ -22,27 +22,27 @@ Partial Class frmQuanLiThuoc
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmQuanLiThuoc))
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btThoat = New System.Windows.Forms.Button()
-        Me.btCapNhat = New System.Windows.Forms.Button()
-        Me.btXoa = New System.Windows.Forms.Button()
-        Me.btThem = New System.Windows.Forms.Button()
+        Me.tbDonGia = New System.Windows.Forms.TextBox()
+        Me.tbThuoc = New System.Windows.Forms.TextBox()
+        Me.tbMaThuoc = New System.Windows.Forms.TextBox()
+        Me.cbCachDung = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lbMaTh = New System.Windows.Forms.Label()
         Me.lbCachDung = New System.Windows.Forms.Label()
         Me.cbDonVi = New System.Windows.Forms.ComboBox()
         Me.lbDonVi = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cbCachDung = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.btThoat = New System.Windows.Forms.Button()
+        Me.btCapNhat = New System.Windows.Forms.Button()
+        Me.btXoa = New System.Windows.Forms.Button()
+        Me.btThem = New System.Windows.Forms.Button()
         CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -56,14 +56,14 @@ Partial Class frmQuanLiThuoc
         Me.dgvThuoc.Location = New System.Drawing.Point(248, 367)
         Me.dgvThuoc.MultiSelect = False
         Me.dgvThuoc.Name = "dgvThuoc"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvThuoc.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvThuoc.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgvThuoc.Size = New System.Drawing.Size(579, 193)
         Me.dgvThuoc.TabIndex = 73
@@ -101,9 +101,9 @@ Partial Class frmQuanLiThuoc
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.TextBox3)
-        Me.Panel2.Controls.Add(Me.TextBox1)
-        Me.Panel2.Controls.Add(Me.TextBox2)
+        Me.Panel2.Controls.Add(Me.tbDonGia)
+        Me.Panel2.Controls.Add(Me.tbThuoc)
+        Me.Panel2.Controls.Add(Me.tbMaThuoc)
         Me.Panel2.Controls.Add(Me.cbCachDung)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.lbMaTh)
@@ -120,57 +120,54 @@ Partial Class frmQuanLiThuoc
         Me.Panel2.Size = New System.Drawing.Size(579, 349)
         Me.Panel2.TabIndex = 74
         '
-        'btThoat
+        'tbDonGia
         '
-        Me.btThoat.BackgroundImage = CType(resources.GetObject("btThoat.BackgroundImage"), System.Drawing.Image)
-        Me.btThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btThoat.ForeColor = System.Drawing.SystemColors.Control
-        Me.btThoat.Location = New System.Drawing.Point(414, 292)
-        Me.btThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btThoat.Name = "btThoat"
-        Me.btThoat.Size = New System.Drawing.Size(104, 40)
-        Me.btThoat.TabIndex = 99
-        Me.btThoat.Text = "Thoát"
-        Me.btThoat.UseVisualStyleBackColor = True
+        Me.tbDonGia.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbDonGia.Location = New System.Drawing.Point(146, 239)
+        Me.tbDonGia.Name = "tbDonGia"
+        Me.tbDonGia.Size = New System.Drawing.Size(280, 29)
+        Me.tbDonGia.TabIndex = 113
         '
-        'btCapNhat
+        'tbThuoc
         '
-        Me.btCapNhat.BackgroundImage = CType(resources.GetObject("btCapNhat.BackgroundImage"), System.Drawing.Image)
-        Me.btCapNhat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btCapNhat.ForeColor = System.Drawing.SystemColors.Control
-        Me.btCapNhat.Location = New System.Drawing.Point(227, 292)
-        Me.btCapNhat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btCapNhat.Name = "btCapNhat"
-        Me.btCapNhat.Size = New System.Drawing.Size(104, 40)
-        Me.btCapNhat.TabIndex = 98
-        Me.btCapNhat.Text = "Cập Nhật"
-        Me.btCapNhat.UseVisualStyleBackColor = True
+        Me.tbThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbThuoc.Location = New System.Drawing.Point(146, 14)
+        Me.tbThuoc.Name = "tbThuoc"
+        Me.tbThuoc.Size = New System.Drawing.Size(280, 29)
+        Me.tbThuoc.TabIndex = 112
         '
-        'btXoa
+        'tbMaThuoc
         '
-        Me.btXoa.BackgroundImage = CType(resources.GetObject("btXoa.BackgroundImage"), System.Drawing.Image)
-        Me.btXoa.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btXoa.ForeColor = System.Drawing.SystemColors.Control
-        Me.btXoa.Location = New System.Drawing.Point(133, 292)
-        Me.btXoa.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btXoa.Name = "btXoa"
-        Me.btXoa.Size = New System.Drawing.Size(77, 40)
-        Me.btXoa.TabIndex = 97
-        Me.btXoa.Text = "Xóa"
-        Me.btXoa.UseVisualStyleBackColor = True
+        Me.tbMaThuoc.BackColor = System.Drawing.SystemColors.Control
+        Me.tbMaThuoc.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbMaThuoc.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaThuoc.Location = New System.Drawing.Point(146, 67)
+        Me.tbMaThuoc.Name = "tbMaThuoc"
+        Me.tbMaThuoc.ReadOnly = True
+        Me.tbMaThuoc.Size = New System.Drawing.Size(280, 29)
+        Me.tbMaThuoc.TabIndex = 111
         '
-        'btThem
+        'cbCachDung
         '
-        Me.btThem.BackgroundImage = CType(resources.GetObject("btThem.BackgroundImage"), System.Drawing.Image)
-        Me.btThem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btThem.ForeColor = System.Drawing.SystemColors.Control
-        Me.btThem.Location = New System.Drawing.Point(32, 292)
-        Me.btThem.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btThem.Name = "btThem"
-        Me.btThem.Size = New System.Drawing.Size(77, 40)
-        Me.btThem.TabIndex = 96
-        Me.btThem.Text = "Thêm"
-        Me.btThem.UseVisualStyleBackColor = True
+        Me.cbCachDung.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbCachDung.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCachDung.FormattingEnabled = True
+        Me.cbCachDung.Location = New System.Drawing.Point(146, 183)
+        Me.cbCachDung.Name = "cbCachDung"
+        Me.cbCachDung.Size = New System.Drawing.Size(280, 29)
+        Me.cbCachDung.TabIndex = 110
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(28, 236)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(87, 28)
+        Me.Label1.TabIndex = 109
+        Me.Label1.Text = "Đơn Giá:"
         '
         'lbMaTh
         '
@@ -230,54 +227,57 @@ Partial Class frmQuanLiThuoc
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "Thuốc:"
         '
-        'Label1
+        'btThoat
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(28, 236)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(87, 28)
-        Me.Label1.TabIndex = 109
-        Me.Label1.Text = "Đơn Giá:"
+        Me.btThoat.BackgroundImage = CType(resources.GetObject("btThoat.BackgroundImage"), System.Drawing.Image)
+        Me.btThoat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btThoat.ForeColor = System.Drawing.SystemColors.Control
+        Me.btThoat.Location = New System.Drawing.Point(414, 292)
+        Me.btThoat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btThoat.Name = "btThoat"
+        Me.btThoat.Size = New System.Drawing.Size(104, 40)
+        Me.btThoat.TabIndex = 99
+        Me.btThoat.Text = "Thoát"
+        Me.btThoat.UseVisualStyleBackColor = True
         '
-        'cbCachDung
+        'btCapNhat
         '
-        Me.cbCachDung.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbCachDung.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCachDung.FormattingEnabled = True
-        Me.cbCachDung.Location = New System.Drawing.Point(146, 183)
-        Me.cbCachDung.Name = "cbCachDung"
-        Me.cbCachDung.Size = New System.Drawing.Size(280, 29)
-        Me.cbCachDung.TabIndex = 110
+        Me.btCapNhat.BackgroundImage = CType(resources.GetObject("btCapNhat.BackgroundImage"), System.Drawing.Image)
+        Me.btCapNhat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btCapNhat.ForeColor = System.Drawing.SystemColors.Control
+        Me.btCapNhat.Location = New System.Drawing.Point(227, 292)
+        Me.btCapNhat.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btCapNhat.Name = "btCapNhat"
+        Me.btCapNhat.Size = New System.Drawing.Size(104, 40)
+        Me.btCapNhat.TabIndex = 98
+        Me.btCapNhat.Text = "Cập Nhật"
+        Me.btCapNhat.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'btXoa
         '
-        Me.TextBox2.BackColor = System.Drawing.SystemColors.Control
-        Me.TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(146, 67)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(280, 29)
-        Me.TextBox2.TabIndex = 111
+        Me.btXoa.BackgroundImage = CType(resources.GetObject("btXoa.BackgroundImage"), System.Drawing.Image)
+        Me.btXoa.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btXoa.ForeColor = System.Drawing.SystemColors.Control
+        Me.btXoa.Location = New System.Drawing.Point(133, 292)
+        Me.btXoa.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btXoa.Name = "btXoa"
+        Me.btXoa.Size = New System.Drawing.Size(77, 40)
+        Me.btXoa.TabIndex = 97
+        Me.btXoa.Text = "Xóa"
+        Me.btXoa.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'btThem
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(146, 14)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(280, 29)
-        Me.TextBox1.TabIndex = 112
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(146, 239)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(280, 29)
-        Me.TextBox3.TabIndex = 113
+        Me.btThem.BackgroundImage = CType(resources.GetObject("btThem.BackgroundImage"), System.Drawing.Image)
+        Me.btThem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btThem.ForeColor = System.Drawing.SystemColors.Control
+        Me.btThem.Location = New System.Drawing.Point(32, 292)
+        Me.btThem.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btThem.Name = "btThem"
+        Me.btThem.Size = New System.Drawing.Size(77, 40)
+        Me.btThem.TabIndex = 96
+        Me.btThem.Text = "Thêm"
+        Me.btThem.UseVisualStyleBackColor = True
         '
         'frmQuanLiThuoc
         '
@@ -309,9 +309,9 @@ Partial Class frmQuanLiThuoc
     Friend WithEvents btCapNhat As Button
     Friend WithEvents btXoa As Button
     Friend WithEvents btThem As Button
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents tbDonGia As TextBox
+    Friend WithEvents tbThuoc As TextBox
+    Friend WithEvents tbMaThuoc As TextBox
     Friend WithEvents cbCachDung As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lbMaTh As Label

@@ -77,12 +77,28 @@ Public Class frmQuanLiThuoc
 
 #End Region
 
-        'Dim maCachDung = String.Empty
-        'cachDungBUS.BuildID(maCachDung)
-        'tbMaCD.Text = maCachDung
+        'Load list cach dung to combobox
+        Dim allCachDung = New List(Of CachDungDTO)
+        cachDungBUS.SelectAll(allCachDung)
+        cbCachDung.DataSource = New BindingSource(allCachDung, String.Empty)
+        cbCachDung.DisplayMember = "CachDung"
+        cbCachDung.ValueMember = "MaCachDung"
+
+        'Load list don vi to combobox
+        Dim allDonVi = New List(Of DonViDTO)
+        donViBUS.SelectAll(allDonVi)
+        cbDonVi.DataSource = New BindingSource(allDonVi, String.Empty)
+        cbDonVi.DisplayMember = "DonVi"
+        cbDonVi.ValueMember = "MaDonVi"
+
+        Dim maThuoc
+        thuocBUS.BuildID(maThuoc)
+        tbMaThuoc.Text = maThuoc
 
         LoadDataDataGridView()
+
     End Sub
+
 
     Public Sub LoadDataDataGridView()
 
@@ -117,6 +133,7 @@ Public Class frmQuanLiThuoc
                 End If
             Next
 
+            maThuoc = thuoc.MaThuoc
             tenThuoc = thuoc.TenThuoc
             donGia = thuoc.DonGia
 
@@ -128,4 +145,106 @@ Public Class frmQuanLiThuoc
 
     End Sub
 
+    Private Sub dgvThuoc_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvThuoc.CellClick
+
+        Dim maThuoc = String.Empty
+        Dim donVi = String.Empty
+        Dim cachDung = String.Empty
+        Dim donGia = String.Empty
+        Dim tenThuoc = String.Empty
+
+        'Get selected cell value
+        If (e.RowIndex > -1 And e.RowIndex < dgvThuoc.Rows.Count) Then
+            maThuoc = dgvThuoc.Rows(e.RowIndex).Cells(1).Value
+            tenThuoc = dgvThuoc.Rows(e.RowIndex).Cells(2).Value
+            cachDung = dgvThuoc.Rows(e.RowIndex).Cells(4).Value
+            donVi = dgvThuoc.Rows(e.RowIndex).Cells(3).Value
+            donGia = dgvThuoc.Rows(e.RowIndex).Cells(5).Value
+        End If
+
+        'Load to textbox
+        tbDonGia.Text = donGia
+        tbMaThuoc.Text = maThuoc
+        tbThuoc.Text = tenThuoc
+
+        Dim allDonVi = New List(Of DonViDTO)
+        donViBUS.SelectAll(allDonVi)
+        Dim selectedMaDV = String.Empty
+
+        Dim allCachDung = New List(Of CachDungDTO)
+        cachDungBUS.SelectAll(allCachDung)
+        Dim selectedMaCD = String.Empty
+
+        For Each dv In allDonVi
+            If (dv.DonVi = donVi) Then
+                selectedMaDV = dv.MaDonVi
+            End If
+        Next
+
+        For Each cd In allCachDung
+            If (cd.CachDung = cachDung) Then
+                selectedMaCD = cd.MaCachDung
+            End If
+        Next
+
+        cbDonVi.SelectedValue = selectedMaDV
+        cbCachDung.SelectedValue = selectedMaCD
+
+    End Sub
+
+    Private Sub btThem_Click(sender As Object, e As EventArgs) Handles btThem.Click
+
+        If (tbThuoc.Text = "" Or tbDonGia.Text = Nothing) Then
+            Return
+        End If
+
+        Dim thuoc = New ThuocDTO()
+        thuoc.MaThuoc = String.Empty 'Insert tu them
+        thuoc.TenThuoc = tbThuoc.Text
+        Dim donGiaDoule As Double = 0
+        Double.TryParse(tbDonGia.Text, donGiaDoule)
+        thuoc.DonGia = donGiaDoule
+        thuoc.MaDonVi = CType(cbDonVi.SelectedItem, DonViDTO).MaDonVi
+        thuoc.MaCachDung = CType(cbCachDung.SelectedItem, CachDungDTO).MaCachDung
+
+        thuocBUS.Insert(thuoc)
+
+        LoadDataDataGridView()
+
+    End Sub
+
+    Private Sub btXoa_Click(sender As Object, e As EventArgs) Handles btXoa.Click
+
+        Dim maThuoc = tbMaThuoc.Text
+
+        thuocBUS.Delete(maThuoc)
+
+        LoadDataDataGridView()
+
+    End Sub
+
+    Private Sub btCapNhat_Click(sender As Object, e As EventArgs) Handles btCapNhat.Click
+
+        If (tbThuoc.Text = "" Or tbDonGia.Text = Nothing) Then
+            Return
+        End If
+
+        Dim thuoc = New ThuocDTO()
+        thuoc.MaThuoc = tbMaThuoc.Text 'Insert tu them
+        thuoc.TenThuoc = tbThuoc.Text
+        Dim donGiaDoule As Double = 0
+        Double.TryParse(tbDonGia.Text, donGiaDoule)
+        thuoc.DonGia = donGiaDoule
+        thuoc.MaDonVi = CType(cbDonVi.SelectedItem, DonViDTO).MaDonVi
+        thuoc.MaCachDung = CType(cbCachDung.SelectedItem, CachDungDTO).MaCachDung
+
+        thuocBUS.Update(thuoc)
+
+        LoadDataDataGridView()
+
+    End Sub
+
+    Private Sub btThoat_Click(sender As Object, e As EventArgs) Handles btThoat.Click
+        Me.Close()
+    End Sub
 End Class
