@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmTest
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmTest
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lbMaDonvi = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -107,11 +107,11 @@ Partial Class frmTest
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(87, 197)
+        Me.Button8.Location = New System.Drawing.Point(70, 358)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(211, 23)
+        Me.Button8.Size = New System.Drawing.Size(75, 23)
         Me.Button8.TabIndex = 8
-        Me.Button8.Text = "Thay đổi quy định"
+        Me.Button8.Text = "tyle"
         Me.Button8.UseVisualStyleBackColor = True
         '
         'frmTest

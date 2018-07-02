@@ -43,7 +43,7 @@ Public Class frmTest
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Dim thaydoiquydinh As frmThayDoiQuyDinh = New frmThayDoiQuyDinh()
-        thaydoiquydinh.Show()
+        Dim aaaa As frmBaoCaoSuDungThuoc = New frmBaoCaoSuDungThuoc()
+        aaaa.Show()
     End Sub
 End Class

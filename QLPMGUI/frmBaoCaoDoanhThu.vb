@@ -20,7 +20,7 @@ Public Class frmBaoCaoDoanhThu
     Private baoCaoDoanhThuBUS As BaoCaoDoanhThuBUS
     Private chiTietBaoCaoDoanhThuBUS As ChiTietBaoCaoDoanhThuBUS
 
-    Private thangBaoCao As Date
+    Private dateBaoCao As Date
     Private lineNumber As Integer
     Private listDSK_ByMonth As List(Of DanhSachKhamDTO)
 
@@ -44,7 +44,7 @@ Public Class frmBaoCaoDoanhThu
         baoCaoDoanhThuBUS = New BaoCaoDoanhThuBUS()
         chiTietBaoCaoDoanhThuBUS = New ChiTietBaoCaoDoanhThuBUS()
 
-        thangBaoCao = dtpNgayKham.Value.Date
+        dateBaoCao = dtpNgayKham.Value.Date
         lineNumber = 0
 
         'Load MaBaoCaoDoanhThu
@@ -96,7 +96,7 @@ Public Class frmBaoCaoDoanhThu
         dgvBaoCao.Columns.Add(clTyLe)
 
         'Load data 
-        'LoadDataDataGridView()
+        LoadDataGridView(dateBaoCao)
 
 #End Region
 
@@ -105,8 +105,8 @@ Public Class frmBaoCaoDoanhThu
 
     Private Sub dtpNgayKham_ValueChanged(sender As Object, e As EventArgs) Handles dtpNgayKham.ValueChanged
 
-        thangBaoCao = dtpNgayKham.Value.Date
-        LoadDataGridView(thangBaoCao)
+        dateBaoCao = dtpNgayKham.Value.Date
+        LoadDataGridView(dateBaoCao)
 
         ' dgvBaoCao.Focus()
 
@@ -284,7 +284,7 @@ Public Class frmBaoCaoDoanhThu
     End Function
 
 
-    Private Sub btnLapBaoCao_Click(sender As Object, e As EventArgs) Handles btnLapBaoCao.Click
+    Private Sub btnLapBaoCao_Click(sender As Object, e As EventArgs) Handles btnLuuBaoCao.Click
 
         Dim result = New Result()
 
@@ -297,7 +297,7 @@ Public Class frmBaoCaoDoanhThu
         ''1. Matching data from GUI
         Dim baoCaoDoanhThu = New BaoCaoDoanhThuDTO()
         baoCaoDoanhThu.MaBaoCaoDoanhThu = tbMaBaoCao.Text
-        baoCaoDoanhThu.ThangBaoCao = thangBaoCao.Month
+        baoCaoDoanhThu.ThangBaoCao = dateBaoCao.Month
 
         ''2. Business
 
@@ -347,7 +347,7 @@ Public Class frmBaoCaoDoanhThu
         Next
 
         'After save
-        MessageBox.Show("Thêm báo cáo doanh thu thành không.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Thêm báo cáo doanh thu thành không.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Dim nextMaBaoCaoDoanhThu = String.Empty
         baoCaoDoanhThuBUS.BuildID(nextMaBaoCaoDoanhThu)
         tbMaBaoCao.Text = nextMaBaoCaoDoanhThu

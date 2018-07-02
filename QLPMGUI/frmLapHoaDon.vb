@@ -41,44 +41,6 @@ Class frmLapHoaDon
         thamSoBUS = New ThamSoBUS()
 
 
-        'Load MaHoaDon
-        Dim result As Result
-        Dim maHoaDon As String = Nothing
-        result = hoaDonBUS.BuildID(maHoaDon)
-        If (result.FlagResult = False) Then
-            MessageBox.Show("Lấy tự động mã hóa đơn không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
-            Return
-        End If
-        tbMaHoaDon.Text = maHoaDon
-
-
-        'To raise daytime picker value changed events for loading BenhNhan ComboBox
-        dtpNgayKham.Value = DateTime.Now
-
-
-        'Load default tien kham
-        Dim thamSo = New ThamSoDTO()
-        result = thamSoBUS.GetThamSoOnDB(thamSo)
-        If (result.FlagResult = False) Then
-            MessageBox.Show("Lấy tham số không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
-        End If
-        tbTienKham.Text = thamSo.TienKham
-
-
-        'load tien thuoc
-        Dim currentMaPhieuKham = GetMaPhieuKham()
-        'dim listchitietpk_bymaphieukham = new list(of chitietphieukhamdto)
-        result = chiTietPhieuKhamBUS.SelectAll_ByMaPhieuKham(currentMaPhieuKham, listChiTietPK_ByMaPhieuKham)
-        If (result.FlagResult = False) Then
-            MessageBox.Show("lấy danh sách chi tiết phiếu khám theo mã phiếu khám không thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
-        End If
-
-        tbTienThuoc.Text = CalculateTienThuoc()
-        tbTongTien.Text = (Double.Parse(tbTienThuoc.Text) + Double.Parse(tbTienKham.Text)).ToString("c", vnd)
-
 #Region "Load DataGridView"
 
         'Properties
@@ -119,6 +81,49 @@ Class frmLapHoaDon
         LoadDataDataGridView()
 
 #End Region
+
+
+        'Load MaHoaDon
+        Dim result As Result
+        Dim maHoaDon As String = Nothing
+        result = hoaDonBUS.BuildID(maHoaDon)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy tự động mã hóa đơn không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+            Return
+        End If
+        tbMaHoaDon.Text = maHoaDon
+
+
+        'To raise daytime picker value changed events for loading BenhNhan ComboBox
+        dtpNgayKham.Value = DateTime.Now
+
+
+        'Load default tien kham
+        Dim thamSo = New ThamSoDTO()
+        result = thamSoBUS.GetThamSoOnDB(thamSo)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("Lấy tham số không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+        tbTienKham.Text = thamSo.TienKham
+
+
+        'load tien thuoc
+        Dim currentMaPhieuKham = GetMaPhieuKham()
+        'dim listchitietpk_bymaphieukham = new list(of chitietphieukhamdto)
+        result = chiTietPhieuKhamBUS.SelectAll_ByMaPhieuKham(currentMaPhieuKham, listChiTietPK_ByMaPhieuKham)
+        If (result.FlagResult = False) Then
+            MessageBox.Show("lấy danh sách chi tiết phiếu khám theo mã phiếu khám không thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            System.Console.WriteLine(result.SystemMessage)
+        End If
+
+        tbTienThuoc.Text = CalculateTienThuoc()
+        Dim dTienThuoc As Double
+        Dim dTienKham As Double
+        Double.TryParse(tbTienThuoc.Text, dTienThuoc)
+        Double.TryParse(tbTienThuoc.Text, dTienKham)
+        tbTongTien.Text = (dTienThuoc + dTienKham).ToString()
 
     End Sub
 
@@ -200,7 +205,11 @@ Class frmLapHoaDon
         End If
 
         tbTienThuoc.Text = CalculateTienThuoc()
-        tbTongTien.Text = (Double.Parse(tbTienThuoc.Text) + Double.Parse(tbTienKham.Text)).ToString("c", vnd)
+        Dim dTienThuoc As Double
+        Dim dTienKham As Double
+        Double.TryParse(tbTienThuoc.Text, dTienThuoc)
+        Double.TryParse(tbTienThuoc.Text, dTienKham)
+        tbTongTien.Text = (dTienThuoc + dTienKham).ToString()
         LoadDataDataGridView()
 
     End Sub
@@ -357,6 +366,7 @@ Class frmLapHoaDon
         tbTienThuoc.Text = ""
         tbTongTien.Text = ""
         dgvThuoc.Rows.Clear()
+        MessageBox.Show("Lấy thêm hóa đơn thành công.", "error", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
