@@ -37,7 +37,7 @@ Public Class CachDungDAL
         query &= "VALUES (@ma_cach_dung, @cach_dung) "
 
         Dim nextID = Nothing
-        nextID = BuildID(nextID)
+        BuildID(nextID)
         cachDung.MaCachDung = nextID
 
         Using conn As New SqlConnection(connectionString)
@@ -71,7 +71,7 @@ Public Class CachDungDAL
 
         Dim query As String = Nothing
         query &= "UPDATE [tblcach_dung] SET "
-        query &= "[ma_cach_dung] = @ma_cach_dung "
+        query &= "[ma_cach_dung] = @ma_cach_dung, "
         query &= "[cach_dung] = @cach_dung "
         query &= "WHERE [ma_cach_dung] = @ma_cach_dung "
 
