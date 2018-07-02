@@ -44,6 +44,9 @@ Partial Class frmThayDoiQuyDinh
         Me.dgvLoaiBenh = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -58,9 +61,6 @@ Partial Class frmThayDoiQuyDinh
         Me.btnCapNhatThuoc = New System.Windows.Forms.Button()
         Me.dgvThuoc = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -313,6 +313,45 @@ Partial Class frmThayDoiQuyDinh
         Me.Panel4.Size = New System.Drawing.Size(499, 327)
         Me.Panel4.TabIndex = 74
         '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button4.Location = New System.Drawing.Point(21, 278)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(140, 40)
+        Me.Button4.TabIndex = 84
+        Me.Button4.Text = "Quản Lí Thuốc"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button3.Location = New System.Drawing.Point(199, 278)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(140, 40)
+        Me.Button3.TabIndex = 83
+        Me.Button3.Text = "Quản Lí Cách Dùng"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button2.Location = New System.Drawing.Point(368, 278)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(114, 40)
+        Me.Button2.TabIndex = 82
+        Me.Button2.Text = "Quản Lí Đơn Vị"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -453,45 +492,6 @@ Partial Class frmThayDoiQuyDinh
         Me.Label5.Size = New System.Drawing.Size(69, 28)
         Me.Label5.TabIndex = 62
         Me.Label5.Text = "Thuốc:"
-        '
-        'Button2
-        '
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(368, 278)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(114, 40)
-        Me.Button2.TabIndex = 82
-        Me.Button2.Text = "Quản Lí Đơn Vị"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(199, 278)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(140, 40)
-        Me.Button3.TabIndex = 83
-        Me.Button3.Text = "Quản Lí Cách Dùng"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(21, 278)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(140, 40)
-        Me.Button4.TabIndex = 84
-        Me.Button4.Text = "Quản Lí Thuốc"
-        Me.Button4.UseVisualStyleBackColor = True
         '
         'frmThayDoiQuyDinh
         '

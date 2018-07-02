@@ -26,6 +26,7 @@ Public Class frmThayDoiQuyDinh
         LoadListLoaiBenh()
         LoadListThuoc()
     End Sub
+#Region "Load datagridview Loai Benh"
     Private Sub LoadListLoaiBenh()
         loaibenhBUS = New LoaiBenhBUS()
         Dim listLoaiBenh = New List(Of LoaiBenhDTO)
@@ -57,8 +58,9 @@ Public Class frmThayDoiQuyDinh
         clTenLoai.DataPropertyName = "LoaiBenh"
         dgvLoaiBenh.Columns.Add(clTenLoai)
     End Sub
+#End Region
 
-
+#Region "Load datagridview Thuoc"
     Private Sub LoadListThuoc()
         thuocBUS = New ThuocBUS()
         Dim listThuoc = New List(Of ThuocDTO)
@@ -109,6 +111,7 @@ Public Class frmThayDoiQuyDinh
         dgvThuoc.Columns.Add(clDonGia)
 
     End Sub
+#End Region
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles tbSoLuongMax.TextChanged
 
@@ -121,6 +124,7 @@ Public Class frmThayDoiQuyDinh
     Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
         Me.Close()
     End Sub
+
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnCapNhatThamSo.Click
         thamSoBUS = New ThamSoBUS
@@ -386,5 +390,10 @@ Public Class frmThayDoiQuyDinh
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim frmQuanLiCachDung As frmQuanLiCachDung = New frmQuanLiCachDung()
         frmQuanLiCachDung.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim frmQuanLiThuoc As frmQuanLiThuoc = New frmQuanLiThuoc()
+        frmQuanLiThuoc.Show()
     End Sub
 End Class
