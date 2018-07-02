@@ -38,7 +38,7 @@ Public Class DanhSachKhamDAL
         query &= "VALUES (@ma_danh_sach, @ngay_kham) "
 
         Dim nextID = Nothing
-        nextID = BuildID(nextID)
+        BuildID(nextID)
         danhSachKham.MaDanhSach = nextID
 
         Using conn As New SqlConnection(connectionString)

@@ -33,11 +33,11 @@ Public Class ChiTietDanhSachDAL
     Public Function Insert(chiTietDS As ChiTietDanhSachDTO) As Result
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO [tblchi_tiet_danh_sach] ([ma_chi_tiet_danh_sach], [ma_danh_sach], [ma_benh_nhan] "
+        query &= "INSERT INTO [tblchi_tiet_danh_sach] ([ma_chi_tiet_danh_sach], [ma_danh_sach], [ma_benh_nhan]) "
         query &= "VALUES (@ma_chi_tiet_danh_sach, @ma_danh_sach, @ma_benh_nhan) "
 
         Dim nextID = Nothing
-        nextID = BuildID(nextID)
+        BuildID(nextID)
         chiTietDS.MaChiTietDanhSach = nextID
 
         Using conn As New SqlConnection(connectionString)

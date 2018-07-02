@@ -9,6 +9,8 @@ Public Class frmLapDanhSachKham
     Dim List_Items_Added As New List(Of ListViewItem)
     Private thamSoBUS As ThamSoBUS
     Private thamSo As ThamSoDTO
+    Private danhSachKhamBUS As DanhSachKhamBUS
+    Private ctdsKhamBUS As ChiTietDanhSachBUS
 
     'Temp Variable
     Dim countadded As Integer
@@ -18,6 +20,9 @@ Public Class frmLapDanhSachKham
     Private Sub frmLapDanhSachKhamGUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'init
+        danhSachKhamBUS = New DanhSachKhamBUS()
+        ctdsKhamBUS = New ChiTietDanhSachBUS()
+
         countadded = 0
         dtpNgayKham.Value = Date.Today()
         thamSoBUS = New ThamSoBUS()
@@ -232,6 +237,20 @@ Public Class frmLapDanhSachKham
             MessageBox.Show("Chưa có bệnh nhân trong danh sách")
 
         Else
+            'Neu danh sach kham ngay hom do chua tao
+            Dim currentDanhSachKham = New DanhSachKhamDTO()
+            danhSachKhamBUS.Select_ByNgayKham(dtpNgayKham.Value, currentDanhSachKham)
+            If (currentDanhSachKham.MaDanhSach = Nothing) Then
+                Dim danhSach = New DanhSachKhamDTO()
+                Dim maDanhSach = String.Empty
+                danhSachKhamBUS.BuildID(maDanhSach)
+                danhSach.MaDanhSach = maDanhSach
+                danhSach.NgayKham = dtpNgayKham.Value
+                danhSachKhamBUS.Insert(danhSach)
+
+                currentDanhSachKham = danhSach
+            End If
+
             For Each benhnhan In List_BenhNhan
 
                 Dim result As Result
@@ -245,6 +264,12 @@ Public Class frmLapDanhSachKham
                         Me.Close()
                         Return
                     End If
+                    'ThemChiTietDanhSachBUS
+                    Dim ctds = New ChiTietDanhSachDTO()
+                    ctds.MaDanhSach = currentDanhSachKham.MaDanhSach
+                    ctds.MaBenhNhan = benhnhan.MaBenhNhan
+
+                    ctdsKhamBUS.Insert(ctds)
 
                 Else
                     MessageBox.Show("Thêm bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
