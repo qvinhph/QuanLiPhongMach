@@ -31,6 +31,7 @@ Partial Class frmTest
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lbMaDonvi
@@ -114,11 +115,21 @@ Partial Class frmTest
         Me.Button8.Text = "tyle"
         Me.Button8.UseVisualStyleBackColor = True
         '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(69, 213)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(229, 23)
+        Me.Button9.TabIndex = 9
+        Me.Button9.Text = "Thay đổi quy định"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
         'frmTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
@@ -144,4 +155,5 @@ Partial Class frmTest
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
+    Friend WithEvents Button9 As Button
 End Class

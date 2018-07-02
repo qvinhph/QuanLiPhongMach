@@ -123,6 +123,12 @@
     <Compile Include="frmThayDoiQuyDinh.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmThemLoaiBenh.Designer.vb">
+      <DependentUpon>frmThemLoaiBenh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemLoaiBenh.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTraCuuBenhNhan.Designer.vb">
       <DependentUpon>frmTraCuuBenhNhan.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemLoaiBenh.resx">
+      <DependentUpon>frmThemLoaiBenh.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTraCuuBenhNhan.resx">
       <DependentUpon>frmTraCuuBenhNhan.vb</DependentUpon>

@@ -42,6 +42,7 @@ Partial Class frmThayDoiQuyDinh
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgvLoaiBenh = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -157,6 +158,7 @@ Partial Class frmThayDoiQuyDinh
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.btnCapNhatLoaiBenh)
         Me.Panel3.Controls.Add(Me.btXoa)
         Me.Panel3.Controls.Add(Me.tbTenLoaiBenh)
@@ -175,10 +177,10 @@ Partial Class frmThayDoiQuyDinh
         Me.btnCapNhatLoaiBenh.BackgroundImage = CType(resources.GetObject("btnCapNhatLoaiBenh.BackgroundImage"), System.Drawing.Image)
         Me.btnCapNhatLoaiBenh.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCapNhatLoaiBenh.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnCapNhatLoaiBenh.Location = New System.Drawing.Point(349, 124)
+        Me.btnCapNhatLoaiBenh.Location = New System.Drawing.Point(314, 124)
         Me.btnCapNhatLoaiBenh.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCapNhatLoaiBenh.Name = "btnCapNhatLoaiBenh"
-        Me.btnCapNhatLoaiBenh.Size = New System.Drawing.Size(95, 40)
+        Me.btnCapNhatLoaiBenh.Size = New System.Drawing.Size(74, 40)
         Me.btnCapNhatLoaiBenh.TabIndex = 60
         Me.btnCapNhatLoaiBenh.Text = "Cập nhật"
         Me.btnCapNhatLoaiBenh.UseVisualStyleBackColor = True
@@ -188,7 +190,7 @@ Partial Class frmThayDoiQuyDinh
         Me.btXoa.BackgroundImage = CType(resources.GetObject("btXoa.BackgroundImage"), System.Drawing.Image)
         Me.btXoa.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btXoa.ForeColor = System.Drawing.SystemColors.Control
-        Me.btXoa.Location = New System.Drawing.Point(251, 124)
+        Me.btXoa.Location = New System.Drawing.Point(240, 124)
         Me.btXoa.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btXoa.Name = "btXoa"
         Me.btXoa.Size = New System.Drawing.Size(66, 40)
@@ -254,6 +256,19 @@ Partial Class frmThayDoiQuyDinh
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Loại Bệnh:"
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(396, 124)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(74, 40)
+        Me.Button1.TabIndex = 61
+        Me.Button1.Text = "Thêm "
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmThayDoiQuyDinh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,4 +313,5 @@ Partial Class frmThayDoiQuyDinh
     Friend WithEvents tbMaLoaiBenh As TextBox
     Friend WithEvents btnCapNhatLoaiBenh As Button
     Friend WithEvents btXoa As Button
+    Friend WithEvents Button1 As Button
 End Class

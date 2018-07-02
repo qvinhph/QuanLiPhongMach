@@ -36,9 +36,6 @@ Public Class LoaiBenhDAL
         query &= "INSERT INTO [tblloai_benh] ([ma_loai_benh], [loai_benh]) "
         query &= "VALUES (@ma_loai_benh, @loai_benh) "
 
-        Dim nextID = Nothing
-        nextID = BuildID(nextID)
-        loaiBenh.MaLoaiBenh = nextID
 
         Using conn As New SqlConnection(connectionString)
             Using comm As New SqlCommand()

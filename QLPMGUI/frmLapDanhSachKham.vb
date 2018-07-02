@@ -148,90 +148,7 @@ Public Class frmLapDanhSachKham
 #End Region
 
 
-        countadded = 0
-        count = 0
-
-        dtpNgayKham.Value = Date.Today()
-
-        'Auto generate patient id
-        bnBus = New BenhNhanBUS()
-        Dim result
-    Dim nextMsbn = "1"
-        result = bnBus.BuildID(nextMsbn)
-        If (result.FlagResult = False) Then
-            MessageBox.Show("Lấy danh sách tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            System.Console.WriteLine(result.SystemMessage)
-            Me.Close()
-    Return
-    End If
-        txtMaSo.Text = nextMsbn
-
-        '
-        CreateListView()
-
-
-
-    End Sub
-
-    Private Sub txtDiaChi_TextChanged(sender As Object, e As EventArgs) Handles txtDiaChi.TextChanged
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtMaSo_TextChanged(sender As Object, e As EventArgs) Handles txtMaSo.TextChanged
-
-    End Sub
-
-    Private Sub cbLop_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub cbGioitinh_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub Label7_Click_1(sender As Object, e As EventArgs) Handles Label7.Click
-
-    End Sub
-
-    Private Sub Label8_Click_1(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtNgaylapthe_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-    End Sub
-
+    'Exit button and save before close form
     Private Sub Label11_Click_1(sender As Object, e As EventArgs) Handles Label11.Click
         If count = 0 Then
             Me.Close()
@@ -254,6 +171,7 @@ Public Class frmLapDanhSachKham
 
     'Update button
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
 
         Dim index As ListViewItem
         index = lvBenhNhan.SelectedItems(0)
@@ -367,4 +285,7 @@ Public Class frmLapDanhSachKham
         lbSoLuongBnTrongNgay.Text = thamSo.SoBenhNhanToiDa
     End Sub
 
+    Private Sub Label4_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

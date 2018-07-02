@@ -48,6 +48,7 @@ Partial Class frmLapDanhSachKham
         Me.lvBenhNhan = New System.Windows.Forms.ListView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lbSoLuongBnTrongNgay = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -324,9 +325,9 @@ Partial Class frmLapDanhSachKham
         '
         'lvBenhNhan
         '
-        Me.lvBenhNhan.Location = New System.Drawing.Point(215, 353)
+        Me.lvBenhNhan.Location = New System.Drawing.Point(215, 396)
         Me.lvBenhNhan.Name = "lvBenhNhan"
-        Me.lvBenhNhan.Size = New System.Drawing.Size(565, 280)
+        Me.lvBenhNhan.Size = New System.Drawing.Size(565, 237)
         Me.lvBenhNhan.TabIndex = 58
         Me.lvBenhNhan.UseCompatibleStateImageBehavior = False
         Me.lvBenhNhan.View = System.Windows.Forms.View.Details
@@ -336,7 +337,7 @@ Partial Class frmLapDanhSachKham
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(216, 301)
+        Me.Label6.Location = New System.Drawing.Point(220, 350)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(335, 30)
@@ -348,12 +349,25 @@ Partial Class frmLapDanhSachKham
         Me.lbSoLuongBnTrongNgay.AutoSize = True
         Me.lbSoLuongBnTrongNgay.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbSoLuongBnTrongNgay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lbSoLuongBnTrongNgay.Location = New System.Drawing.Point(551, 301)
+        Me.lbSoLuongBnTrongNgay.Location = New System.Drawing.Point(563, 350)
         Me.lbSoLuongBnTrongNgay.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbSoLuongBnTrongNgay.Name = "lbSoLuongBnTrongNgay"
         Me.lbSoLuongBnTrongNgay.Size = New System.Drawing.Size(46, 30)
         Me.lbSoLuongBnTrongNgay.TabIndex = 60
         Me.lbSoLuongBnTrongNgay.Text = "abc"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI Light", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label11.Location = New System.Drawing.Point(770, 0)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(22, 30)
+        Me.Label11.TabIndex = 73
+        Me.Label11.Text = "x"
         '
         'frmLapDanhSachKham
         '
@@ -362,6 +376,7 @@ Partial Class frmLapDanhSachKham
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(792, 645)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.lbSoLuongBnTrongNgay)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lvBenhNhan)
@@ -408,4 +423,5 @@ Partial Class frmLapDanhSachKham
     Friend WithEvents Button4 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents lbSoLuongBnTrongNgay As Label
+    Friend WithEvents Label11 As Label
 End Class
