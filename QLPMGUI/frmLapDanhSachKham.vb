@@ -179,7 +179,7 @@ Public Class frmLapDanhSachKham
         index.SubItems.Item(4).Text = cbGioitinh.Text
         index.SubItems.Item(5).Text = dtpNgayKham.Value
 
-        Dim currentNumberID = Integer.Parse(txtMaSo.Text.Substring(2, 6)) + countadded + 1
+        Dim currentNumberID = Integer.Parse(txtMaSo.Text.Substring(2, 6)) + countadded
         Dim nextNumberID = currentNumberID + 1
         Dim strNextNumberID = nextNumberID.ToString().PadLeft(6, "0")
         txtMaSo.Text = "BN" + strNextNumberID
@@ -228,34 +228,39 @@ Public Class frmLapDanhSachKham
 
     'Add button
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If (countadded = 0) Then
+            MessageBox.Show("Chưa có bệnh nhân trong danh sách")
 
-        For Each benhnhan In List_BenhNhan
+        Else
+            For Each benhnhan In List_BenhNhan
 
-            Dim result As Result
-            result = bnBus.Insert(benhnhan)
-            If (result.FlagResult = True) Then
+                Dim result As Result
+                result = bnBus.Insert(benhnhan)
+                If (result.FlagResult = True) Then
 
-                Dim nextMsbn = "1"
-                result = bnBus.BuildID(nextMsbn)
-                If (result.FlagResult = False) Then
-                    MessageBox.Show("Lấy danh tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Me.Close()
-                    Return
+                    Dim nextMsbn = "1"
+                    result = bnBus.BuildID(nextMsbn)
+                    If (result.FlagResult = False) Then
+                        MessageBox.Show("Lấy danh tự động mã bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Me.Close()
+                        Return
+                    End If
+
+                Else
+                    MessageBox.Show("Thêm bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    System.Console.WriteLine(result.SystemMessage)
                 End If
 
-            Else
-                MessageBox.Show("Thêm bệnh nhân không thành công.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                System.Console.WriteLine(result.SystemMessage)
-            End If
+            Next
+            List_BenhNhan.Clear()
+            MessageBox.Show("Thêm " & countadded & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            countadded = 0
 
-        Next
-        List_BenhNhan.Clear()
-        MessageBox.Show("Thêm " & countadded & " bệnh nhân thành công.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        countadded = 0
+            For Each lvItem In List_Items_Added
+                lvItem.Remove()
+            Next
 
-        For Each lvItem In List_Items_Added
-            lvItem.Remove()
-        Next
+        End If
 
 
     End Sub
